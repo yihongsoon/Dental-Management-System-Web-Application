@@ -67,6 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\fonts\fa-solid-900.svg" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="assets\images\avatars\1.jpg" />
+    <Content Include="assets\images\avatars\10.jpg" />
+    <Content Include="assets\images\avatars\11.jpg" />
+    <Content Include="assets\images\avatars\12.jpg" />
+    <Content Include="assets\images\avatars\2.jpg" />
+    <Content Include="assets\images\avatars\3.jpg" />
+    <Content Include="assets\images\avatars\4.jpg" />
+    <Content Include="assets\images\avatars\5.jpg" />
+    <Content Include="assets\images\avatars\8.jpg" />
+    <Content Include="assets\images\avatars\9.jpg" />
+    <Content Include="assets\images\logo-inverse.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="main.css" />
+    <Content Include="main.js" />
     <Content Include="mainPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -89,6 +105,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dmsMasterpage.Master" />
+    <Content Include="assets\fonts\fa-solid-900.eot" />
+    <Content Include="assets\fonts\fa-solid-900.ttf" />
+    <Content Include="assets\fonts\fa-solid-900.woff" />
+    <Content Include="assets\fonts\fa-solid-900.woff2" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.woff" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -97,6 +120,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
