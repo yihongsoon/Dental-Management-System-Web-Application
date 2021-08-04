@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-
+    <%--PAGE TITLE START--%>
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -15,6 +15,8 @@
             </div>
         </div>
     </div>
+    <%--PAGE TITLE END--%>
+    <%--NAV BUTTON START--%>
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
             <a role="tab" class="nav-link show active" id="tab-0" data-toggle="tab" href="#tab-content-0" aria-selected="true">
@@ -27,8 +29,10 @@
             </a>
         </li>
     </ul>
+    <%--NAV BUTTON END--%>
+    <%--CONTENT BOBY --%>
     <div class="tab-content">
-        <%--ALERT BOX--%>
+        
 
         <%--LOGIN SCREEN--%>
         <div class="tab-pane tabs-animation fade active show" id="tab-content-0" role="tabpanel">
@@ -36,7 +40,8 @@
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <%--<form runat="server" id="signIn">--%>
+                            
+                            <%--ALERT BOX--%>
                                 <div class="alert alert-danger fade show" runat="server" ID="loginFail" visible="false">
                                     <asp:Label  runat="server" Text="Incorrect Email or Password! Please Try Again"></asp:Label></div> 
                             <div class="alert alert-warning fade show" id="emptyField" runat="server" visible="false">
@@ -60,7 +65,7 @@
                                     </div>
                                 </div>
                             <asp:Button ID="btnSignIn" runat="server" Text="Sign in" OnClick="btnSignIn_Click" CssClass="mt-2 btn btn-primary" />
-                            <%--</form>--%>
+                            
                         </div>
                     </div>
                 </div>
