@@ -11,7 +11,7 @@ namespace DMS
 {
 
 
-    public partial class WebForm1
+    public partial class mainPage
     {
     }
 }
