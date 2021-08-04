@@ -112,9 +112,6 @@
     <Compile Include="loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="mainPage.aspx.cs">
-      <DependentUpon>mainPage.aspx</DependentUpon>
-      </Compile>
     <Compile Include="searchAppointment.aspx.cs">
       <DependentUpon>searchAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
