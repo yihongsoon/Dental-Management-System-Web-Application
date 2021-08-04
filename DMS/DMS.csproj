@@ -83,6 +83,7 @@
     <Content Include="assets\images\defaultprofilegray.png" />
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
+    <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
     <Content Include="main.js" />
     <Content Include="mainPage.aspx" />
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="dmsMasterpage.Master.designer.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="loginPage.aspx.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginPage.aspx.designer.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="mainPage.aspx.cs">
       <DependentUpon>mainPage.aspx</DependentUpon>

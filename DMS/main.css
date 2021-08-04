@@ -2365,6 +2365,14 @@ textarea.form-control {
     color: #d92550
 }
 
+.invalid-feedbackEmptyField {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #d92550
+}
+
 .invalid-tooltip {
     position: absolute;
     top: 100%;

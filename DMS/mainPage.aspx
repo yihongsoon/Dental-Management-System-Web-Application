@@ -4,11 +4,11 @@
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
-                <div class="page-title-icon">
+                <%--<div class="page-title-icon">
                     <i class="pe-7s-graph text-success"></i>
-                </div>
+                </div>--%>
                 <div>
-                    Form Layouts
+                    Test
                                         <div class="page-title-subheading">
                                             Build whatever layout you need with our Architect framework.
                                         </div>
@@ -84,34 +84,41 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="exampleEmail11" class="">Email</label><input name="email" id="exampleEmail11" placeholder="with a placeholder" type="email" class="form-control"></div>
+                                    <label for="exampleEmail11" class="">Email</label><input name="email" id="exampleEmail11" placeholder="with a placeholder" type="email" class="form-control">
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="examplePassword11" class="">Password</label><input name="password" id="examplePassword11" placeholder="password placeholder" type="password" class="form-control"></div>
+                                    <label for="examplePassword11" class="">Password</label><input name="password" id="examplePassword11" placeholder="password placeholder" type="password" class="form-control">
+                                </div>
                             </div>
                         </div>
                         <div class="position-relative form-group">
-                            <label for="exampleAddress" class="">Address</label><input name="address" id="exampleAddress" placeholder="1234 Main St" type="text" class="form-control"></div>
+                            <label for="exampleAddress" class="">Address</label><input name="address" id="exampleAddress" placeholder="1234 Main St" type="text" class="form-control">
+                        </div>
                         <div class="position-relative form-group">
                             <label for="exampleAddress2" class="">Address 2</label><input name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor" type="text" class="form-control">
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    <label for="exampleCity" class="">City</label><input name="city" id="exampleCity" type="text" class="form-control"></div>
+                                    <label for="exampleCity" class="">City</label><input name="city" id="exampleCity" type="text" class="form-control">
+                                </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="position-relative form-group">
-                                    <label for="exampleState" class="">State</label><input name="state" id="exampleState" type="text" class="form-control"></div>
+                                    <label for="exampleState" class="">State</label><input name="state" id="exampleState" type="text" class="form-control">
+                                </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="position-relative form-group">
-                                    <label for="exampleZip" class="">Zip</label><input name="zip" id="exampleZip" type="text" class="form-control"></div>
+                                    <label for="exampleZip" class="">Zip</label><input name="zip" id="exampleZip" type="text" class="form-control">
+                                </div>
                             </div>
                         </div>
                         <div class="position-relative form-check">
-                            <input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Check me out</label></div>
+                            <input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Check me out</label>
+                        </div>
                         <button class="mt-2 btn btn-primary">Sign in</button>
                     </form>
                 </div>
@@ -122,9 +129,11 @@
                     <div>
                         <form class="form-inline">
                             <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-                                <label for="exampleEmail22" class="mr-sm-2">Email</label><input name="email" id="exampleEmail22" placeholder="something@idk.cool" type="email" class="form-control"></div>
+                                <label for="exampleEmail22" class="mr-sm-2">Email</label><input name="email" id="exampleEmail22" placeholder="something@idk.cool" type="email" class="form-control">
+                            </div>
                             <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-                                <label for="examplePassword22" class="mr-sm-2">Password</label><input name="password" id="examplePassword22" placeholder="don't tell!" type="password" class="form-control"></div>
+                                <label for="examplePassword22" class="mr-sm-2">Password</label><input name="password" id="examplePassword22" placeholder="don't tell!" type="password" class="form-control">
+                            </div>
                             <button class="btn btn-primary">Submit</button>
                         </form>
                         <div class="divider"></div>
@@ -132,18 +141,22 @@
                             <div class="position-relative form-check form-check-inline">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input">
-                                    Some input</label></div>
+                                    Some input</label>
+                            </div>
                             <div class="position-relative form-check form-check-inline">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input">
-                                    Some other input</label></div>
+                                    Some other input</label>
+                            </div>
                         </form>
                         <div class="divider"></div>
                         <form class="form-inline">
                             <div class="position-relative form-group">
-                                <label for="exampleEmail33" class="sr-only">Email</label><input name="email" id="exampleEmail33" placeholder="Email" type="email" class="mr-2 form-control"></div>
+                                <label for="exampleEmail33" class="sr-only">Email</label><input name="email" id="exampleEmail33" placeholder="Email" type="email" class="mr-2 form-control">
+                            </div>
                             <div class="position-relative form-group">
-                                <label for="examplePassword44" class="sr-only">Password</label><input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control"></div>
+                                <label for="examplePassword44" class="sr-only">Password</label><input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control">
+                            </div>
                             <button class="btn btn-primary">Submit</button>
                         </form>
                     </div>
@@ -158,27 +171,32 @@
                         <div class="position-relative row form-group">
                             <label for="exampleEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input name="email" id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control"></div>
+                                <input name="email" id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control">
+                            </div>
                         </div>
                         <div class="position-relative row form-group">
                             <label for="examplePassword" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input name="password" id="examplePassword" placeholder="password placeholder" type="password" class="form-control"></div>
+                                <input name="password" id="examplePassword" placeholder="password placeholder" type="password" class="form-control">
+                            </div>
                         </div>
                         <div class="position-relative row form-group">
                             <label for="exampleSelect" class="col-sm-2 col-form-label">Select</label>
                             <div class="col-sm-10">
-                                <select name="select" id="exampleSelect" class="form-control"></select></div>
+                                <select name="select" id="exampleSelect" class="form-control"></select>
+                            </div>
                         </div>
                         <div class="position-relative row form-group">
                             <label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
                             <div class="col-sm-10">
-                                <select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
+                                <select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select>
+                            </div>
                         </div>
                         <div class="position-relative row form-group">
                             <label for="exampleText" class="col-sm-2 col-form-label">Text Area</label>
                             <div class="col-sm-10">
-                                <textarea name="text" id="exampleText" class="form-control"></textarea></div>
+                                <textarea name="text" id="exampleText" class="form-control"></textarea>
+                            </div>
                         </div>
                         <div class="position-relative row form-group">
                             <label for="exampleFile" class="col-sm-2 col-form-label">File</label>
@@ -193,7 +211,8 @@
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
                                         <input name="radio2" type="radio" class="form-check-input">
-                                        Option one is this and that—be sure to include why it's great</label></div>
+                                        Option one is this and that—be sure to include why it's great</label>
+                                </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
                                         <input name="radio2" type="radio" class="form-check-input">
@@ -203,7 +222,8 @@
                                 <div class="position-relative form-check disabled">
                                     <label class="form-check-label">
                                         <input name="radio2" disabled="" type="radio" class="form-check-input">
-                                        Option three is disabled</label></div>
+                                        Option three is disabled</label>
+                                </div>
                             </div>
                         </fieldset>
                         <div class="position-relative row form-group">
@@ -212,7 +232,8 @@
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
                                         <input id="checkbox2" type="checkbox" class="form-check-input">
-                                        Check me out</label></div>
+                                        Check me out</label>
+                                </div>
                             </div>
                         </div>
                         <div class="position-relative row form-check">
