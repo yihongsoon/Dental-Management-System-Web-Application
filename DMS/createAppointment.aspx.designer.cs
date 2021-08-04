@@ -11,7 +11,7 @@ namespace DMS
 {
 
 
-    public partial class mainPage
+    public partial class createAppointment
     {
     }
 }

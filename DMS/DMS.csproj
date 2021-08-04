@@ -83,13 +83,21 @@
     <Content Include="assets\images\defaultprofilegray.png" />
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
+    <Content Include="createAppointment.aspx" />
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
     <Content Include="main.js" />
-    <Content Include="mainPage.aspx" />
+    <Content Include="searchAppointment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="createAppointment.aspx.cs">
+      <DependentUpon>createAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createAppointment.aspx.designer.cs">
+      <DependentUpon>createAppointment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dmsMasterpage.Master.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,10 +114,12 @@
     </Compile>
     <Compile Include="mainPage.aspx.cs">
       <DependentUpon>mainPage.aspx</DependentUpon>
+    <Compile Include="searchAppointment.aspx.cs">
+      <DependentUpon>searchAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="mainPage.aspx.designer.cs">
-      <DependentUpon>mainPage.aspx</DependentUpon>
+    <Compile Include="searchAppointment.aspx.designer.cs">
+      <DependentUpon>searchAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
