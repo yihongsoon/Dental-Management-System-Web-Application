@@ -48,10 +48,12 @@
     <form id="form1" runat="server">
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header closed-sidebar-mobile closed-sidebar">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <%--START OF HEADER--%>
                 <div class="app-header header-shadow">
                     <div class="app-header__logo">
                         <div>
-                            <asp:Image runat="server" CssClass="logo-src" ImageUrl="~/assets/images/tooth14.svg" />
+                            <asp:Image runat="server" CssClass="logo-src" ImageUrl="~/assets/images/tooth14.svg" ></asp:image>
+                            <asp:Label ID="Label2" CssClass="logo-src" runat="server" Text="DMS"></asp:Label>
                         </div>
                         <div class="header__pane ml-auto">
                             <div>
@@ -145,6 +147,7 @@
                         </div>
                     </div>
                 </div>
+                <%--END OF HEADER--%>
             </asp:ContentPlaceHolder>
             <div class="app-main">
                 <div class="app-sidebar sidebar-shadow">

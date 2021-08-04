@@ -9916,7 +9916,7 @@ a, button, .btn {
     align-content: center;
     position: relative;
     z-index: 10;
-    transition: all .2s
+    transition: all .2s;
 }
 
     .app-header.header-shadow {
@@ -10219,7 +10219,7 @@ a, button, .btn {
     font-size: .8rem;
     margin: .75rem 0;
     font-weight: bold;
-    color: #3f6ad8;
+    color: #EAEAEC;
     white-space: nowrap;
     position: relative
 }
@@ -10285,14 +10285,14 @@ a, button, .btn {
         padding: 0 1.5rem 0 45px;
         position: relative;
         border-radius: .25rem;
-        color: #343a40;
+        color: #fff;
         white-space: nowrap;
         transition: all .2s;
         margin: .1rem 0
     }
 
         .vertical-nav-menu li a:hover {
-            background: #e0f3ff;
+            background: #3E7BDA;
             text-decoration: none
         }
 
@@ -10328,7 +10328,7 @@ a, button, .btn {
         top: 50%;
         margin-top: -17px;
         font-size: 1.5rem;
-        opacity: .3;
+        
         transition: color 300ms
     }
 
@@ -10356,14 +10356,14 @@ a, button, .btn {
         }
 
         .vertical-nav-menu ul > li > a {
-            color: #6c757d;
+            color: #fff;
             height: 2rem;
             line-height: 2rem;
             padding: 0 1.5rem 0
         }
 
             .vertical-nav-menu ul > li > a:hover {
-                color: #3f6ad8
+                color: #fff
             }
 
             .vertical-nav-menu ul > li > a .metismenu-icon {
@@ -10757,7 +10757,7 @@ a, button, .btn {
 }
 
 .app-theme-white .app-sidebar {
-    background: #fff
+    background: #0C3183
 }
 
 .app-theme-white .app-page-title {
