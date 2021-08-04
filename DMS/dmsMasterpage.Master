@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <link href="./main.css" rel="stylesheet" />
+    <link href="main.css" rel="stylesheet" />
     <script type="text/javascript" src="main.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -351,10 +351,13 @@
                             </div>
                         </div>
                     </div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-                </asp:ContentPlaceHolder>
+                <div class="app-main__outer">                   
+                    <div class="app-main__inner">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
             </div>
-
         </div>
     </form>
 </body>

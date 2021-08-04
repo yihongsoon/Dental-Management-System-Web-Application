@@ -79,8 +79,7 @@
     <Content Include="assets\images\avatars\5.jpg" />
     <Content Include="assets\images\avatars\8.jpg" />
     <Content Include="assets\images\avatars\9.jpg" />
-    <Content Include="assets\images\logo-inverse.png" />
-    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\tooth14.svg" />
     <Content Include="main.css" />
     <Content Include="main.js" />
     <Content Include="mainPage.aspx" />
