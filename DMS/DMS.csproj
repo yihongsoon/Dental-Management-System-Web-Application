@@ -87,6 +87,7 @@
     <Content Include="main.css" />
     <Content Include="main.js" />
     <Content Include="Appointment.aspx" />
+    <Content Include="PatientManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="Appointment.aspx.designer.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientManagement.aspx.cs">
+      <DependentUpon>PatientManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientManagement.aspx.designer.cs">
+      <DependentUpon>PatientManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

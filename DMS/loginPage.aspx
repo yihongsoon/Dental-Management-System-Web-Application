@@ -32,7 +32,6 @@
     <%--NAV BUTTON END--%>
     <%--CONTENT BOBY --%>
     <div class="tab-content">
-        
 
         <%--LOGIN SCREEN--%>
         <div class="tab-pane tabs-animation fade active show" id="tab-content-0" role="tabpanel">
