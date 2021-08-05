@@ -51,22 +51,22 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// btnViewProfile control.
+        /// hyplnkViewProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewProfile;
+        protected global::System.Web.UI.WebControls.HyperLink hyplnkViewProfile;
 
         /// <summary>
-        /// btnViewAttendance control.
+        /// hyplnkViewAttendance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewAttendance;
+        protected global::System.Web.UI.WebControls.HyperLink hyplnkViewAttendance;
 
         /// <summary>
         /// btnSignIn control.

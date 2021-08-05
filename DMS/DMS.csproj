@@ -83,14 +83,23 @@
     <Content Include="assets\images\defaultprofilegray.png" />
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
+    <Content Include="attendancePage.aspx" />
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
     <Content Include="main.js" />
     <Content Include="Appointment.aspx" />
     <Content Include="PatientManagement.aspx" />
+    <Content Include="profilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attendancePage.aspx.cs">
+      <DependentUpon>attendancePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="attendancePage.aspx.designer.cs">
+      <DependentUpon>attendancePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dmsMasterpage.Master.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +127,13 @@
     </Compile>
     <Compile Include="PatientManagement.aspx.designer.cs">
       <DependentUpon>PatientManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profilePage.aspx.cs">
+      <DependentUpon>profilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profilePage.aspx.designer.cs">
+      <DependentUpon>profilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

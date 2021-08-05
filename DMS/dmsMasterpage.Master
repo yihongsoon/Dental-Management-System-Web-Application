@@ -117,8 +117,10 @@
                                                     <asp:Label runat="server" CssClass="fa fa-angle-down ml-2 opacity-8"></asp:Label>
                                                 </a>
                                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                                    <asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />
-                                                    <asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />
+                                                    <asp:HyperLink ID="hyplnkViewProfile" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
+                                                    <asp:HyperLink ID="hyplnkViewAttendance" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
+                                                    <%--<asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />--%>
+                                                    <%--<asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />--%>
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                                     <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>--%>

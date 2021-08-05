@@ -26,7 +26,7 @@
         <li class="nav-item">
             <a role="tab" class="nav-link show" id="tab-1" data-toggle="tab" href="#tab-content-1" aria-selected="false">
                 <span>Password Recovery</span>
-            </a>
+            </a>            
         </li>
     </ul>
     <%--NAV BUTTON END--%>
