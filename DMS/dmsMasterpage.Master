@@ -46,7 +46,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header closed-sidebar-mobile closed-sidebar">
+        <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <%--START OF HEADER--%>
                 <div class="app-header header-shadow">
@@ -55,6 +55,7 @@
                             <asp:Image runat="server" CssClass="logo-src" ImageUrl="~/assets/images/tooth14.svg"></asp:Image>
                             <asp:Label ID="Label2" CssClass="logo-src" runat="server" Text="DMS"></asp:Label>
                         </div>
+
                         <div class="header__pane ml-auto">
                             <div>
                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -186,7 +187,7 @@
                     </div>
                     <div class="scrollbar-sidebar ps">
                         <div class="app-sidebar__inner">
-                            <ul class="vertical-nav-menu metismenu">
+                            <%--<ul class="vertical-nav-menu metismenu">
                                 <li class="app-sidebar__heading">Admin Function</li>
                                 <li>
                                     <a href="#">
@@ -196,7 +197,7 @@
                                     </a>
                                     <ul class="mm-collapse">
                                         <li>
-                                            <a href="elements-buttons-standard.html">
+                                            <a href="staffSearchPage.aspx">
                                                 <i class="metismenu-icon"></i>
                                                 Search
                                             </a>
@@ -306,6 +307,31 @@
                                             </a>
                                         </li>
                                     </ul>
+                                </li>
+                            </ul>--%>
+                            <ul class="vertical-nav-menu metismenu">
+                                <li class="app-sidebar__heading">Admin Function</li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Staff</asp:HyperLink>
+                                </li>
+                                <li class="app-sidebar__heading">Staff Function</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-car"></i>
+                                        Patient                                        
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-car"></i>
+                                        Appointment                                        
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-car"></i>
+                                        Report                                        
+                                    </a>
                                 </li>
                             </ul>
                         </div>

@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <%--PAGE TITLE END--%>
     <%--NAV BUTTON START--%>
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
