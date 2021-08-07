@@ -90,6 +90,7 @@
     <Content Include="Appointment.aspx" />
     <Content Include="patientManagement.aspx" />
     <Content Include="profilePage.aspx" />
+    <Content Include="reportPage.aspx" />
     <Content Include="staffPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,6 +138,13 @@
       <DependentUpon>profilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportPage.aspx.cs">
+      <DependentUpon>reportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportPage.aspx.designer.cs">
+      <DependentUpon>reportPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="staffPage.aspx.cs">
       <DependentUpon>staffPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
