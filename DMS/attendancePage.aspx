@@ -115,15 +115,15 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
                                     <asp:Button ID="btnCheckIn" runat="server" CssClass="mt-2 btn btn-primary" Text="Check In" />
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <asp:LinkButton ID="lnkbtnQRCheckIn" runat="server" Text="QR Code">
-                                            </asp:LinkButton>
-                                        </div>
-                                    </div>                                    
-                                </div>                               
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <asp:LinkButton ID="lnkbtnQRCheckIn" runat="server" Text="QR Code">
+                                    </asp:LinkButton>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -152,28 +152,28 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
                                     <asp:Button ID="btnCheckOut" runat="server" CssClass="mt-2 btn btn-primary" Text="Check Out" />
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <asp:LinkButton ID="lnkbtnQRCheckOut" runat="server" Text="QR Code">
-                                            </asp:LinkButton>
-                                        </div>
-                                    </div>                                    
-                                </div>                               
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <asp:LinkButton ID="lnkbtnQRCheckOut" runat="server" Text="QR Code">
+                                    </asp:LinkButton>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
         <div class="tab-pane tabs-animation fade" id="DetailsScreen" role="tabpanel">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6 text-center">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             <asp:Button ID="btnGenerateExcel" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />
-                            <asp:Button ID="btnGeneratePDF" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />                            
+                            <asp:Button ID="btnGeneratePDF" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />
                         </div>
                     </div>
                 </div>

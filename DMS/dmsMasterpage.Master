@@ -316,22 +316,13 @@
                                 </li>
                                 <li class="app-sidebar__heading">Staff Function</li>
                                 <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-car"></i>
-                                        Patient                                        
-                                    </a>
+                                    <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Patient</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-car"></i>
-                                        Appointment                                        
-                                    </a>
+                                    <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-car"></i>
-                                        Report                                        
-                                    </a>
+                                    <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>
