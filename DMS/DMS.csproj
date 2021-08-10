@@ -88,7 +88,7 @@
     <Content Include="main.css" />
     <Content Include="main.js" />
     <Content Include="Appointment.aspx" />
-    <Content Include="patientManagement.aspx" />
+    <Content Include="patientPage.aspx" />
     <Content Include="profilePage.aspx" />
     <Content Include="reportPage.aspx" />
     <Content Include="staffPage.aspx" />
@@ -123,12 +123,12 @@
     <Compile Include="Appointment.aspx.designer.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="patientManagement.aspx.cs">
-      <DependentUpon>patientManagement.aspx</DependentUpon>
+    <Compile Include="patientPage.aspx.cs">
+      <DependentUpon>patientPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="patientManagement.aspx.designer.cs">
-      <DependentUpon>patientManagement.aspx</DependentUpon>
+    <Compile Include="patientPage.aspx.designer.cs">
+      <DependentUpon>patientPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="profilePage.aspx.cs">
       <DependentUpon>profilePage.aspx</DependentUpon>
