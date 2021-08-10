@@ -51,13 +51,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Button btnBackSearch;
 
         /// <summary>
-        /// loginFail control.
+        /// noResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginFail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noResult;
 
         /// <summary>
         /// pnlsearchResult control.

@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="alert alert-info fade show" runat="server" id="loginFail" visible="false">
+                            <div class="alert alert-info fade show" runat="server" id="noResult" visible="false">
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
                             <asp:Panel runat="server" ID="pnlsearchResult" Visible="false">
