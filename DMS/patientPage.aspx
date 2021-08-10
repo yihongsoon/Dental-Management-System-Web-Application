@@ -8,11 +8,6 @@
             padding: 3px;
             color: #3f6ad8;
         }
-        .btn-bottom{
-            position:absolute;
-            right:0;
-            bottom:0;
-        }
     </style>
     <div class="app-page-title">
         <div class="page-title-wrapper">
