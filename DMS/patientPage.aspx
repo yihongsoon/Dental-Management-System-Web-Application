@@ -8,7 +8,40 @@
             padding: 3px;
             color: #3f6ad8;
         }
+
+        .btn-visit {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d
+        }
+
+        .btn-visit:hover {
+            color: #fff;
+            background-color:Highlight;
+            border-color: #545b62
+        }
+
+        .btn-visit:focus, .btn-visit.focus {
+            box-shadow: 0 0 0 0 rgba(130,138,145,0.5)
+        }
+
+        .btn-visit.disabled, .btn-visit:disabled {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d
+        }
+
+        .btn-visit:not(:disabled):not(.disabled):active, .btn-visit:not(:disabled):not(.disabled).active, .show > .btn-visit.dropdown-toggle {
+            color: #fff;
+            background-color: #545b62;
+            border-color: #4e555b
+        }
+
+        .btn-visit:not(:disabled):not(.disabled):active:focus, .btn-visit:not(:disabled):not(.disabled).active:focus, .show > .btn-visit.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0 rgba(130,138,145,0.5)
+        }
     </style>
+
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -78,6 +111,7 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlSearchPatient" Visible="false">
+                                <hr />
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
@@ -130,7 +164,7 @@
                                     <div class="col-md-12">
                                         <div class="position-relative">
                                             <asp:Label ID="lblSearchAllergies" runat="server" Text="Allergies :"></asp:Label><br />
-                                            <asp:TextBox ID="txtSearchAllergies" runat="server" TextMode="MultiLine" Height="150px" Width="100%" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSearchAllergies" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +194,6 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
                                         <asp:TextBox ID="txtIcNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -200,7 +233,7 @@
                                 <div class="col-md-12">
                                     <div class="position-relative">
                                         <asp:Label ID="lblAllergies" runat="server" Text="Allergies :"></asp:Label><br />
-                                        <asp:TextBox ID="txtAllergies" runat="server" TextMode="MultiLine" Height="150px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtAllergies" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +282,16 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="false">
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" OnClick="btnAddVisit_Click"></asp:Button>
+                                            <asp:Button ID="btnViewVisit" CssClass="mt-2 btn btn-visit left" runat="server" Text="View Visit Record"></asp:Button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
@@ -302,7 +345,7 @@
                                     <div class="col-md-12">
                                         <div class="position-relative">
                                             <asp:Label ID="lblUpdateAllergy" runat="server" Text="Allergies :"></asp:Label><br />
-                                            <asp:TextBox ID="txtUpdateAllergy" runat="server" TextMode="MultiLine" Height="150px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtUpdateAllergy" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -352,6 +395,7 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlDeletePatient" Visible="false">
+                                <hr />
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
@@ -404,7 +448,7 @@
                                     <div class="col-md-12">
                                         <div class="position-relative">
                                             <asp:Label ID="lblDeleteAllergy" runat="server" Text="Allergies :"></asp:Label><br />
-                                            <asp:TextBox ID="txtDeleteAllergy" runat="server" TextMode="MultiLine" Height="150px" Width="100%" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtDeleteAllergy" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>

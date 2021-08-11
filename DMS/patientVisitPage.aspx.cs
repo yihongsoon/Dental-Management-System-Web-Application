@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace DMS
 {
-    public partial class patientPage : System.Web.UI.Page
+    public partial class patientVisitPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnAddVisit_Click(object sender, EventArgs e)
+        protected void btnBackPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("patientVisitPage.aspx");
+            Response.Redirect("patientPage.aspx");
         }
     }
 }
