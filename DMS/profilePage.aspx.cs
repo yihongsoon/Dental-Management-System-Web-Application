@@ -11,7 +11,11 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["ID"] == null)
+            {
+                Response.Redirect("~/loginPage.aspx");
+            }
+            txtID.Text = Session["ID"].ToString();
         }
     }
 }

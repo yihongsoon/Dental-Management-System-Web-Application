@@ -136,6 +136,13 @@
     <Compile Include="dmsMasterpage.Master.designer.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>
     </Compile>
+    <Compile Include="dmsNoLoginMasterPage.Master.cs">
+      <DependentUpon>dmsNoLoginMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dmsNoLoginMasterPage.Master.designer.cs">
+      <DependentUpon>dmsNoLoginMasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +210,7 @@
     <None Include="databaseModel.edmx.diagram">
       <DependentUpon>databaseModel.edmx</DependentUpon>
     </None>
+    <Content Include="dmsNoLoginMasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

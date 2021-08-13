@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/dmsMasterpage.Master" CodeBehind="loginPage.aspx.cs" Inherits="DMS.loginPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/dmsNoLoginMasterPage.Master" CodeBehind="loginPage.aspx.cs" Inherits="DMS.loginPage" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
@@ -9,7 +9,7 @@
                 <div>
                     Login
                         <div class="page-title-subheading">
-                            Enter your Email and Password to Login.
+                            Login to access the functions.
                         </div>
                 </div>
             </div>
@@ -58,13 +58,11 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-                                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
-                                            
+                                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>                                          
                                         </div>
                                     </div>
-                                </div>
-                            <asp:Button ID="btnSignIn" runat="server" Text="Sign in" OnClick="btnSignIn_Click" CssClass="mt-2 btn btn-primary" />
-                            
+                                </div>                            
+                            <asp:Button ID="btnSignIn" runat="server" Text="Sign in" OnClick="btnSignIn_Click" CssClass="mt-2 btn btn-primary" />                            
                         </div>
                     </div>
                 </div>

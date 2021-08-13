@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="dmsMasterpage.master.cs" Inherits="DMS.dmsMasterpage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="dmsNoLoginMasterPage.master.cs" Inherits="DMS.dmsNoLoginMasterPage" %>
 
 <!DOCTYPE html>
 
@@ -126,13 +126,13 @@
                                                     <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>--%>
                                                     <div tabindex="-1" class="dropdown-divider"></div>
-                                                    <asp:Button ID="btnSignIn" Visible="false"  TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
+                                                    <asp:Button ID="btnSignIn"  TabIndex="0" OnClick="btnSignIn_Click" CssClass="dropdown-item" runat="server" Text="Sign In" />
                                                     <asp:Button ID="btnSignOut" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign Out" />
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Dividers</button>--%>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="widget-content-left  ml-3 header-user-info">
+                                        <div runat="server" id="WelcomeName" class="widget-content-left  ml-3 header-user-info">
                                             <div class="widget-heading">
                                                 <asp:Label ID="Label1" runat="server" Text="test"></asp:Label>
                                             </div>
@@ -153,7 +153,6 @@
                 </div>
                 <%--END OF HEADER--%>
             </asp:ContentPlaceHolder>
-
             <div class="app-main">
                 <div class="app-sidebar sidebar-shadow">
                     <div class="app-header__logo">
