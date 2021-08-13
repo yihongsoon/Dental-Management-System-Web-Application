@@ -297,21 +297,6 @@ warning 6002: The table/view 'C:\USERS\YIHON\SOURCE\REPOS\DMS\DMS\APP_DATA\DATAB
           <NavigationProperty Name="Appointments" Relationship="Self.FK_staffIDAppointment" FromRole="Staff" ToRole="Appointment" />
           <NavigationProperty Name="Attendance" Relationship="Self.FK_staffIDAttendance" FromRole="Staff" ToRole="Attendance" />
         </EntityType>
-        <EntityType Name="VisitRecord">
-          <Key>
-            <PropertyRef Name="visitID" />
-          </Key>
-          <Property Name="visitID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dateVisit" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="diagnosis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="medicineGiven" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dentistVisited" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="roomNo" Type="Int32" Nullable="false" />
-          <Property Name="totalVisit" Type="Int32" Nullable="false" />
-          <Property Name="patientID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Patient" Relationship="databaseModel.FK_patientIDVisitRecord" FromRole="VisitRecord" ToRole="Patient" />
-        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="addressName" />
@@ -397,7 +382,6 @@ warning 6002: The table/view 'C:\USERS\YIHON\SOURCE\REPOS\DMS\DMS\APP_DATA\DATAB
           <EntitySet Name="People" EntityType="Self.Person" />
           <EntitySet Name="Reports" EntityType="Self.Report" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
-          <EntitySet Name="VisitRecords" EntityType="Self.VisitRecord" />
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <AssociationSet Name="FK_patientIDAppointment" Association="Self.FK_patientIDAppointment">
             <End Role="Patient" EntitySet="Patients" />
@@ -419,11 +403,27 @@ warning 6002: The table/view 'C:\USERS\YIHON\SOURCE\REPOS\DMS\DMS\APP_DATA\DATAB
             <End Role="Person" EntitySet="People" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
+          <EntitySet Name="VisitRecords" EntityType="databaseModel.VisitRecord" />
           <AssociationSet Name="FK_patientIDVisitRecord" Association="databaseModel.FK_patientIDVisitRecord">
             <End Role="Patient" EntitySet="Patients" />
             <End Role="VisitRecord" EntitySet="VisitRecords" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="VisitRecord">
+          <Key>
+            <PropertyRef Name="visitID" />
+          </Key>
+          <Property Name="visitID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dateVisit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diagnosis" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="medicineGiven" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dentistVisited" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="roomNo" Type="Int32" Nullable="false" />
+          <Property Name="totalVisit" Type="Int32" Nullable="false" />
+          <Property Name="patientID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="databaseModel.FK_patientIDVisitRecord" FromRole="VisitRecord" ToRole="Patient" />
+        </EntityType>
         <Association Name="FK_patientIDVisitRecord">
           <End Type="databaseModel.Patient" Role="Patient" Multiplicity="1" />
           <End Type="databaseModel.VisitRecord" Role="VisitRecord" Multiplicity="*" />
@@ -514,21 +514,6 @@ warning 6002: The table/view 'C:\USERS\YIHON\SOURCE\REPOS\DMS\DMS\APP_DATA\DATAB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VisitRecords">
-            <EntityTypeMapping TypeName="databaseModel.VisitRecord">
-              <MappingFragment StoreEntitySet="VisitRecord">
-                <ScalarProperty Name="visitID" ColumnName="visitID" />
-                <ScalarProperty Name="dateVisit" ColumnName="dateVisit" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
-                <ScalarProperty Name="medicineGiven" ColumnName="medicineGiven" />
-                <ScalarProperty Name="dentistVisited" ColumnName="dentistVisited" />
-                <ScalarProperty Name="roomNo" ColumnName="roomNo" />
-                <ScalarProperty Name="totalVisit" ColumnName="totalVisit" />
-                <ScalarProperty Name="patientID" ColumnName="patientID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="databaseModel.Address">
               <MappingFragment StoreEntitySet="Address">
@@ -538,6 +523,21 @@ warning 6002: The table/view 'C:\USERS\YIHON\SOURCE\REPOS\DMS\DMS\APP_DATA\DATAB
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="country" ColumnName="country" />
                 <ScalarProperty Name="icNo" ColumnName="icNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitRecords">
+            <EntityTypeMapping TypeName="databaseModel.VisitRecord">
+              <MappingFragment StoreEntitySet="VisitRecord">
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="totalVisit" ColumnName="totalVisit" />
+                <ScalarProperty Name="roomNo" ColumnName="roomNo" />
+                <ScalarProperty Name="dentistVisited" ColumnName="dentistVisited" />
+                <ScalarProperty Name="medicineGiven" ColumnName="medicineGiven" />
+                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="dateVisit" ColumnName="dateVisit" />
+                <ScalarProperty Name="visitID" ColumnName="visitID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
