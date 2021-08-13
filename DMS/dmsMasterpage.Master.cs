@@ -11,12 +11,9 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        protected void btnSignIn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("loginPage.aspx");
-        }
+        
     }
 }

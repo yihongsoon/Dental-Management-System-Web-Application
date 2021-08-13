@@ -11,7 +11,8 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null)
+                Response.Redirect("loginPage.aspx");
         }
 
         protected void btnBackPage_Click(object sender, EventArgs e)
