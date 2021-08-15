@@ -9,8 +9,15 @@
             padding: 3px;
             color: #3f6ad8;
         }
-
     </style>
+
+    
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("[id$=txtAddDate]").datepicker({ dateFormat: "dd/mm/yy" });
+        });
+    </script>
 
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -138,7 +145,7 @@
             </div>
         </div>
 
-        <div class="tab-pane tabs-animation fade" id="tab-patientAdd" role="tabpanel">
+        <div class="tab-pane tabs-animation fade" id="tab-appointAdd" role="tabpanel">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -146,8 +153,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblPatientID2" runat="server" Text="Patient ID :"></asp:Label>
-                                        <asp:TextBox ID="txtPatientID2" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
+                                        <asp:TextBox ID="txtAddID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblAddAppID" runat="server" Text="Appointment ID :"></asp:Label>
+                                        <asp:TextBox ID="txtAddAppID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -155,30 +168,16 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
-                                        <asp:TextBox ID="txtIcNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:Label ID="lblAddDate" runat="server" Text="Appointment Date :"></asp:Label>
+                                        <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control"></asp:TextBox>
+                                        <asp:ImageButton ID="imgBtnCalendar" runat="server" Height="17px" Width="21px" ImageUrl="~/assets/images/calendar.png" OnClick="imgBtnCalendar_Click"/>
+                                        <asp:Calendar ID="calendar1" runat="server" OnSelectionChanged="calendar1_SelectionChanged" visible="false"></asp:Calendar>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblName" runat="server" Text="Name :"></asp:Label>
-                                        <asp:TextBox ID="txtName" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <asp:Label ID="lblAge" runat="server" Text="Age :"></asp:Label>
-                                        <asp:TextBox ID="txtAge" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <asp:Label ID="lblGender" runat="server" Text="Gender :"></asp:Label>
-                                        <asp:TextBox ID="txtGender" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:Label ID="lblAddTime" runat="server" Text="Appointment Time :"></asp:Label>
+                                        <asp:TextBox ID="txtAddTime" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -186,8 +185,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblContactNo" runat="server" Text="Contact No. :"></asp:Label>
-                                        <asp:TextBox ID="txtContactNo" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblAddStaff" runat="server" Text="Staff Register :"></asp:Label>
+                                        <asp:TextBox ID="txtAddStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -195,8 +194,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative">
-                                        <asp:Label ID="lblAllergies" runat="server" Text="Allergies :"></asp:Label><br />
-                                        <asp:TextBox ID="txtAllergies" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                        <asp:Label ID="lblAddPurpose" runat="server" Text="Appointment Purpose :"></asp:Label><br />
+                                        <asp:TextBox ID="txtAddPurpose" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

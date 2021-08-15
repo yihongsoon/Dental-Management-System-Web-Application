@@ -91,6 +91,7 @@
     <Content Include="assets\images\avatars\5.jpg" />
     <Content Include="assets\images\avatars\8.jpg" />
     <Content Include="assets\images\avatars\9.jpg" />
+    <Content Include="assets\images\calendar.png" />
     <Content Include="assets\images\defaultprofile.png" />
     <Content Include="assets\images\defaultprofilegray.png" />
     <Content Include="assets\images\logo.jpg" />
