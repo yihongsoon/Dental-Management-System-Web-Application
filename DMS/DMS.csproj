@@ -96,10 +96,6 @@
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
     <Content Include="attendancePage.aspx" />
-    <Content Include="databaseModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>databaseModel.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
     <Content Include="main.js" />
@@ -118,16 +114,6 @@
     </Compile>
     <Compile Include="attendancePage.aspx.designer.cs">
       <DependentUpon>attendancePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="databaseModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>databaseModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="databaseModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>databaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="dmsMasterpage.Master.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>
@@ -203,13 +189,6 @@
     <Content Include="assets\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="assets\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="assets\fonts\Pe-icon-7-stroke.woff" />
-    <EntityDeploy Include="databaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>databaseModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="databaseModel.edmx.diagram">
-      <DependentUpon>databaseModel.edmx</DependentUpon>
-    </None>
     <Content Include="dmsNoLoginMasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

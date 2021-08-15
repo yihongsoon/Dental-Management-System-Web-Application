@@ -330,13 +330,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label17;
 
         /// <summary>
-        /// txtAddPostion control.
+        /// ddlAddPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddPostion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddPosition;
 
         /// <summary>
         /// label18 control.
@@ -384,13 +384,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label20;
 
         /// <summary>
-        /// txtAddIAge control.
+        /// txtAddAge control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddIAge;
+        protected global::System.Web.UI.WebControls.TextBox txtAddAge;
 
         /// <summary>
         /// label21 control.
@@ -402,13 +402,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label21;
 
         /// <summary>
-        /// txtAddGender control.
+        /// ddlAddGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddGender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddGender;
 
         /// <summary>
         /// label22 control.
