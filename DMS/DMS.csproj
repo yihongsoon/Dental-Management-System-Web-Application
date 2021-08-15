@@ -97,6 +97,7 @@
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
     <Content Include="attendancePage.aspx" />
+    <Content Include="homepage.aspx" />
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
     <Content Include="main.js" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="dmsNoLoginMasterPage.Master.designer.cs">
       <DependentUpon>dmsNoLoginMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>

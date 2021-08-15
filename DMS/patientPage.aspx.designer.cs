@@ -276,13 +276,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
-        /// txtGender control.
+        /// ddlAddPatGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddPatGender;
 
         /// <summary>
         /// lblContactNo control.
@@ -483,13 +483,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblUpdateGender;
 
         /// <summary>
-        /// txtUpdatePatientGender control.
+        /// ddlUpdateGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientGender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateGender;
 
         /// <summary>
         /// lblUpdateContact control.

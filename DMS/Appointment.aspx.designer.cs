@@ -231,24 +231,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtAddDate;
 
         /// <summary>
-        /// imgBtnCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgBtnCalendar;
-
-        /// <summary>
-        /// calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calendar1;
-
-        /// <summary>
         /// lblAddTime control.
         /// </summary>
         /// <remarks>
@@ -375,130 +357,112 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblUpdateID;
 
         /// <summary>
-        /// txtUpdatePatientID control.
+        /// txtUpdateID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientID;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateID;
 
         /// <summary>
-        /// lblUpdateIcNo control.
+        /// lblUptAppointID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateIcNo;
+        protected global::System.Web.UI.WebControls.Label lblUptAppointID;
 
         /// <summary>
-        /// txtUpdateIcNo control.
+        /// txtUptAppointID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateIcNo;
+        protected global::System.Web.UI.WebControls.TextBox txtUptAppointID;
 
         /// <summary>
-        /// lblUpdateName control.
+        /// lblUpdateDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateName;
+        protected global::System.Web.UI.WebControls.Label lblUpdateDate;
 
         /// <summary>
-        /// txtUpdatePatientName control.
+        /// txtUpdateDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientName;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateDate;
 
         /// <summary>
-        /// lblUpdateAge control.
+        /// lblUpdateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateAge;
+        protected global::System.Web.UI.WebControls.Label lblUpdateTime;
 
         /// <summary>
-        /// txtUpdatePatientAge control.
+        /// txtUpdateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientAge;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateTime;
 
         /// <summary>
-        /// lblUpdateGender control.
+        /// lblUpdateStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateGender;
+        protected global::System.Web.UI.WebControls.Label lblUpdateStaff;
 
         /// <summary>
-        /// txtUpdatePatientGender control.
+        /// txtUpdateStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientGender;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateStaff;
 
         /// <summary>
-        /// lblUpdateContact control.
+        /// lblUpdatePurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateContact;
+        protected global::System.Web.UI.WebControls.Label lblUpdatePurpose;
 
         /// <summary>
-        /// txtUpdatePatientContact control.
+        /// txtUpdatePurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientContact;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdatePurpose;
 
         /// <summary>
-        /// lblUpdateAllergy control.
+        /// btnUpdateAppoint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateAllergy;
-
-        /// <summary>
-        /// txtUpdateAllergy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateAllergy;
-
-        /// <summary>
-        /// btnUpdatePatient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdatePatient;
+        protected global::System.Web.UI.WebControls.Button btnUpdateAppoint;
 
         /// <summary>
         /// ddlDeleteSearchChoice control.
