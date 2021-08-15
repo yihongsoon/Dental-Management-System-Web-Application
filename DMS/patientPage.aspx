@@ -215,7 +215,11 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblGender" runat="server" Text="Gender :"></asp:Label>
-                                        <asp:TextBox ID="txtGender" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:DropDownList ID="ddlAddPatGender" Enabled="true" CssClass="ddl form-control" runat="server">
+                                            <asp:ListItem Value="male">Male</asp:ListItem>
+                                            <asp:ListItem Value="female">Female</asp:ListItem>
+                                            <asp:ListItem Value="other">Other</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -327,7 +331,11 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateGender" runat="server" Text="Gender :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientGender" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:DropDownList ID="ddlUpdateGender" Enabled="true" CssClass="ddl form-control" runat="server">
+                                                <asp:ListItem Value="male">Male</asp:ListItem>
+                                                <asp:ListItem Value="female">Female</asp:ListItem>
+                                                <asp:ListItem Value="other">Other</asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
