@@ -177,130 +177,130 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtPurpose;
 
         /// <summary>
-        /// lblPatientID2 control.
+        /// lblAddID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPatientID2;
+        protected global::System.Web.UI.WebControls.Label lblAddID;
 
         /// <summary>
-        /// txtPatientID2 control.
+        /// txtAddID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientID2;
+        protected global::System.Web.UI.WebControls.TextBox txtAddID;
 
         /// <summary>
-        /// lblIcNo control.
+        /// lblAddAppID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIcNo;
+        protected global::System.Web.UI.WebControls.Label lblAddAppID;
 
         /// <summary>
-        /// txtIcNo control.
+        /// txtAddAppID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIcNo;
+        protected global::System.Web.UI.WebControls.TextBox txtAddAppID;
 
         /// <summary>
-        /// lblName control.
+        /// lblAddDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblAddDate;
 
         /// <summary>
-        /// txtName control.
+        /// txtAddDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtAddDate;
 
         /// <summary>
-        /// lblAge control.
+        /// imgBtnCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAge;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnCalendar;
 
         /// <summary>
-        /// txtAge control.
+        /// calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAge;
+        protected global::System.Web.UI.WebControls.Calendar calendar1;
 
         /// <summary>
-        /// lblGender control.
+        /// lblAddTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGender;
+        protected global::System.Web.UI.WebControls.Label lblAddTime;
 
         /// <summary>
-        /// txtGender control.
+        /// txtAddTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGender;
+        protected global::System.Web.UI.WebControls.TextBox txtAddTime;
 
         /// <summary>
-        /// lblContactNo control.
+        /// lblAddStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContactNo;
+        protected global::System.Web.UI.WebControls.Label lblAddStaff;
 
         /// <summary>
-        /// txtContactNo control.
+        /// txtAddStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContactNo;
+        protected global::System.Web.UI.WebControls.TextBox txtAddStaff;
 
         /// <summary>
-        /// lblAllergies control.
+        /// lblAddPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllergies;
+        protected global::System.Web.UI.WebControls.Label lblAddPurpose;
 
         /// <summary>
-        /// txtAllergies control.
+        /// txtAddPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAllergies;
+        protected global::System.Web.UI.WebControls.TextBox txtAddPurpose;
 
         /// <summary>
         /// btnAddPatient control.
