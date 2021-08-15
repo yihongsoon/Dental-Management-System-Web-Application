@@ -79,6 +79,8 @@
                                     <asp:Label runat="server" Text="Email and IC Number Does not Match! Please Contact Admin"></asp:Label></div>
                                 <div class="alert alert-warning fade show" id="emptyFieldPassRecovery" runat="server" visible="false">
                                     <asp:Label runat="server" Text="Please Complete All Field"></asp:Label></div>
+                            <div class="alert alert-success fade show" id="success" runat="server" visible="false">
+                                    <asp:Label runat="server" Text="Please Check Your Email."></asp:Label></div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">

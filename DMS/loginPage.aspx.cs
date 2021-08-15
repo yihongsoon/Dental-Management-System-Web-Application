@@ -92,21 +92,44 @@ namespace DMS
 
         protected void btnPassR_Click(object sender, EventArgs e)
         {
-            if (txtpassREmail.Text == string.Empty || txtPassRICNo.Text == string.Empty)
-            {
-                emptyFieldPassRecovery.Visible = true;
-            }
-            else if (txtPassRICNo.Text != string.Empty && txtpassREmail.Text == string.Empty)
-            {
-                emptyFieldPassRecovery.Visible = true;
-            }
-            else if (txtPassRICNo.Text == string.Empty && txtpassREmail.Text != string.Empty)
-            {
-                emptyFieldPassRecovery.Visible = true;
-            }
-            else if (txtPassRICNo.Text != string.Empty && txtpassREmail.Text != string.Empty)
+            if (txtPassRICNo.Text != string.Empty && txtpassREmail.Text != string.Empty)
             {
                 emptyFieldPassRecovery.Visible = false;
+                try
+                {
+                    
+                        SqlConnection con = new SqlConnection(strCon);
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand("select email, icNo from Staff where icNo = @recoveryIC AND email = @recoveryEmail", con);
+                        cmd.Parameters.AddWithValue("@recoveryIC", txtPassRICNo.Text);
+                        cmd.Parameters.AddWithValue("@recoveryEmail", txtpassREmail.Text);
+                        SqlDataReader dr = cmd.ExecuteReader();
+
+                        if (dr != null)
+                        {
+                            if (dr.Read())
+                            {
+                            success.Visible = true;
+                            }
+                            else
+                            {
+                            failMatchIcEmail.Visible = true;
+                            }
+                        }
+                        con.Close();
+                    
+                    
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+
+            }
+            else
+            {
+                emptyFieldPassRecovery.Visible = true;
             }
         }
     }

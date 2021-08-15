@@ -23,7 +23,7 @@
         </div>
     </div>
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-        <li class="nav-item">
+        <li class="nav-item"> 
             <a role="tab" class="nav-link show active" id="tab-0" data-toggle="tab" href="#tab-staffSearch" aria-selected="true">
                 <span>Search</span>
             </a>
@@ -197,7 +197,11 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label17" runat="server" Text="Position"></asp:Label>
-                                        <asp:TextBox ID="txtAddPostion" Enabled="true" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txtAddPostion" Enabled="true" Text="" CssClass="form-control" runat="server"></asp:TextBox>--%>
+                                        <asp:DropDownList ID="ddlAddPosition" Enabled="true" CssClass="ddl form-control" runat="server">
+                                            <asp:ListItem Selected="True" Value="nurse">Nurse</asp:ListItem>
+                                            <asp:ListItem  Value="dentist">Dentist</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -220,14 +224,19 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label20" runat="server" Text="Age"></asp:Label>
-                                        <asp:TextBox ID="txtAddIAge" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtAddAge" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label21" runat="server" Text="Gender"></asp:Label>
-                                        <asp:TextBox ID="txtAddGender" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txtAddGender" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>--%>
+                                        <asp:DropDownList ID="ddlAddGender" Enabled="true" CssClass="ddl form-control" runat="server">
+                                            <asp:ListItem Selected="True" Value="male">Male</asp:ListItem>
+                                            <asp:ListItem  Value="female">Female</asp:ListItem>
+                                            <asp:ListItem  Value="other">Other</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
