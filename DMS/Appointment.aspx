@@ -11,14 +11,6 @@
         }
     </style>
 
-    
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("[id$=txtAddDate]").datepicker({ dateFormat: "dd/mm/yy" });
-        });
-    </script>
-
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -169,15 +161,13 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddDate" runat="server" Text="Appointment Date :"></asp:Label>
-                                        <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control"></asp:TextBox>
-                                        <asp:ImageButton ID="imgBtnCalendar" runat="server" Height="17px" Width="21px" ImageUrl="~/assets/images/calendar.png" OnClick="imgBtnCalendar_Click"/>
-                                        <asp:Calendar ID="calendar1" runat="server" OnSelectionChanged="calendar1_SelectionChanged" visible="false"></asp:Calendar>
+                                        <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddTime" runat="server" Text="Appointment Time :"></asp:Label>
-                                        <asp:TextBox ID="txtAddTime" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtAddTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +201,7 @@
             </div>
         </div>
 
-        <div class="tab-pane tabs-animation fade" id="tab-patientUpdate" role="tabpanel">
+        <div class="tab-pane tabs-animation fade" id="tab-appointUpdate" role="tabpanel">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -245,70 +235,59 @@
 
                             <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="false">
                                 <hr />
-                               
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateIcNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateName" runat="server" Text="Name :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientName" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblUptAppointID" runat="server" Text="Appointment ID :"></asp:Label>
+                                        <asp:TextBox ID="txtUptAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateAge" runat="server" Text="Age :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientAge" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateGender" runat="server" Text="Gender :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientGender" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblUpdateDate" runat="server" Text="Appointment Date :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="lblUpdateContact" runat="server" Text="Contact No. :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientContact" Text="" CssClass="form-control" runat="server"></asp:TextBox>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblUpdateTime" runat="server" Text="Appointment Time :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="position-relative">
-                                            <asp:Label ID="lblUpdateAllergy" runat="server" Text="Allergies :"></asp:Label><br />
-                                            <asp:TextBox ID="txtUpdateAllergy" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <asp:Label ID="lblUpdateStaff" runat="server" Text="Staff Register :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <asp:Button ID="btnUpdatePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true"/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="position-relative">
+                                        <asp:Label ID="lblUpdatePurpose" runat="server" Text="Appointment Purpose :"></asp:Label><br />
+                                        <asp:TextBox ID="txtUpdatePurpose" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <asp:Button ID="btnUpdateAppoint" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true"/>
+                                </div>
+                            </div>
                             </asp:Panel>
                         </div>
                     </div>
@@ -411,5 +390,4 @@
             </div>
         </div>
     </div>
-
-    </asp:Content>
+</asp:Content>

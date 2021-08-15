@@ -11,21 +11,9 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["username"] == null)
-            //    Response.Redirect("loginPage.aspx");
+            if (Session["username"] == null)
+                Response.Redirect("loginPage.aspx");
 
-        }
-
-        protected void imgBtnCalendar_Click(object sender, ImageClickEventArgs e)
-        {
-            calendar1.Visible = true;
-        }
-
-        protected void calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            txtAddDate.Text = calendar1.SelectedDate.ToShortDateString();
-            calendar1.Visible = false;
-            
         }
     }
 }
