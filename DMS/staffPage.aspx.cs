@@ -40,5 +40,79 @@ namespace DMS
         }
 
 
+        protected void lnkAdd_Click(object sender, EventArgs e)
+        {
+            tabstaffAdd.Visible = true;
+            tabstaffAttendance.Visible = false;
+            tabstaffDelete.Visible = false;
+            tabstaffSearch.Visible = false;
+            tabstaffUpdate.Visible = false;
+            lnkAdd.CssClass = "nav-link show active";
+            lnkAttendance.CssClass = "nav-link show";
+            lnkDelete.CssClass = "nav-link show";
+            lnkSearch.CssClass = "nav-link show";
+            lnkUpdate.CssClass = "nav-link show";
+        }
+
+        protected void lnkUpdate_Click(object sender, EventArgs e)
+        {
+            tabstaffAdd.Visible = false;
+            tabstaffAttendance.Visible = false;
+            tabstaffDelete.Visible = false;
+            tabstaffSearch.Visible = false;
+            tabstaffUpdate.Visible = true;
+            lnkAdd.CssClass = "nav-link show";
+            lnkAttendance.CssClass = "nav-link show";
+            lnkDelete.CssClass = "nav-link show";
+            lnkSearch.CssClass = "nav-link show";
+            lnkUpdate.CssClass = "nav-link show active";
+        }
+
+        protected void lnkDelete_Click(object sender, EventArgs e)
+        {
+            tabstaffAdd.Visible = false;
+            tabstaffAttendance.Visible = false;
+            tabstaffDelete.Visible = true;
+            tabstaffSearch.Visible = false;
+            tabstaffUpdate.Visible = false;
+            lnkAdd.CssClass = "nav-link show";
+            lnkAttendance.CssClass = "nav-link show";
+            lnkDelete.CssClass = "nav-link show active";
+            lnkSearch.CssClass = "nav-link show";
+            lnkUpdate.CssClass = "nav-link show";
+        }
+
+        protected void lnkAttendance_Click(object sender, EventArgs e)
+        {
+            tabstaffAdd.Visible = false;
+            tabstaffAttendance.Visible = true;
+            tabstaffDelete.Visible = false;
+            tabstaffSearch.Visible = false;
+            tabstaffUpdate.Visible = false;
+            lnkAdd.CssClass = "nav-link show";
+            lnkAttendance.CssClass = "nav-link show active";
+            lnkDelete.CssClass = "nav-link show";
+            lnkSearch.CssClass = "nav-link show";
+            lnkUpdate.CssClass = "nav-link show";
+        }
+
+        protected void lnkSearch_Click(object sender, EventArgs e)
+        {
+            tabstaffAdd.Visible = false;
+            tabstaffAttendance.Visible = false;
+            tabstaffDelete.Visible = false;
+            tabstaffSearch.Visible = true;
+            tabstaffUpdate.Visible = false;
+            lnkAdd.CssClass = "nav-link show";
+            lnkAttendance.CssClass = "nav-link show";
+            lnkDelete.CssClass = "nav-link show";
+            lnkSearch.CssClass = "nav-link show  active";
+            lnkUpdate.CssClass = "nav-link show";
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
