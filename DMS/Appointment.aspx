@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 
+    <link href="assets/CSS/webform.css" rel="stylesheet" />
+
     <style type="text/css">
         .ddl {
             border: 2px solid #3f6ad8;
@@ -80,7 +82,49 @@
                                 <asp:Label runat="server" Text="No Patient Details Found"></asp:Label>
                             </div>
 
-                            <asp:Panel runat="server" ID="pnlSearchPatient" Visible="false">
+                            <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="false">
+                                <hr />
+
+                                <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <%--<EmptyDataTemplate>
+                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
+                                    </EmptyDataTemplate>--%>
+                                    <Columns>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center"/>
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </asp:Panel>
+
+                            <asp:Panel runat="server" ID="pnlSearchPatientSpecific" Visible="false">
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-6">
@@ -233,7 +277,49 @@
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
 
-                            <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="false">
+                            <asp:Panel runat="server" ID="pnlUpdateAppointBroad" Visible="false">
+                                <hr />
+
+                                <asp:GridView ID="GridViewUpdate" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <%--<EmptyDataTemplate>
+                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
+                                    </EmptyDataTemplate>--%>
+                                    <Columns>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center"/>
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </asp:Panel>
+
+                            <asp:Panel runat="server" ID="pnlUpdateAppointSpecific" Visible="false">
                                 <hr />
                                 <div class="row">
                                 <div class="col-md-6">
@@ -328,7 +414,49 @@
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
 
-                            <asp:Panel runat="server" ID="pnlDeletePatient" Visible="false">
+                            <asp:Panel runat="server" ID="pnlDeleteAppointBroad" Visible="false">
+                                <hr />
+
+                                <asp:GridView ID="GridViewDelete" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <%--<EmptyDataTemplate>
+                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
+                                    </EmptyDataTemplate>--%>
+                                    <Columns>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center"/>
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </asp:Panel>
+
+                            <asp:Panel runat="server" ID="pnlDeleteAppointSpecific" Visible="false">
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-6">

@@ -60,13 +60,31 @@ namespace DMS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl patientSearchNotFound;
 
         /// <summary>
-        /// pnlSearchPatient control.
+        /// pnlSearchPatientBroad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSearchPatient;
+        protected global::System.Web.UI.WebControls.Panel pnlSearchPatientBroad;
+
+        /// <summary>
+        /// GridViewSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewSearch;
+
+        /// <summary>
+        /// pnlSearchPatientSpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSearchPatientSpecific;
 
         /// <summary>
         /// lblPatientID control.
@@ -339,13 +357,31 @@ namespace DMS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl patientUpdateNotFound;
 
         /// <summary>
-        /// pnlUpdatePatient control.
+        /// pnlUpdateAppointBroad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUpdatePatient;
+        protected global::System.Web.UI.WebControls.Panel pnlUpdateAppointBroad;
+
+        /// <summary>
+        /// GridViewUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewUpdate;
+
+        /// <summary>
+        /// pnlUpdateAppointSpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUpdateAppointSpecific;
 
         /// <summary>
         /// lblUpdateID control.
@@ -510,13 +546,31 @@ namespace DMS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl patientDeleteNotFound;
 
         /// <summary>
-        /// pnlDeletePatient control.
+        /// pnlDeleteAppointBroad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDeletePatient;
+        protected global::System.Web.UI.WebControls.Panel pnlDeleteAppointBroad;
+
+        /// <summary>
+        /// GridViewDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewDelete;
+
+        /// <summary>
+        /// pnlDeleteAppointSpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDeleteAppointSpecific;
 
         /// <summary>
         /// lblDeleteID control.
