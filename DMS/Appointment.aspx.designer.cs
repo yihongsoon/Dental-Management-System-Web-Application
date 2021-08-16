@@ -87,24 +87,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Panel pnlSearchPatientSpecific;
 
         /// <summary>
-        /// lblPatientID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPatientID;
-
-        /// <summary>
-        /// txtPatientID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientID;
-
-        /// <summary>
         /// lblAppointID control.
         /// </summary>
         /// <remarks>
@@ -121,6 +103,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAppointID;
+
+        /// <summary>
+        /// lblPatientID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPatientID;
+
+        /// <summary>
+        /// txtPatientID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPatientID;
 
         /// <summary>
         /// lblAppointDate control.
@@ -195,24 +195,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtPurpose;
 
         /// <summary>
-        /// lblAddID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddID;
-
-        /// <summary>
-        /// txtAddID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddID;
-
-        /// <summary>
         /// lblAddAppID control.
         /// </summary>
         /// <remarks>
@@ -229,6 +211,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddAppID;
+
+        /// <summary>
+        /// lblAddID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddID;
+
+        /// <summary>
+        /// txtAddID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddID;
 
         /// <summary>
         /// lblAddDate control.
@@ -384,24 +384,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Panel pnlUpdateAppointSpecific;
 
         /// <summary>
-        /// lblUpdateID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateID;
-
-        /// <summary>
-        /// txtUpdateID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateID;
-
-        /// <summary>
         /// lblUptAppointID control.
         /// </summary>
         /// <remarks>
@@ -418,6 +400,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUptAppointID;
+
+        /// <summary>
+        /// lblUpdateID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdateID;
+
+        /// <summary>
+        /// txtUpdateID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateID;
 
         /// <summary>
         /// lblUpdateDate control.
@@ -573,24 +573,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Panel pnlDeleteAppointSpecific;
 
         /// <summary>
-        /// lblDeleteID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDeleteID;
-
-        /// <summary>
-        /// txtDeleteID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeleteID;
-
-        /// <summary>
         /// lblDeleteAppointID control.
         /// </summary>
         /// <remarks>
@@ -607,6 +589,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDeleteAppointID;
+
+        /// <summary>
+        /// lblDeleteID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeleteID;
+
+        /// <summary>
+        /// txtDeleteID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteID;
 
         /// <summary>
         /// lblDeleteDate control.

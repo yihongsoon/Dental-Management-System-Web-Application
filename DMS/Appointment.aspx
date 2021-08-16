@@ -92,24 +92,18 @@
                                         <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
                                     </EmptyDataTemplate>--%>
                                     <Columns>
+                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:HyperLinkField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -129,15 +123,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblPatientID" runat="server" Text="Patient ID :"></asp:Label>
-                                            <asp:TextBox ID="txtPatientID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblAppointID" runat="server" Text="Appointment ID :"></asp:Label>
+                                            <asp:TextBox ID="txtAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblAppointID" runat="server" Text="Appointment ID :"></asp:Label>
-                                            <asp:TextBox ID="txtAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblPatientID" runat="server" Text="Patient ID :"></asp:Label>
+                                            <asp:TextBox ID="txtPatientID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -189,14 +183,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
-                                        <asp:TextBox ID="txtAddID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblAddAppID" runat="server" Text="Appointment ID :"></asp:Label>
+                                        <asp:TextBox ID="txtAddAppID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblAddAppID" runat="server" Text="Appointment ID :"></asp:Label>
-                                        <asp:TextBox ID="txtAddAppID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
+                                        <asp:TextBox ID="txtAddID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -287,24 +281,18 @@
                                         <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
                                     </EmptyDataTemplate>--%>
                                     <Columns>
+                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:HyperLinkField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -324,14 +312,14 @@
                                 <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
-                                        <asp:TextBox ID="txtUpdateID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblUptAppointID" runat="server" Text="Appointment ID :"></asp:Label>
+                                        <asp:TextBox ID="txtUptAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblUptAppointID" runat="server" Text="Appointment ID :"></asp:Label>
-                                        <asp:TextBox ID="txtUptAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -424,24 +412,18 @@
                                         <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
                                     </EmptyDataTemplate>--%>
                                     <Columns>
+                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:HyperLinkField>
+                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="lnkVisitAppointment" runat="server">Visit Apppointment Details</asp:HyperLink>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -461,14 +443,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblDeleteID" runat="server" Text="Patient ID :"></asp:Label>
-                                            <asp:TextBox ID="txtDeleteID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblDeleteAppointID" runat="server" Text="Appointment ID :"></asp:Label>
+                                            <asp:TextBox ID="txtDeleteAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblDeleteAppointID" runat="server" Text="Appointment ID :"></asp:Label>
-                                            <asp:TextBox ID="txtDeleteAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblDeleteID" runat="server" Text="Patient ID :"></asp:Label>
+                                            <asp:TextBox ID="txtDeleteID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
