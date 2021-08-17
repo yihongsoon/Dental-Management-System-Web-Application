@@ -285,24 +285,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtAddress1;
 
         /// <summary>
-        /// label13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label13;
-
-        /// <summary>
-        /// txtAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress2;
-
-        /// <summary>
         /// label14 control.
         /// </summary>
         /// <remarks>
@@ -789,13 +771,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Button btnUpdateBack;
 
         /// <summary>
-        /// Div1 control.
+        /// noresultUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noresultUpdate;
 
         /// <summary>
         /// pnlUpdateSearchResult control.
@@ -967,24 +949,6 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUpdateAddress1;
-
-        /// <summary>
-        /// label36 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label36;
-
-        /// <summary>
-        /// txtUpdateAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateAddress2;
 
         /// <summary>
         /// label37 control.
