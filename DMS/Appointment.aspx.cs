@@ -18,11 +18,11 @@ namespace DMS
         {
             //if (Session["username"] == null)
             //    Response.Redirect("loginPage.aspx");
-            id();
+            AppointmentId();
 
         }
 
-        public void id()
+        public void AppointmentId()
         {
             SqlConnection con = new SqlConnection(strCon);
             con.Open();
@@ -36,6 +36,54 @@ namespace DMS
             var i = int.Parse(number) + 1 + count;
             var newString = prefix + i.ToString(new string('0', number.Length));
             txtAddAppID.Text = newString;
+        }
+
+        protected void lnkSearchAppoint_Click(object sender, EventArgs e)
+        {
+            tabSearchAppoint.Visible = true;
+            tabAddAppoint.Visible = false;
+            tabUpdateAppoint.Visible = false;
+            tabDeleteAppoint.Visible = false;
+            lnkSearchAppoint.CssClass = "nav-link show active";
+            lnkAddAppoint.CssClass = "nav-link show";
+            lnkUpdateAppoint.CssClass = "nav-link show";
+            lnkDeleteAppoint.CssClass = "nav-link show";
+        }
+
+        protected void lnkAddAppoint_Click(object sender, EventArgs e)
+        {
+            tabSearchAppoint.Visible = false;
+            tabAddAppoint.Visible = true;
+            tabUpdateAppoint.Visible = false;
+            tabDeleteAppoint.Visible = false;
+            lnkSearchAppoint.CssClass = "nav-link show";
+            lnkAddAppoint.CssClass = "nav-link show active";
+            lnkUpdateAppoint.CssClass = "nav-link show";
+            lnkDeleteAppoint.CssClass = "nav-link show";
+        }
+
+        protected void lnkUpdateAppoint_Click(object sender, EventArgs e)
+        {
+            tabSearchAppoint.Visible = false;
+            tabAddAppoint.Visible = false;
+            tabUpdateAppoint.Visible = true;
+            tabDeleteAppoint.Visible = false;
+            lnkSearchAppoint.CssClass = "nav-link show";
+            lnkAddAppoint.CssClass = "nav-link show";
+            lnkUpdateAppoint.CssClass = "nav-link show active";
+            lnkDeleteAppoint.CssClass = "nav-link show";
+        }
+
+        protected void lnkDeleteAppoint_Click(object sender, EventArgs e)
+        {
+            tabSearchAppoint.Visible = false;
+            tabAddAppoint.Visible = false;
+            tabUpdateAppoint.Visible = false;
+            tabDeleteAppoint.Visible = true;
+            lnkSearchAppoint.CssClass = "nav-link show";
+            lnkAddAppoint.CssClass = "nav-link show";
+            lnkUpdateAppoint.CssClass = "nav-link show";
+            lnkDeleteAppoint.CssClass = "nav-link show active";
         }
     }
 }

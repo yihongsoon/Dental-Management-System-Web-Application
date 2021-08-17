@@ -297,7 +297,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <asp:Button ID="btnAdd" CssClass="mt-2 btn btn-primary" OnClick="btnAdd_Click" runat="server" Text="Add" />
+                                    <asp:Button ID="btnAdd" CssClass="mt-2 btn btn-primary" runat="server" OnClick="btnAdd_Click" Text="Add" /> 
                                 </div>
                             </div>
                         </div>

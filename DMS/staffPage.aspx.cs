@@ -130,9 +130,6 @@ namespace DMS
             cmd2.Parameters.AddWithValue("@icNo", txtAddIC.Text);
             cmd2.ExecuteNonQuery();
 
-
-            
-
             SqlCommand cmd3 = new SqlCommand("INSERT INTO Address(addressName, postalCode, city, state, icNo) VALUES(@addressName, @postalCode, @city, @state, @icNo)", con);
             string address = txtAddAddress1.Text + " " + txtAddAddress2.Text;
             cmd3.Parameters.AddWithValue("@addressName", address);

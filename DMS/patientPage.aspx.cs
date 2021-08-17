@@ -18,7 +18,7 @@ namespace DMS
             //if (Session["username"] == null)
             //    Response.Redirect("loginPage.aspx");
 
-            id();
+            patientId();
         }
 
         protected void btnAddVisit_Click(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace DMS
             Response.Redirect("patientVisitPage.aspx");
         }
 
-        public void id()
+        public void patientId()
         {
             SqlConnection con = new SqlConnection(strCon);
             con.Open();
@@ -40,6 +40,54 @@ namespace DMS
             var i = int.Parse(number) + 1 + count;
             var newString = prefix + i.ToString(new string('0', number.Length));
             txtPatientID.Text = newString;
+        }
+
+        protected void lnkSearchPatient_Click(object sender, EventArgs e)
+        {
+            tabSearchPatient.Visible = true;
+            tabAddPatient.Visible = false;
+            tabUpdatePatient.Visible = false;
+            tabDeletePatient.Visible = false;
+            lnkSearchPatient.CssClass = "nav-link show active";
+            lnkAddPatient.CssClass = "nav-link show";
+            lnkUpdatePatient.CssClass = "nav-link show";
+            lnkDeletePatient.CssClass = "nav-link show";
+        }
+
+        protected void lnkAddPatient_Click(object sender, EventArgs e)
+        {
+            tabSearchPatient.Visible = false;
+            tabAddPatient.Visible = true;
+            tabUpdatePatient.Visible = false;
+            tabDeletePatient.Visible = false;
+            lnkSearchPatient.CssClass = "nav-link show";
+            lnkAddPatient.CssClass = "nav-link show active";
+            lnkUpdatePatient.CssClass = "nav-link show";
+            lnkDeletePatient.CssClass = "nav-link show";
+        }
+
+        protected void lnkUpdatePatient_Click(object sender, EventArgs e)
+        {
+            tabSearchPatient.Visible = false;
+            tabAddPatient.Visible = false;
+            tabUpdatePatient.Visible = true;
+            tabDeletePatient.Visible = false;
+            lnkSearchPatient.CssClass = "nav-link show";
+            lnkAddPatient.CssClass = "nav-link show";
+            lnkUpdatePatient.CssClass = "nav-link show active";
+            lnkDeletePatient.CssClass = "nav-link show";
+        }
+
+        protected void lnkDeletePatient_Click(object sender, EventArgs e)
+        {
+            tabSearchPatient.Visible = false;
+            tabAddPatient.Visible = false;
+            tabUpdatePatient.Visible = false;
+            tabDeletePatient.Visible = true;
+            lnkSearchPatient.CssClass = "nav-link show";
+            lnkAddPatient.CssClass = "nav-link show";
+            lnkUpdatePatient.CssClass = "nav-link show";
+            lnkDeletePatient.CssClass = "nav-link show active";
         }
     }
 }

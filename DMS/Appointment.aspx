@@ -28,29 +28,21 @@
 
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
-            <a role="tab" class="nav-link show active" id="tab-appoint-search" data-toggle="tab" href="#tab-appointSearch" aria-selected="true">
-                <span>Search</span>
-            </a>
+            <asp:LinkButton ID="lnkSearchAppoint" CssClass="nav-link show active" OnClick="lnkSearchAppoint_Click" runat="server"><span>Search</span></asp:LinkButton>
         </li>
         <li class="nav-item">
-            <a role="tab" class="nav-link show" id="tab-appoint-add" data-toggle="tab" href="#tab-appointAdd" aria-selected="false">
-                <span>Add</span>
-            </a>
+            <asp:LinkButton ID="lnkAddAppoint" CssClass="nav-link show" OnClick="lnkAddAppoint_Click" runat="server"><span>Add</span></asp:LinkButton>
         </li>
         <li class="nav-item">
-            <a role="tab" class="nav-link show" id="tab-appoint-update" data-toggle="tab" href="#tab-appointUpdate" aria-selected="false">
-                <span>Update</span>
-            </a>
+            <asp:LinkButton ID="lnkUpdateAppoint" CssClass="nav-link show" OnClick="lnkUpdateAppoint_Click" runat="server"><span>Update</span></asp:LinkButton>
         </li>
         <li class="nav-item">
-            <a role="tab" class="nav-link show" id="tab-appoint-delete" data-toggle="tab" href="#tab-appointDelete" aria-selected="false">
-                <span>Delete</span>
-            </a>
+            <asp:LinkButton ID="lnkDeleteAppoint" CssClass="nav-link show" OnClick="lnkDeleteAppoint_Click" runat="server"><span>Delete</span></asp:LinkButton>
         </li>
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane tabs-animation fade active show" id="tab-appointSearch" role="tabpanel">
+        <asp:Panel ID="tabSearchAppoint" Visible="true" runat="server">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -83,8 +75,6 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="false">
-                                <hr />
-
                                 <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
                                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -173,9 +163,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
 
-        <div class="tab-pane tabs-animation fade" id="tab-appointAdd" role="tabpanel">
+        <asp:Panel ID="tabAddAppoint" Visible="false" runat="server">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -191,6 +181,10 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
                                         <asp:TextBox ID="txtAddID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorID" ControlToValidate="txtAddID" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\s{6}" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" ControlToValidate="txtAddID" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -200,12 +194,16 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddDate" runat="server" Text="Appointment Date :"></asp:Label>
                                         <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorDate" ControlToValidate="txtAddDate" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddTime" runat="server" Text="Appointment Time :"></asp:Label>
                                         <asp:TextBox ID="txtAddTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorTime" ControlToValidate="txtAddTime" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -215,6 +213,10 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddStaff" runat="server" Text="Staff Register :"></asp:Label>
                                         <asp:TextBox ID="txtAddStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorStaff" ControlToValidate="txtAddStaff" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\s{6}" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorStaff" ControlToValidate="txtAddStaff" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -224,6 +226,8 @@
                                     <div class="position-relative">
                                         <asp:Label ID="lblAddPurpose" runat="server" Text="Appointment Purpose :"></asp:Label><br />
                                         <asp:TextBox ID="txtAddPurpose" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPurpose" ControlToValidate="txtAddPurpose" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -237,9 +241,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
 
-        <div class="tab-pane tabs-animation fade" id="tab-appointUpdate" role="tabpanel">
+        <asp:Panel ID="tabUpdateAppoint" Visible="false" runat="server">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -367,9 +371,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
 
-        <div class="tab-pane tabs-animation fade" id="tab-appointDelete" role="tabpanel">
+        <asp:Panel ID="tabDeleteAppoint" Visible="false" runat="server">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -498,6 +502,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
     </div>
 </asp:Content>
