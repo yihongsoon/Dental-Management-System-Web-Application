@@ -83,7 +83,7 @@
                                             <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
                                             <asp:ListItem Value="icNo" Text="By IC No."></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
-                                            <asp:ListItem Value="contact" Text="By Contact No."></asp:ListItem>
+                                            <asp:ListItem Value="contactNo" Text="By Contact No."></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -92,8 +92,8 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:TextBox ID="txtSearchType" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnBackSearch" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:Button ID="btnSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
+                                        <asp:Button ID="btnBackSearch" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackSearch_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <asp:Button ID="btnAddPatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true"/>
+                                    <asp:Button ID="btnAddPatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true" OnClick="btnAddPatient_Click"/>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +274,7 @@
                                             <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
                                             <asp:ListItem Value="icNo" Text="By IC No."></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
-                                            <asp:ListItem Value="contact" Text="By Contact No."></asp:ListItem>
+                                            <asp:ListItem Value="contactNo" Text="By Contact No."></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -391,7 +391,7 @@
                                             <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
                                             <asp:ListItem Value="icNo" Text="By IC No."></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
-                                            <asp:ListItem Value="contact" Text="By Contact No."></asp:ListItem>
+                                            <asp:ListItem Value="contactNo" Text="By Contact No."></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
