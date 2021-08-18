@@ -89,14 +89,6 @@
                                 </div>                               
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="position-relative form-group">
-                                        <asp:Label ID="label10" runat="server" Text="Address 2"></asp:Label>
-                                        <asp:TextBox ID="txtAddress2" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>                               
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label11" runat="server" Text="City"></asp:Label>

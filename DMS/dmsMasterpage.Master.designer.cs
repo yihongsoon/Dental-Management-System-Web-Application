@@ -87,13 +87,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Button btnSignOut;
 
         /// <summary>
-        /// Label1 control.
+        /// welcomeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label welcomeName;
 
         /// <summary>
         /// hyplnkStaff control.

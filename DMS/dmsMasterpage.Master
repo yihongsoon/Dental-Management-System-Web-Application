@@ -118,8 +118,8 @@
                                                     <asp:Label runat="server" CssClass="fa fa-angle-down ml-2 opacity-8"></asp:Label>
                                                 </a>
                                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                                    <asp:HyperLink ID="hyplnkViewProfile" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
-                                                    <asp:HyperLink ID="hyplnkViewAttendance" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
+                                                    <asp:HyperLink ID="hyplnkViewProfile" Visible="true" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
+                                                    <asp:HyperLink ID="hyplnkViewAttendance" Visible="true" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
                                                     <%--<asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />--%>
                                                     <%--<asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />--%>
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Settings</button>
@@ -127,14 +127,14 @@
                                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>--%>
                                                     <div tabindex="-1" class="dropdown-divider"></div>
                                                     <asp:Button ID="btnSignIn" Visible="false"  TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
-                                                    <asp:Button ID="btnSignOut" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign Out" />
+                                                    <asp:Button ID="btnSignOut" OnClick="btnSignOut_Click" Visible="true" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign Out" />
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Dividers</button>--%>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="widget-content-left  ml-3 header-user-info">
                                             <div class="widget-heading">
-                                                <asp:Label ID="Label1" runat="server" Text="test"></asp:Label>
+                                                <asp:Label ID="welcomeName" runat="server" Text=""></asp:Label>
                                             </div>
                                             <div class="widget-subheading">
                                                 Welcome Back

@@ -187,8 +187,8 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label17" runat="server" Text="Position"></asp:Label>
                                         <asp:DropDownList ID="ddlAddPosition" Enabled="true" CssClass="ddl form-control" runat="server">
-                                            <asp:ListItem Selected="True" Value="nurse">Nurse</asp:ListItem>
-                                            <asp:ListItem Value="dentist">Dentist</asp:ListItem>
+                                            <asp:ListItem Selected="True" Value="Nurse">Nurse</asp:ListItem>
+                                            <asp:ListItem Value="Dentist">Dentist</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -226,9 +226,9 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label21" runat="server" Text="Gender"></asp:Label>
                                         <asp:DropDownList ID="ddlAddGender" Enabled="true" CssClass="ddl form-control" runat="server">
-                                            <asp:ListItem Selected="True" Value="male">Male</asp:ListItem>
-                                            <asp:ListItem Value="female">Female</asp:ListItem>
-                                            <asp:ListItem Value="other">Other</asp:ListItem>
+                                            <asp:ListItem Selected="True" Value="Male">Male</asp:ListItem>
+                                            <asp:ListItem Value="Female">Female</asp:ListItem>
+                                            <asp:ListItem Value="Other">Other</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -248,7 +248,7 @@
                                         <asp:Label ID="label23" runat="server" Text="Contact No."></asp:Label>
                                         <asp:TextBox ID="txtAddContactNo" Enabled="true" MaxLength="10" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtAddContactNo" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{10}" ErrorMessage="Invalid Phone Number "></asp:RegularExpressionValidator>
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{9,10}" ErrorMessage="Invalid Phone Number "></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtAddContactNo" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -276,12 +276,16 @@
                                         <asp:Label ID="label26" runat="server" Text="City"></asp:Label>
                                         <asp:TextBox ID="txtAddCity" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="txtAddCity" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator10" ControlToValidate="txtAddCity" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Only Alphabets are allowed"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label27" runat="server" Text="State"></asp:Label>
                                         <asp:TextBox ID="txtAddState" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtAddState" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Only Alphabets are allowed"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtAddState" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -338,14 +342,16 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label10" runat="server" Text="ID"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
-                                            <%--<asp:Label ID="emptyEmail" runat="server" CssClass="invalid-feedbackEmptyField" Visible="false" Text="Please Fill In The Field."></asp:Label>--%>
+                                            <asp:TextBox ID="txtUpdateID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label11" runat="server" Text="Position"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePosition" Enabled="true" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="label11" runat="server" Text="Position"></asp:Label>                                           
+                                            <asp:DropDownList ID="ddlUpdatePosition" Enabled="true" CssClass="ddl form-control" runat="server">
+                                            <asp:ListItem Value="Nurse">Nurse</asp:ListItem>
+                                            <asp:ListItem Value="Dentist">Dentist</asp:ListItem>
+                                        </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -354,13 +360,18 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label29" runat="server" Text="Name"></asp:Label>
                                             <asp:TextBox ID="txtUpdateName" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUpdateName" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Only Alphabets are allowed"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ControlToValidate="txtUpdateName" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label30" runat="server" Text="IC"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateIC" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtUpdateIC" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtUpdateIC" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC "></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ControlToValidate="txtUpdateIC" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
@@ -369,13 +380,19 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label31" runat="server" Text="Age"></asp:Label>
                                             <asp:TextBox ID="txtUpdateAge" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-
+                                            <asp:RangeValidator ID="RangeValidator2" SetFocusOnError="true" Type="Integer" MinimumValue="1" MaximumValue="200" EnableClientScript="False" ForeColor="Red" ControlToValidate="txtUpdateAge" runat="server" ErrorMessage="Not a valid age"></asp:RangeValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ControlToValidate="txtUpdateAge" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label32" runat="server" Text="Gender"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateGender" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <%--<asp:TextBox ID="txtUpdateGender" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlUpdateGender" Enabled="true" CssClass="ddl form-control" runat="server">
+                                            <asp:ListItem Value="Male">Male</asp:ListItem>
+                                            <asp:ListItem Value="Female">Female</asp:ListItem>
+                                            <asp:ListItem Value="Other">Other</asp:ListItem>
+                                        </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -384,13 +401,18 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label33" runat="server" Text="Email"></asp:Label>
                                             <asp:TextBox ID="txtUpdateEmail" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtUpdateEmail" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$" ErrorMessage="Wrong Email Format"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ControlToValidate="txtUpdateEmail" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label34" runat="server" Text="Contact No."></asp:Label>
                                             <asp:TextBox ID="txtUpdateContact" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator12" ControlToValidate="txtUpdateContact" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{9,10}" ErrorMessage="Invalid Phone Number "></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" ControlToValidate="txtUpdateContact" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
@@ -399,34 +421,36 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label35" runat="server" Text="Address"></asp:Label>
                                             <asp:TextBox ID="txtUpdateAddress1" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator16" ControlToValidate="txtUpdateAddress1" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
-                                <%--<div class="row">
-                                    <div class="col-md-12">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="label36" runat="server" Text="Address 2"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateAddress2" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>--%>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label37" runat="server" Text="City"></asp:Label>
                                             <asp:TextBox ID="txtUpdateCity" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator17" ControlToValidate="txtUpdateCity" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator13" ControlToValidate="txtUpdateCity" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Only Alphabets are allowed"></asp:RegularExpressionValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label38" runat="server" Text="State"></asp:Label>
                                             <asp:TextBox ID="txtUpdateState" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator14" ControlToValidate="txtUpdateState" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Only Alphabets are allowed"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator18" ControlToValidate="txtUpdateState" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label39" runat="server" Text="Zip"></asp:Label>
                                             <asp:TextBox ID="txtUpdateZip" Enabled="true" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtUpdateZip" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{5}" ErrorMessage="Invalid Zip Code"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ControlToValidate="txtUpdateZip" ForeColor="Red" SetFocusOnError="true" EnableClientScript="False" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
@@ -449,7 +473,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
-                                        <asp:DropDownList ID="DropDownList1" CssClass="ddl" runat="server">
+                                        <asp:DropDownList ID="ddlDeleteCriteria" CssClass="ddl" runat="server">
                                             <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
                                             <asp:ListItem Value="contact" Text="By Contact"></asp:ListItem>
                                             <asp:ListItem Value="id" Text="By ID"></asp:ListItem>
@@ -460,13 +484,13 @@
                             <div class="row ">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="Button1" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="Button2" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:TextBox ID="txtDeleteCriteria" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
+                                        <asp:Button ID="btnDeleteSearch" OnClick="btnDeleteSearch_Click" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
+                                        <asp:Button ID="btnDeleteBack" OnClick="btnDeleteBack_Click" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="alert alert-info fade show" runat="server" id="Div2" visible="false">
+                            <div class="alert alert-info fade show" runat="server" id="noresultDelete" visible="false">
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
                             <asp:Panel runat="server" ID="pnlDeleteSearchResult" Visible="false">
@@ -539,14 +563,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="label49" runat="server" Text="Address 2"></asp:Label>
-                                            <asp:TextBox ID="txtDeleteAddress2" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="label50" runat="server" Text="City"></asp:Label>
@@ -568,7 +584,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDelete" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" />
+                                        <asp:Button ID="btnDelete" OnClick="btnDelete_Click" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" />
                                     </div>
                                 </div>
                             </asp:Panel>

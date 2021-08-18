@@ -11,9 +11,31 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Role"].ToString() == "STAFF") 
+            {
+                hyplnkStaff.Enabled = false;
+                btnSignOut.Visible = true;
+                hyplnkViewAttendance.Visible = true;
+                hyplnkViewProfile.Visible = true;
+                welcomeName.Text = Session["ID"].ToString();
+            }
+            else if(Session["Role"].ToString() == "ADMIN")
+            {
+                hyplnkStaff.Enabled = true;
+                btnSignOut.Visible = true;
+                hyplnkViewAttendance.Visible = false;
+                hyplnkViewProfile.Visible = false;
+                welcomeName.Text = Session["ID"].ToString();
+            }
+            
             
         }
 
-        
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Session["ID"] = "";
+            Session["Role"] = "";
+            Response.Redirect("~/loginPage.aspx");
+        }
     }
 }

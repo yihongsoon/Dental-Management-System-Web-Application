@@ -43,6 +43,7 @@ namespace DMS
                             if (dr.Read())
                             {
                                 Session["ID"] = dr["adminID"].ToString();
+                                Session["Role"] = "ADMIN";
                                 Response.Redirect("~/profilePage.aspx");
                             }
                             else
@@ -66,6 +67,7 @@ namespace DMS
                             if (dr.Read())
                             {
                                 Session["ID"] = dr["staffID"].ToString();
+                                Session["Role"] = "STAFF";
                                 Response.Redirect("~/profilePage.aspx");
                             }
                             else
