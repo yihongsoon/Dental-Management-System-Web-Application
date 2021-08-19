@@ -185,7 +185,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
-                                        <asp:TextBox ID="txtIcNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtIcNo" Text="" runat="server" CssClass="form-control" placeHolder="Enter IC Number without '-'"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorIC" ControlToValidate="txtIcNo" SetFocusOnError="true"
                                             EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorIC" ControlToValidate="txtIcNo" ForeColor="Red" SetFocusOnError="true" 
@@ -219,10 +219,12 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblGender" runat="server" Text="Gender :"></asp:Label>
                                         <asp:DropDownList ID="ddlAddPatGender" Enabled="true" CssClass="ddl form-control" runat="server">
-                                            <asp:ListItem Value="male" Selected="True">Male</asp:ListItem>
+                                            <asp:ListItem Value="male">Male</asp:ListItem>
                                             <asp:ListItem Value="female">Female</asp:ListItem>
                                             <asp:ListItem Value="other">Other</asp:ListItem>
                                         </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorGender" ControlToValidate="ddlAddPatGender" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -231,9 +233,9 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblContactNo" runat="server" Text="Contact No. :"></asp:Label>
-                                        <asp:TextBox ID="txtContactNo" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtContactNo" Text="" CssClass="form-control" runat="server" placeHolder="Enter Contact Number without '-'"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorContact" ControlToValidate="txtContactNo" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{11}" ErrorMessage="Invalid Phone Number!"></asp:RegularExpressionValidator>
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{10}" ErrorMessage="Invalid Phone Number!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorContact" ControlToValidate="txtContactNo" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
@@ -284,8 +286,8 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:TextBox ID="txtUpdatePatientSearch" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnUpdatePatientSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnBackUpdate" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:Button ID="btnUpdatePatientSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnUpdatePatientSearch_Click"></asp:Button>
+                                        <asp:Button ID="btnBackUpdate" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackUpdate_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -318,13 +320,21 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdateIcNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtUpdateIcNo" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtUpdateIcNo" SetFocusOnError="true"
+                                                EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUpdateIcNo" ForeColor="Red" SetFocusOnError="true" 
+                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>--%>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateName" runat="server" Text="Name :"></asp:Label>
                                             <asp:TextBox ID="txtUpdatePatientName" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtUpdatePatientName" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtUpdatePatientName" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
@@ -333,8 +343,11 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateAge" runat="server" Text="Age :"></asp:Label>
-                                            <asp:TextBox ID="txtUpdatePatientAge" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-
+                                            <asp:TextBox ID="txtUpdatePatientAge" Text="" runat="server" CssClass="form-control" Enabled="true"></asp:TextBox>
+                                            <asp:RangeValidator ID="RangeValidator1" SetFocusOnError="true" Type="Integer" MinimumValue="1" MaximumValue="150" EnableClientScript="False" ForeColor="Red" 
+                                            ControlToValidate="txtUpdatePatientAge" runat="server" ErrorMessage="Please enter a valid age!"></asp:RangeValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtUpdatePatientAge" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -354,6 +367,10 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateContact" runat="server" Text="Contact No. :"></asp:Label>
                                             <asp:TextBox ID="txtUpdatePatientContact" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtUpdatePatientContact" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{10,11}" ErrorMessage="Invalid Phone Number!"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtUpdatePatientContact" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
@@ -363,13 +380,15 @@
                                         <div class="position-relative">
                                             <asp:Label ID="lblUpdateAllergy" runat="server" Text="Allergies :"></asp:Label><br />
                                             <asp:TextBox ID="txtUpdateAllergy" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtUpdateAllergy" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnUpdatePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true"/>
+                                        <asp:Button ID="btnUpdatePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true" OnClick="btnUpdatePatient_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>
@@ -401,8 +420,8 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:TextBox ID="txtDeletePatientSearch" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnDeletePatientSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnBackDelete" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:Button ID="btnDeletePatientSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnDeletePatientSearch_Click"></asp:Button>
+                                        <asp:Button ID="btnBackDelete" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackDelete_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -447,7 +466,7 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblDeleteGender" runat="server" Text="Gender :"></asp:Label>
-                                            <asp:TextBox ID="lblDeletePatientGender" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtDeletePatientGender" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -472,7 +491,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDeletePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true"/>
+                                        <asp:Button ID="btnDeletePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeletePatient_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>

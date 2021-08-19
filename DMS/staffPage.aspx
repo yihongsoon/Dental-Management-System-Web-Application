@@ -226,7 +226,7 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label21" runat="server" Text="Gender"></asp:Label>
                                         <asp:DropDownList ID="ddlAddGender" Enabled="true" CssClass="ddl form-control" runat="server">
-                                            <asp:ListItem Selected="True" Value="Male">Male</asp:ListItem>
+                                            <asp:ListItem Value="Male">Male</asp:ListItem>
                                             <asp:ListItem Value="Female">Female</asp:ListItem>
                                             <asp:ListItem Value="Other">Other</asp:ListItem>
                                         </asp:DropDownList>
