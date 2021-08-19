@@ -111,6 +111,7 @@
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
     <Content Include="attendancePage.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="attendancePage.aspx.designer.cs">
       <DependentUpon>attendancePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="dmsMasterpage.Master.cs">
       <DependentUpon>dmsMasterpage.Master</DependentUpon>

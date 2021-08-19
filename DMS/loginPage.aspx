@@ -19,14 +19,10 @@
     <%--NAV BUTTON START--%>
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
-            <a role="tab" class="nav-link show active" id="tab-0" data-toggle="tab" href="#tab-content-0" aria-selected="true">
-                <span>Login</span>
-            </a>
+            <asp:LinkButton ID="lnkLogin" CssClass="nav-link show active" OnClick="lnkLogin_Click" runat="server"><span>Login</span></asp:LinkButton>
         </li>
-        <li class="nav-item">
-            <a role="tab" class="nav-link show" id="tab-1" data-toggle="tab" href="#tab-content-1" aria-selected="false">
-                <span>Password Recovery</span>
-            </a>            
+        <li class="nav-item">          
+            <asp:LinkButton ID="lnkPasswordRecover" CssClass="nav-link show" OnClick="lnkPasswordRecover_Click" runat="server"><span>Password Recovery</span></asp:LinkButton>
         </li>
     </ul>
     <%--NAV BUTTON END--%>
@@ -34,7 +30,7 @@
     <div class="tab-content">
 
         <%--LOGIN SCREEN--%>
-        <div class="tab-pane tabs-animation fade active show" id="tab-content-0" role="tabpanel">
+        <asp:Panel runat="server" ID="pnllogin">
             <div class="row">
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
@@ -67,9 +63,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
         <%--PASSWORD RECOVERY SCREEN--%>
-        <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+        <asp:Panel runat="server" Visible="false" ID="pnlPasswordRecover">
             <div class="row">
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
@@ -93,7 +89,7 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblPassRICNo" runat="server" Text="IC Number Without Dash"></asp:Label>
-                                            <asp:TextBox ID="txtPassRICNo" TextMode="Number" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassRICNo" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -103,6 +99,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
+        
+
     </div>
 </asp:Content>

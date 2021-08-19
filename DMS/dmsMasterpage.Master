@@ -120,6 +120,7 @@
                                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                                     <asp:HyperLink ID="hyplnkViewProfile" Visible="true" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
                                                     <asp:HyperLink ID="hyplnkViewAttendance" Visible="true" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
+                                                    <asp:HyperLink ID="hyplnkChangePassword" Visible="true" NavigateUrl="~/ChangePassword.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">Change Password</asp:HyperLink>
                                                     <%--<asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />--%>
                                                     <%--<asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />--%>
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Settings</button>

@@ -112,9 +112,11 @@ namespace DMS
                             if (dr.Read())
                             {
                             success.Visible = true;
-                            }
+                            failMatchIcEmail.Visible = false;
+                        }
                             else
                             {
+                            success.Visible = false;
                             failMatchIcEmail.Visible = true;
                             }
                         }
@@ -134,5 +136,29 @@ namespace DMS
                 emptyFieldPassRecovery.Visible = true;
             }
         }
+
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            pnllogin.Visible = true;
+            pnlPasswordRecover.Visible = false;
+            lnkLogin.CssClass = "nav-link show active";
+            lnkPasswordRecover.CssClass = "nav-link show";
+            emptyField.Visible = false;
+            emptyFieldPassRecovery.Visible = false;
+        }
+
+        protected void lnkPasswordRecover_Click(object sender, EventArgs e)
+        {
+            pnllogin.Visible = false;
+            pnlPasswordRecover.Visible = true;
+            lnkLogin.CssClass = "nav-link show";
+            lnkPasswordRecover.CssClass = "nav-link show active";
+            emptyField.Visible = false;
+            emptyFieldPassRecovery.Visible = false;
+        }
+
+
+
+        
     }
 }

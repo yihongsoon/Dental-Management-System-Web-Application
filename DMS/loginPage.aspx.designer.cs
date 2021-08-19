@@ -15,6 +15,33 @@ namespace DMS
     {
 
         /// <summary>
+        /// lnkLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogin;
+
+        /// <summary>
+        /// lnkPasswordRecover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkPasswordRecover;
+
+        /// <summary>
+        /// pnllogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnllogin;
+
+        /// <summary>
         /// loginFail control.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSignIn;
+
+        /// <summary>
+        /// pnlPasswordRecover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPasswordRecover;
 
         /// <summary>
         /// failMatchIcEmail control.

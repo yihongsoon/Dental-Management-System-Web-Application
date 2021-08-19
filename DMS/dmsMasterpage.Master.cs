@@ -17,6 +17,7 @@ namespace DMS
                 btnSignOut.Visible = true;
                 hyplnkViewAttendance.Visible = true;
                 hyplnkViewProfile.Visible = true;
+                hyplnkChangePassword.Visible = true;
                 welcomeName.Text = Session["ID"].ToString();
             }
             else if(Session["Role"].ToString() == "ADMIN")
@@ -25,6 +26,7 @@ namespace DMS
                 btnSignOut.Visible = true;
                 hyplnkViewAttendance.Visible = false;
                 hyplnkViewProfile.Visible = false;
+                hyplnkChangePassword.Visible = false;
                 welcomeName.Text = Session["ID"].ToString();
             }
             
