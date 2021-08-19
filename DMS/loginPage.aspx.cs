@@ -6,12 +6,57 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace DMS
 {
     public partial class loginPage : System.Web.UI.Page
     {
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+        void SendEmail()
+        {
+            string to = txtpassREmail.Text; //To address    
+            string from = "dentalmsystem@gmail.com"; //From address    
+            MailMessage message = new MailMessage(from, to);
+
+            string mailbody = "Hi!" + Environment.NewLine + Environment.NewLine + "Your Password have been reset to your IC, " + Environment.NewLine + Environment.NewLine + "Please change your password within 30 minutes." + Environment.NewLine + Environment.NewLine + "Dental Management System" + Environment.NewLine + Environment.NewLine + "This is an automated email. Please do not reply to this email.";
+            message.Subject = "Password Recovery";
+            message.Body = mailbody;
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = false;
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+            System.Net.NetworkCredential basicCredential1 = new
+            System.Net.NetworkCredential("dentalmsystem@gmail.com", "DMSassignment");
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.Credentials = basicCredential1;
+            try
+            {
+                client.Send(message);
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void changePass()
+        {
+            SqlConnection con = new SqlConnection(strCon);
+            con.Open();
+            
+            SqlCommand cmd = new SqlCommand("Update Staff set password = @newpass where icNo = @ic", con);
+            cmd.Parameters.AddWithValue("@newpass", txtPassRICNo.Text);
+            cmd.Parameters.AddWithValue("@ic", txtPassRICNo.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -111,7 +156,9 @@ namespace DMS
                         {
                             if (dr.Read())
                             {
+                            changePass();
                             success.Visible = true;
+                            SendEmail();
                             failMatchIcEmail.Visible = false;
                         }
                             else
