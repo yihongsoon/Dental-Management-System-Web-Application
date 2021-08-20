@@ -21,11 +21,6 @@ namespace DMS
             patientId();
         }
 
-        protected void btnAddVisit_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("patientVisitPage.aspx");
-        }
-
         void AlertMessage(string msg)
         {
             Response.Write("<script type=\"text/javascript\">alert('" + msg + "')</script>");

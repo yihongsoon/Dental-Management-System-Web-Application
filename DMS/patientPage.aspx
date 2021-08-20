@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/dmsMasterpage.Master" CodeBehind="patientPage.aspx.cs" Inherits="DMS.patientPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+
     <style type="text/css">
         .ddl {
             border: 2px solid #3f6ad8;
@@ -296,12 +297,12 @@
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
 
-                            <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="false">
+                            <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="true">
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" OnClick="btnAddVisit_Click"></asp:Button>
+                                            <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" data-toggle="modal" data-target="#visitModal" OnClientClick="return false;"></asp:Button>
                                             <asp:Button ID="btnViewVisit" CssClass="mt-2 btn btn-visit left" runat="server" Text="View Visit Record"></asp:Button>
                                         </div>
                                     </div>
@@ -321,10 +322,6 @@
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblUpdateIcNo" runat="server" Text="Identification Card No. :"></asp:Label>
                                             <asp:TextBox ID="txtUpdateIcNo" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-                                            <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtUpdateIcNo" SetFocusOnError="true"
-                                                EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUpdateIcNo" ForeColor="Red" SetFocusOnError="true" 
-                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>--%>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -501,4 +498,89 @@
             </div>
         </asp:Panel>
     </div>
+
+    <div class="modal fade" id="visitModal" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title font-weight-bold">Add patient visit details here.</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="lblVisitID" runat="server" Text="Visit ID :"></asp:Label>
+                                    <asp:TextBox ID="txtVisitID" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="Label1" runat="server" Text="Patient ID :"></asp:Label>
+                                    <asp:TextBox ID="TextBox1" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="lblDateVisit" runat="server" Text="Date Visit :"></asp:Label>
+                                    <asp:TextBox ID="txtDateVisit" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="lblPresence" runat="server" Text="Presence :"></asp:Label>
+                                    <asp:TextBox ID="txtPresence" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="lblDentisitVisit" runat="server" Text="Dentist Visited :"></asp:Label>
+                                    <asp:TextBox ID="txtDentistVisit" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <asp:Label ID="lblRoomNo" runat="server" Text="Room No. :"></asp:Label>
+                                    <asp:TextBox ID="txtRoomNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="position-relative">
+                                    <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis :"></asp:Label><br />
+                                    <asp:TextBox ID="txtDiagnosis" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="position-relative">
+                                    <asp:Label ID="lblMedicineGiven" runat="server" Text="Medicine Given :"></asp:Label><br />
+                                    <asp:TextBox ID="txtMedicineGiven" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:Button ID="btnAddVisitDetails" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true"/>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
