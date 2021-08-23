@@ -69,6 +69,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtPatientID;
 
         /// <summary>
+        /// RegularExpressionValidatorID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorID;
+
+        /// <summary>
+        /// RequiredFieldValidatorID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorID;
+
+        /// <summary>
         /// lblDateVisit control.
         /// </summary>
         /// <remarks>
@@ -87,6 +105,15 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDateVisit;
 
         /// <summary>
+        /// RequiredFieldValidatorDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDate;
+
+        /// <summary>
         /// lblPresence control.
         /// </summary>
         /// <remarks>
@@ -96,13 +123,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblPresence;
 
         /// <summary>
-        /// txtPresence control.
+        /// ddlPresence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPresence;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPresence;
 
         /// <summary>
         /// lblDentisitVisit control.
@@ -123,6 +150,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDentistVisit;
 
         /// <summary>
+        /// RegularExpressionValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorName;
+
+        /// <summary>
+        /// RequiredFieldValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
+
+        /// <summary>
         /// lblRoomNo control.
         /// </summary>
         /// <remarks>
@@ -139,6 +184,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRoomNo;
+
+        /// <summary>
+        /// RegularExpressionValidatorRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorRoom;
+
+        /// <summary>
+        /// RequiredFieldValidatorRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorRoom;
 
         /// <summary>
         /// lblDiagnosis control.
@@ -159,6 +222,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDiagnosis;
 
         /// <summary>
+        /// RegularExpressionValidatorDiagnosis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorDiagnosis;
+
+        /// <summary>
+        /// RequiredFieldValidatorDiagnosis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDiagnosis;
+
+        /// <summary>
         /// lblMedicineGiven control.
         /// </summary>
         /// <remarks>
@@ -175,6 +256,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedicineGiven;
+
+        /// <summary>
+        /// RegularExpressionValidatorMed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorMed;
+
+        /// <summary>
+        /// RequiredFieldValidatorMed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMed;
 
         /// <summary>
         /// btnAddVisitDetails control.

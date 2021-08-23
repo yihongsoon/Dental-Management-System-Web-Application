@@ -297,12 +297,12 @@
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
 
-                            <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="true">
+                            <asp:Panel runat="server" ID="pnlUpdatePatient" Visible="false">
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" data-toggle="modal" data-target="#visitModal" OnClientClick="return false;"></asp:Button>
+                                            <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" OnClick="btnAddVisit_Click"></asp:Button>
                                             <asp:Button ID="btnViewVisit" CssClass="mt-2 btn btn-visit left" runat="server" Text="View Visit Record"></asp:Button>
                                         </div>
                                     </div>
@@ -499,7 +499,7 @@
         </asp:Panel>
     </div>
 
-    <div class="modal fade" id="visitModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <%--<div class="modal fade" id="visitModal" role="dialog" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="form">
             <div class="modal-content">
                 <div class="modal-header">
@@ -581,6 +581,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 </asp:Content>

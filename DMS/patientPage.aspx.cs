@@ -26,6 +26,11 @@ namespace DMS
             Response.Write("<script type=\"text/javascript\">alert('" + msg + "')</script>");
         }
 
+        protected void btnAddVisit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("patientVisitPage.aspx");
+        }
+
         public void patientId()
         {
             SqlConnection con = new SqlConnection(strCon);
