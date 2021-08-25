@@ -182,7 +182,7 @@
                                         <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
                                         <asp:TextBox ID="txtAddID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorID" ControlToValidate="txtAddID" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\s{6}" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" ControlToValidate="txtAddID" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
@@ -214,7 +214,7 @@
                                         <asp:Label ID="lblAddStaff" runat="server" Text="Staff Register :"></asp:Label>
                                         <asp:TextBox ID="txtAddStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorStaff" ControlToValidate="txtAddStaff" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\s{6}" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[S]{1}[\d]{5}$" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorStaff" ControlToValidate="txtAddStaff" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
@@ -234,7 +234,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <asp:Button ID="btnAddPatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true"/>
+                                    <asp:Button ID="btnAddAppointment" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true" OnClick="btnAddAppointment_Click"/>
                                 </div>
                             </div>
                         </div>
@@ -252,10 +252,11 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:DropDownList ID="ddlUpdateSearchType" CssClass="ddl" runat="server">
-                                            <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
-                                            <asp:ListItem Value="icNo" Text="By IC No."></asp:ListItem>
+                                            <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
-                                            <asp:ListItem Value="contact" Text="By Contact No."></asp:ListItem>
+                                            <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
+                                            <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
+                                            <asp:ListItem Value="staffReg" Text="By Staff Register"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
