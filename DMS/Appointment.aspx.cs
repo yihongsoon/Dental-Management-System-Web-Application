@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -18,6 +19,42 @@ namespace DMS
         {
             //if (Session["username"] == null)
             //    Response.Redirect("loginPage.aspx");
+
+            //if (!IsPostBack)
+            //{
+            //    if (ddlSearchChoice.SelectedValue == "appointID")
+            //    {
+            //        txtSearchChoice.Visible = true;
+            //        txtSearchDate.Visible = false;
+            //        txtSearchTime.Visible = false;
+            //    }
+            //    else if (ddlSearchChoice.SelectedValue == "patientID")
+            //    {
+            //        txtSearchChoice.Visible = true;
+            //        txtSearchDate.Visible = false;
+            //        txtSearchTime.Visible = false;
+            //    }
+            //    else if (ddlSearchChoice.SelectedValue == "appointDate")
+            //    {
+            //        txtSearchChoice.Visible = false;
+            //        txtSearchDate.Visible = true;
+            //        txtSearchTime.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        txtSearchChoice.Visible = false;
+            //        txtSearchDate.Visible = false;
+            //        txtSearchTime.Visible = true;
+            //    }
+            //}
+  
+            if (!this.IsPostBack)
+            {
+
+                this.BindGrid();
+            }
+
+
             appointmentId();
 
         }
@@ -116,7 +153,7 @@ namespace DMS
                     con.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO Appointment(appointmentID, appointmentDate, appointmentTime, apointmentPurpose, patientID, staffID) VALUES(@appointmentID, @appointmentDate, @appointmentTime, @apointmentPurpose, @patientID, @staffID)", con);
                     cmd.Parameters.AddWithValue("@appointmentID", txtAddAppID.Text);
-                    cmd.Parameters.AddWithValue("@appointmentDate", txtAddDate.Text);
+                    cmd.Parameters.AddWithValue("@appointmentDate", SqlDbType.Date).Value = txtAddDate.Text;
                     cmd.Parameters.AddWithValue("@appointmentTime", txtAddTime.Text);
                     cmd.Parameters.AddWithValue("@apointmentPurpose", txtAddPurpose.Text);
                     cmd.Parameters.AddWithValue("@patientID", txtAddID.Text);
@@ -134,6 +171,121 @@ namespace DMS
                     con.Close();
                 }
             }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.BindGrid();
+        }
+
+        private void BindGrid()
+        {
+            if(ddlSearchChoice.SelectedValue == "appointID")
+            {
+                //txtSearchChoice.Visible = true;
+                //txtSearchDate.Visible = false;
+                //txtSearchTime.Visible = false;
+
+                using(SqlConnection con = new SqlConnection(strCon))
+                {
+                    using(SqlCommand cmd = new SqlCommand()) 
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentID LIKE '%' + @appointmentID + '%'";
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@appointmentID", txtSearchChoice.Text);
+                        DataTable dt = new DataTable();
+                        using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            GridViewSearch.DataSource = dt;
+                            GridViewSearch.DataBind();
+                        }
+                    }
+                }
+            }else if(ddlSearchChoice.SelectedValue == "patientID")
+            {
+                //txtSearchChoice.Visible = true;
+                //txtSearchDate.Visible = false;
+                //txtSearchTime.Visible = false;
+
+                using (SqlConnection con = new SqlConnection(strCon))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where patientID LIKE '%' + @patientID + '%'";
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@patientID", txtSearchChoice.Text);
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            GridViewSearch.DataSource = dt;
+                            GridViewSearch.DataBind();
+                        }
+                    }
+                }
+            }else if(ddlSearchChoice.SelectedValue == "appointDate")
+            {
+                //txtSearchChoice.Visible = false;
+                //txtSearchDate.Visible = true;
+                //txtSearchTime.Visible = false;
+
+                using (SqlConnection con = new SqlConnection(strCon))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentDate LIKE '%' + @appointmentDate + '%'";
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@appointmentDate", txtSearchDate.Text);
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            GridViewSearch.DataSource = dt;
+                            GridViewSearch.DataBind();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                //txtSearchChoice.Visible = false;
+                //txtSearchDate.Visible = false;
+                //txtSearchTime.Visible = true;
+
+                using (SqlConnection con = new SqlConnection(strCon))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentTime LIKE '%' + @appointmentTime + '%'";
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@appointmentTime", txtSearchTime.Text);
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            GridViewSearch.DataSource = dt;
+                            GridViewSearch.DataBind();
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        protected void onPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewSearch.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
+
+        protected void hplAppointmentID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

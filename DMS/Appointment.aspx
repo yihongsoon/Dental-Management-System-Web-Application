@@ -55,7 +55,6 @@
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
-                                            <asp:ListItem Value="staffReg" Text="By Staff Register"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -64,36 +63,47 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:TextBox ID="txtSearchChoice" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
+                                        <asp:TextBox ID="txtSearchDate" CssClass="form-control" runat="server" TextMode="Date" Visible="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtSearchTime" CssClass="form-control" runat="server" TextMode="Time" Visible="false"></asp:TextBox>
+                                        <asp:Button ID="btnSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
                                         <asp:Button ID="btnBackSearch" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="alert alert-info fade show" runat="server" id="patientSearchNotFound" visible="false">
+                            <%--<div class="alert alert-info fade show" runat="server" id="appointSearchNotFound" visible="false">
                                 <asp:Label runat="server" Text="No Patient Details Found"></asp:Label>
-                            </div>
+                            </div>--%>
 
-                            <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="false">
-                                <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
-                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                            <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="true">
+                                <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <%--<EmptyDataTemplate>
+                                    <EmptyDataTemplate>
                                         <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
-                                    </EmptyDataTemplate>--%>
+                                    </EmptyDataTemplate>
                                     <Columns>
-                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                        <%--<asp:HyperLinkField DataTextField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
-                                        </asp:HyperLinkField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        </asp:HyperLinkField>--%>
+                                        <asp:TemplateField HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="hplAppointmentID" runat="server" Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:LinkButton>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentTime" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
+                                        <%--<asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>--%>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

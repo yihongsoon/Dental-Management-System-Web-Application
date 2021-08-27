@@ -78,6 +78,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtSearchChoice;
 
         /// <summary>
+        /// txtSearchDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchDate;
+
+        /// <summary>
+        /// txtSearchTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchTime;
+
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>
@@ -94,15 +112,6 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBackSearch;
-
-        /// <summary>
-        /// patientSearchNotFound control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl patientSearchNotFound;
 
         /// <summary>
         /// pnlSearchPatientBroad control.
