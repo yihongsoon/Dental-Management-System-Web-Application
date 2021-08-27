@@ -11,7 +11,7 @@ namespace DMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["Role"].ToString() == "STAFF") 
+            //if (Session["Role"].ToString() == "STAFF")
             //{
             //    hyplnkStaff.Enabled = false;
             //    btnSignOut.Visible = true;
@@ -20,7 +20,7 @@ namespace DMS
             //    hyplnkChangePassword.Visible = true;
             //    welcomeName.Text = Session["ID"].ToString();
             //}
-            //else if(Session["Role"].ToString() == "ADMIN")
+            //else if (Session["Role"].ToString() == "ADMIN")
             //{
             //    hyplnkStaff.Enabled = true;
             //    btnSignOut.Visible = true;
@@ -29,8 +29,8 @@ namespace DMS
             //    hyplnkChangePassword.Visible = false;
             //    welcomeName.Text = Session["ID"].ToString();
             //}
-            
-            
+
+
         }
 
         protected void btnSignOut_Click(object sender, EventArgs e)

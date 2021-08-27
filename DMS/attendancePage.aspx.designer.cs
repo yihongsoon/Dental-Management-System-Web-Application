@@ -15,6 +15,51 @@ namespace DMS
     {
 
         /// <summary>
+        /// lnkAttendance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAttendance;
+
+        /// <summary>
+        /// lnkCheckIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkCheckIn;
+
+        /// <summary>
+        /// lnkCheckOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkCheckOut;
+
+        /// <summary>
+        /// lnkDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDetails;
+
+        /// <summary>
+        /// pnlAttendance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAttendance;
+
+        /// <summary>
         /// label1 control.
         /// </summary>
         /// <remarks>
@@ -123,40 +168,31 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtTotalAttendance;
 
         /// <summary>
-        /// label6 control.
+        /// pnlCheckIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label6;
+        protected global::System.Web.UI.WebControls.Panel pnlCheckIn;
 
         /// <summary>
-        /// txtLeaveTaken control.
+        /// checkInFail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLeaveTaken;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkInFail;
 
         /// <summary>
-        /// label7 control.
+        /// emptyField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label7;
-
-        /// <summary>
-        /// txtOffDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOffDay;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl emptyField;
 
         /// <summary>
         /// label111 control.
@@ -213,6 +249,15 @@ namespace DMS
         protected global::System.Web.UI.WebControls.LinkButton lnkbtnQRCheckIn;
 
         /// <summary>
+        /// pnlCheckOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCheckOut;
+
+        /// <summary>
         /// label10 control.
         /// </summary>
         /// <remarks>
@@ -265,6 +310,15 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkbtnQRCheckOut;
+
+        /// <summary>
+        /// pnlDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDetails;
 
         /// <summary>
         /// btnGenerateExcel control.
