@@ -13,8 +13,22 @@
             </div>
         </div>
     </div>
+    <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+        <li class="nav-item">
+            <asp:LinkButton ID="lnkAttendance" CssClass="nav-link show active" OnClick="lnkAttendance_Click" runat="server"><span>Attendance</span></asp:LinkButton>
+        </li>
+        <li class="nav-item">
+            <asp:LinkButton ID="lnkCheckIn" CssClass="nav-link show" OnClick="lnkCheckIn_Click" runat="server"><span>Check In</span></asp:LinkButton>
+        </li>
+        <li class="nav-item">
+            <asp:LinkButton ID="lnkCheckOut" CssClass="nav-link show" OnClick="lnkCheckOut_Click" runat="server"><span>Check Out</span></asp:LinkButton>
+        </li>
+        <li class="nav-item">
+            <asp:LinkButton ID="lnkDetails" CssClass="nav-link show" OnClick="lnkDetails_Click" runat="server"><span>Details</span></asp:LinkButton>
+        </li>
+    </ul>
     <div class="tab-content">
-        <div class="tab-pane tabs-animation fade active show" id="tab-content-0" role="tabpanel">
+        <asp:Panel runat="server" Visible="true" ID="pnlAttendance">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
@@ -63,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <%--<div class="row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label6" runat="server" Text="Leave Taken"></asp:Label>
@@ -77,26 +91,22 @@
                                         <asp:TextBox ID="txtOffDay" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
-                            </div>
-                            <a role="tab" class="mt-2 btn btn-primary" id="checkIn" data-toggle="tab" href="#checkInScreen" aria-selected="false">
-                                <span>Check In</span>
-                            </a>
-                            <a role="tab" class="mt-2 btn btn-primary" id="checkOut" data-toggle="tab" href="#checkOutScreen" aria-selected="false">
-                                <span>Check Out</span>
-                            </a>
-                            <a role="tab" class="mt-2 btn btn-primary" id="Detail" data-toggle="tab" href="#DetailsScreen" aria-selected="false">
-                                <span>Details</span>
-                            </a>
+                            </div>--%>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane tabs-animation fade" id="checkInScreen" role="tabpanel">
+        </asp:Panel>
+        <asp:Panel runat="server" Visible="false" ID="pnlCheckIn">
             <div class="row">
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
+                            <div class="alert alert-danger fade show" runat="server" ID="checkInFail" visible="false">
+                                    <asp:Label  runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label></div> 
+                            <div class="alert alert-warning fade show" id="emptyField" runat="server" visible="false">
+                                    <asp:Label runat="server" Text="Please Complete All Field"></asp:Label></div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
@@ -109,14 +119,14 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label8" runat="server" Text="Password"></asp:Label>
-                                        <asp:TextBox ID="txtCheckInPass" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtCheckInPass" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <asp:Button ID="btnCheckIn" runat="server" CssClass="mt-2 btn btn-primary" Text="Check In" />
+                                    <asp:Button ID="btnCheckIn" runat="server" OnClick="btnCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Check In" />
                                 </div>
                             </div>
                             <div class="row">
@@ -129,8 +139,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane tabs-animation fade" id="checkOutScreen" role="tabpanel">
+        </asp:Panel>
+        <asp:Panel runat="server" Visible="false" ID="pnlCheckOut">
             <div class="row">
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
@@ -147,7 +157,7 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="label11" runat="server" Text="Password"></asp:Label>
-                                        <asp:TextBox ID="txtCheckOutPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtCheckOutPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -166,8 +176,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane tabs-animation fade" id="DetailsScreen" role="tabpanel">
+        </asp:Panel>
+        <asp:Panel runat="server" Visible="false" ID="pnlDetails">
             <div class="row">
                 <div class="col-md-6 text-center">
                     <div class="main-card mb-3 card">
@@ -178,6 +188,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
     </div>
 </asp:Content>
