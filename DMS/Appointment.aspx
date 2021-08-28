@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
-                                        <asp:DropDownList ID="ddlSearchChoice" CssClass="ddl" runat="server">
+                                        <asp:DropDownList ID="ddlSearchChoice" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSearchChoice_Select">
                                             <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
@@ -66,7 +66,7 @@
                                         <asp:TextBox ID="txtSearchDate" CssClass="form-control" runat="server" TextMode="Date" Visible="false"></asp:TextBox>
                                         <asp:TextBox ID="txtSearchTime" CssClass="form-control" runat="server" TextMode="Time" Visible="false"></asp:TextBox>
                                         <asp:Button ID="btnSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
-                                        <asp:Button ID="btnBackSearch" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:Button ID="btnBackSearch" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackSearch_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                         </asp:HyperLinkField>--%>
                                         <asp:TemplateField HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="hplAppointmentID" runat="server" Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:LinkButton>
+                                                <asp:LinkButton ID="hplAppointmentID" runat="server" CommandArgument='<%#Eval("appointmentID")%>' Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:LinkButton>
                                             </ItemTemplate>
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:TemplateField>
@@ -266,7 +266,6 @@
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
-                                            <asp:ListItem Value="staffReg" Text="By Staff Register"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -397,7 +396,6 @@
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
-                                            <asp:ListItem Value="staffReg" Text="By Staff Register"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>

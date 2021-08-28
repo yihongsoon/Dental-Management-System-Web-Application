@@ -20,40 +20,10 @@ namespace DMS
             //if (Session["username"] == null)
             //    Response.Redirect("loginPage.aspx");
 
-            //if (!IsPostBack)
-            //{
-            //    if (ddlSearchChoice.SelectedValue == "appointID")
-            //    {
-            //        txtSearchChoice.Visible = true;
-            //        txtSearchDate.Visible = false;
-            //        txtSearchTime.Visible = false;
-            //    }
-            //    else if (ddlSearchChoice.SelectedValue == "patientID")
-            //    {
-            //        txtSearchChoice.Visible = true;
-            //        txtSearchDate.Visible = false;
-            //        txtSearchTime.Visible = false;
-            //    }
-            //    else if (ddlSearchChoice.SelectedValue == "appointDate")
-            //    {
-            //        txtSearchChoice.Visible = false;
-            //        txtSearchDate.Visible = true;
-            //        txtSearchTime.Visible = false;
-            //    }
-            //    else
-            //    {
-            //        txtSearchChoice.Visible = false;
-            //        txtSearchDate.Visible = false;
-            //        txtSearchTime.Visible = true;
-            //    }
-            //}
-  
             if (!this.IsPostBack)
             {
-
                 this.BindGrid();
             }
-
 
             appointmentId();
 
@@ -173,6 +143,28 @@ namespace DMS
             }
         }
 
+        protected void ddlSearchChoice_Select(object sender, EventArgs e)
+        {
+                if (ddlSearchChoice.SelectedValue == "appointID" || ddlSearchChoice.SelectedValue == "patientID")
+                {
+                    txtSearchChoice.Visible = true;
+                    txtSearchDate.Visible = false;
+                    txtSearchTime.Visible = false;
+                }
+                else if (ddlSearchChoice.SelectedValue == "appointDate")
+                {
+                    txtSearchChoice.Visible = false;
+                    txtSearchDate.Visible = true;
+                    txtSearchTime.Visible = false;
+                }
+                else
+                {
+                    txtSearchChoice.Visible = false;
+                    txtSearchDate.Visible = false;
+                    txtSearchTime.Visible = true;
+                }
+        }
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             this.BindGrid();
@@ -182,9 +174,6 @@ namespace DMS
         {
             if(ddlSearchChoice.SelectedValue == "appointID")
             {
-                //txtSearchChoice.Visible = true;
-                //txtSearchDate.Visible = false;
-                //txtSearchTime.Visible = false;
 
                 using(SqlConnection con = new SqlConnection(strCon))
                 {
@@ -205,9 +194,6 @@ namespace DMS
                 }
             }else if(ddlSearchChoice.SelectedValue == "patientID")
             {
-                //txtSearchChoice.Visible = true;
-                //txtSearchDate.Visible = false;
-                //txtSearchTime.Visible = false;
 
                 using (SqlConnection con = new SqlConnection(strCon))
                 {
@@ -228,9 +214,6 @@ namespace DMS
                 }
             }else if(ddlSearchChoice.SelectedValue == "appointDate")
             {
-                //txtSearchChoice.Visible = false;
-                //txtSearchDate.Visible = true;
-                //txtSearchTime.Visible = false;
 
                 using (SqlConnection con = new SqlConnection(strCon))
                 {
@@ -252,9 +235,6 @@ namespace DMS
             }
             else
             {
-                //txtSearchChoice.Visible = false;
-                //txtSearchDate.Visible = false;
-                //txtSearchTime.Visible = true;
 
                 using (SqlConnection con = new SqlConnection(strCon))
                 {
@@ -286,6 +266,50 @@ namespace DMS
         protected void hplAppointmentID_Click(object sender, EventArgs e)
         {
 
+                LinkButton lbSearchID = (LinkButton)sender;
+                GridViewRow rowSearchID = (GridViewRow)lbSearchID.NamingContainer;
+                string rowID = Convert.ToString(rowSearchID.RowIndex);
+
+            if (rowID != null)
+            {
+
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT appointmentID, appointmentDate, appointmentTime, apointmentPurpose, patientID, staffID from Appointment", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        txtAppointID.Text = dr["appointmentID"].ToString();
+                        txtAppointDate.Text = dr["appointmentDate"].ToString();
+                        txtAppointTime.Text = dr["appointmentTime"].ToString();
+                        txtPurpose.Text = dr["apointmentPurpose"].ToString();
+                        txtPatientID.Text = dr["patientID"].ToString();
+                        txtStaffReg.Text = dr["staffID"].ToString();
+                        pnlSearchPatientSpecific.Visible = true;
+                        btnBackSearch.Visible = true;
+                    }
+                    else
+                    {
+                        pnlSearchPatientSpecific.Visible = false;
+                        btnBackSearch.Visible = false;
+                    }
+                }
+                con.Close();
+            }
+        }
+
+        protected void btnBackSearch_Click(object sender, EventArgs e)
+        {
+            txtAppointID.Text = "";
+            txtAppointDate.Text = "";
+            txtAppointTime.Text = "";
+            txtPurpose.Text = "";
+            txtPatientID.Text = "";
+            txtStaffReg.Text = "";
+            pnlSearchPatientSpecific.Visible = false;
+            btnBackSearch.Visible = false;
         }
     }
 }
