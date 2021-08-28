@@ -145,6 +145,10 @@
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
+                            <div class="alert alert-danger fade show" runat="server" ID="checkOutInvalid" visible="false">
+                                    <asp:Label  runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label></div> 
+                            <div class="alert alert-warning fade show" id="checkOutEmpty" runat="server" visible="false">
+                                    <asp:Label runat="server" Text="Please Complete All Field"></asp:Label></div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
@@ -163,7 +167,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <asp:Button ID="btnCheckOut" runat="server" CssClass="mt-2 btn btn-primary" Text="Check Out" />
+                                    <asp:Button ID="btnCheckOut" runat="server" OnClick="btnCheckOut_Click" CssClass="mt-2 btn btn-primary" Text="Check Out" />
                                 </div>
                             </div>
                             <div class="row">
@@ -183,6 +187,7 @@
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             <asp:Button ID="btnGenerateExcel" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />
+                            <asp:Label ID="Label6" runat="server" Text="OR"></asp:Label>
                             <asp:Button ID="btnGeneratePDF" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />
                         </div>
                     </div>

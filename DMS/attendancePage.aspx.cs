@@ -200,5 +200,95 @@ namespace DMS
             Response.Write("<script type=\"text/javascript\">alert('" + msg + "')</script>");
         }
 
+        protected void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            if (txtCheckOutIC.Text != string.Empty && txtCheckOutPassword.Text != string.Empty)
+            {
+                checkOutEmpty.Visible = false;
+                try
+                {
+                    SqlConnection con = new SqlConnection(strCon);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select * from Staff where Staff.icNo = @ic AND Staff.password = @pass", con);
+                    //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                    //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                    cmd.Parameters.AddWithValue("@ic", txtCheckOutIC.Text);
+                    cmd.Parameters.AddWithValue("@pass", txtCheckOutPassword.Text);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr != null)
+                    {
+                        if (dr.Read())
+                        {
+                            checkOutInsert();
+                            checkOutInvalid.Visible = false;
+                        }
+                        else
+                        {
+                            checkOutInvalid.Visible = true;
+                        }
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+
+            }
+            else
+            {
+                checkOutEmpty.Visible = true;
+            }
+        }
+
+        public void checkOutInsert()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select checkOutTime from Attendance where staffID = @id AND workingDate = @workingDate", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                cmd.Parameters.AddWithValue("@id", Session["ID"].ToString());
+                cmd.Parameters.AddWithValue("@workingDate", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        if(dr.IsDBNull(dr.GetOrdinal("checkOutTime")))
+                        {
+                            SqlConnection con2 = new SqlConnection(strCon);
+                            con2.Open();
+                            SqlCommand cmd2 = new SqlCommand("Update Attendance set checkOutTime = @OutTime", con2);
+                            var time24 = DateTime.Now.ToString("HH:mm:ss");
+                            cmd2.Parameters.AddWithValue("@OutTime", time24);
+                            cmd2.ExecuteNonQuery();
+                            con2.Close();
+                            ShowMessage("Check Out Successfully");
+                        }
+                        else
+                        {
+                            ShowMessage("Duplicate Check Out");
+                        }
+                    }
+                    else
+                    {
+                        ShowMessage("Please Check In First");
+                    }
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                ShowMessage(ex.Message);
+            }
+
+
+        }
     }
 }
