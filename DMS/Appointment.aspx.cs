@@ -123,7 +123,7 @@ namespace DMS
                     con.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO Appointment(appointmentID, appointmentDate, appointmentTime, apointmentPurpose, patientID, staffID) VALUES(@appointmentID, @appointmentDate, @appointmentTime, @apointmentPurpose, @patientID, @staffID)", con);
                     cmd.Parameters.AddWithValue("@appointmentID", txtAddAppID.Text);
-                    cmd.Parameters.AddWithValue("@appointmentDate", SqlDbType.Date).Value = txtAddDate.Text;
+                    cmd.Parameters.AddWithValue("@appointmentDate", txtAddDate.Text);
                     cmd.Parameters.AddWithValue("@appointmentTime", txtAddTime.Text);
                     cmd.Parameters.AddWithValue("@apointmentPurpose", txtAddPurpose.Text);
                     cmd.Parameters.AddWithValue("@patientID", txtAddID.Text);
@@ -200,7 +200,8 @@ namespace DMS
                     using (SqlCommand cmd = new SqlCommand())
                     {
                         con.Open();
-                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where patientID LIKE '%' + @patientID + '%'";
+                        var appointmentDate = DateTime.Now;
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentID LIKE '%' + @appointmentID + '%' AND appointmentDate = @appointmentDate";
                         cmd.Connection = con;
                         cmd.Parameters.AddWithValue("@patientID", txtSearchChoice.Text);
                         DataTable dt = new DataTable();
@@ -220,7 +221,7 @@ namespace DMS
                     using (SqlCommand cmd = new SqlCommand())
                     {
                         con.Open();
-                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentDate LIKE '%' + @appointmentDate + '%'";
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentID LIKE '%' + @appointmentID + '%'";
                         cmd.Connection = con;
                         cmd.Parameters.AddWithValue("@appointmentDate", txtSearchDate.Text);
                         DataTable dt = new DataTable();
@@ -241,7 +242,7 @@ namespace DMS
                     using (SqlCommand cmd = new SqlCommand())
                     {
                         con.Open();
-                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentTime LIKE '%' + @appointmentTime + '%'";
+                        cmd.CommandText = "SELECT appointmentID, appointmentDate, appointmentTime, patientID FROM Appointment where appointmentID LIKE '%' + @appointmentID + '%'";
                         cmd.Connection = con;
                         cmd.Parameters.AddWithValue("@appointmentTime", txtSearchTime.Text);
                         DataTable dt = new DataTable();
@@ -263,45 +264,23 @@ namespace DMS
             this.BindGrid();
         }
 
-        protected void hplAppointmentID_Click(object sender, EventArgs e)
+        protected void GridViewSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-                LinkButton lbSearchID = (LinkButton)sender;
-                GridViewRow rowSearchID = (GridViewRow)lbSearchID.NamingContainer;
-                string rowID = Convert.ToString(rowSearchID.RowIndex);
-
-            if (rowID != null)
-            {
-
-                SqlConnection con = new SqlConnection(strCon);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT appointmentID, appointmentDate, appointmentTime, apointmentPurpose, patientID, staffID from Appointment", con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr != null)
-                {
-                    if (dr.Read())
-                    {
-                        txtAppointID.Text = dr["appointmentID"].ToString();
-                        txtAppointDate.Text = dr["appointmentDate"].ToString();
-                        txtAppointTime.Text = dr["appointmentTime"].ToString();
-                        txtPurpose.Text = dr["apointmentPurpose"].ToString();
-                        txtPatientID.Text = dr["patientID"].ToString();
-                        txtStaffReg.Text = dr["staffID"].ToString();
-                        pnlSearchPatientSpecific.Visible = true;
-                        btnBackSearch.Visible = true;
-                    }
-                    else
-                    {
-                        pnlSearchPatientSpecific.Visible = false;
-                        btnBackSearch.Visible = false;
-                    }
-                }
-                con.Close();
-            }
+            txtAppointID.Text = GridViewSearch.SelectedRow.Cells[1].Text;
+            txtPatientID.Text = GridViewSearch.SelectedRow.Cells[2].Text;
+            txtAppointDate.Text = GridViewSearch.SelectedRow.Cells[3].Text;
+            txtAppointTime.Text = GridViewSearch.SelectedRow.Cells[4].Text;
+            txtStaffReg.Text = GridViewSearch.SelectedRow.Cells[5].Text;
+            txtPurpose.Text = GridViewSearch.SelectedRow.Cells[6].Text;
+            pnlSearchPatientSpecific.Visible = true;
+            btnBackSearch.Visible = true;
         }
 
         protected void btnBackSearch_Click(object sender, EventArgs e)
         {
+            txtSearchChoice.Text = "";
+            txtSearchTime.Text = "";
+            txtSearchDate.Text = "";
             txtAppointID.Text = "";
             txtAppointDate.Text = "";
             txtAppointTime.Text = "";
@@ -310,6 +289,7 @@ namespace DMS
             txtStaffReg.Text = "";
             pnlSearchPatientSpecific.Visible = false;
             btnBackSearch.Visible = false;
+            this.BindGrid();
         }
     }
 }

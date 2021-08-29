@@ -77,21 +77,40 @@
 
                             <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="true">
                                 <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
-                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging">
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging" DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewSearch_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <EmptyDataTemplate>
                                         <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
                                     </EmptyDataTemplate>
                                     <Columns>
-                                        <%--<asp:HyperLinkField DataTextField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:HyperLinkField>--%>
-                                        <asp:TemplateField HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                        <%--<asp:TemplateField HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="hplAppointmentID" runat="server" CommandArgument='<%#Eval("appointmentID")%>' Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:LinkButton>
+                                                <asp:Label ID="hplAppointmentID" runat="server" CommandArgument='<%#Eval("appointmentID")%>' Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:Label>
                                             </ItemTemplate>
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblPatientIDGrid" runat="server" CommandArgument='<%#Eval("patientID")%>' Text='<%#Eval("patientID")%>'></asp:Label>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lblAppointmentDate" runat="server" CommandArgument='<%#Eval("appointmentDate")%>' Text='<%#Eval("appointmentDate")%>'></asp:LinkButton>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lblAppointmentTime" runat="server" CommandArgument='<%#Eval("appointmentTime")%>' Text='<%#Eval("appointmentTime")%>'></asp:LinkButton>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:TemplateField>--%>
+                                        <asp:CommandField ShowSelectButton="true" />
+                                        <asp:BoundField DataField="appointmentID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
@@ -101,9 +120,12 @@
                                         <asp:BoundField DataField="appointmentTime" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <%--<asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
-                                        </asp:BoundField>--%>
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
