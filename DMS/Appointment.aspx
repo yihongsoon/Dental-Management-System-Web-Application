@@ -75,40 +75,13 @@
                                 <asp:Label runat="server" Text="No Patient Details Found"></asp:Label>
                             </div>--%>
 
-                            <asp:Panel runat="server" ID="pnlSearchPatientBroad" Visible="true">
+                            <asp:Panel runat="server" ID="pnlSearchAppointBroad" Visible="false">
                                 <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
                                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging" DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewSearch_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <EmptyDataTemplate>
-                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
-                                    </EmptyDataTemplate>
                                     <Columns>
-                                        <%--<asp:TemplateField HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <asp:Label ID="hplAppointmentID" runat="server" CommandArgument='<%#Eval("appointmentID")%>' Text='<%#Eval("appointmentID")%>' OnClick="hplAppointmentID_Click"></asp:Label>
-                                            </ItemTemplate>
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblPatientIDGrid" runat="server" CommandArgument='<%#Eval("patientID")%>' Text='<%#Eval("patientID")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lblAppointmentDate" runat="server" CommandArgument='<%#Eval("appointmentDate")%>' Text='<%#Eval("appointmentDate")%>'></asp:LinkButton>
-                                            </ItemTemplate>
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lblAppointmentTime" runat="server" CommandArgument='<%#Eval("appointmentTime")%>' Text='<%#Eval("appointmentTime")%>'></asp:LinkButton>
-                                            </ItemTemplate>
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:TemplateField>--%>
                                         <asp:CommandField ShowSelectButton="true" />
-                                        <asp:BoundField DataField="appointmentID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
@@ -283,7 +256,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
-                                        <asp:DropDownList ID="ddlUpdateSearchType" CssClass="ddl" runat="server">
+                                        <asp:DropDownList ID="ddlUpdateSearchType" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlUpdateSearchType_Select">
                                             <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
@@ -296,9 +269,11 @@
                             <div class="row ">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:TextBox ID="txtUpdatePatientSearch" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnUpdatePatientSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnBackUpdate" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:TextBox ID="txtUpdateAppointSearch" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtUpdateSearchDate" CssClass="form-control" TextMode="Date" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtUpdateSearchTime" CssClass="form-control" TextMode="Time" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:Button ID="btnUpdateAppointSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnUpdateAppointSearch_Click"></asp:Button>
+                                        <asp:Button ID="btnBackUpdate" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackUpdate_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -308,25 +283,28 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlUpdateAppointBroad" Visible="false">
-                                <hr />
-
-                                <asp:GridView ID="GridViewUpdate" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
-                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+        
+                                <asp:GridView ID="GridViewUpdate" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChangingUpdate" OnSelectedIndexChanged="GridViewUpdate_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <%--<EmptyDataTemplate>
-                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
-                                    </EmptyDataTemplate>--%>
                                     <Columns>
-                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:HyperLinkField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:CommandField ShowSelectButton="true" />
+                                        <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="appointmentTime" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                     </Columns>
@@ -356,6 +334,10 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
                                         <asp:TextBox ID="txtUpdateID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtUpdateID" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUpdateID" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -365,12 +347,16 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateDate" runat="server" Text="Appointment Date :"></asp:Label>
                                         <asp:TextBox ID="txtUpdateDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtUpdateDate" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateTime" runat="server" Text="Appointment Time :"></asp:Label>
                                         <asp:TextBox ID="txtUpdateTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtUpdateTime" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -380,6 +366,10 @@
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateStaff" runat="server" Text="Staff Register :"></asp:Label>
                                         <asp:TextBox ID="txtUpdateStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtUpdateStaff" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[S]{1}[\d]{5}$" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtUpdateStaff" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -389,13 +379,15 @@
                                     <div class="position-relative">
                                         <asp:Label ID="lblUpdatePurpose" runat="server" Text="Appointment Purpose :"></asp:Label><br />
                                         <asp:TextBox ID="txtUpdatePurpose" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtUpdatePurpose" ForeColor="Red" SetFocusOnError="true" 
+                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <asp:Button ID="btnUpdateAppoint" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true"/>
+                                    <asp:Button ID="btnUpdateAppoint" CssClass="mt-2 btn btn-primary" runat="server" Text="Update" Font-Bold="true" OnClick="btnUpdateAppoint_Click"/>
                                 </div>
                             </div>
                             </asp:Panel>
@@ -413,7 +405,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
-                                        <asp:DropDownList ID="ddlDeleteSearchChoice" CssClass="ddl" runat="server">
+                                        <asp:DropDownList ID="ddlDeleteSearchChoice" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDeleteSearchChoice_Select">
                                             <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
                                             <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
@@ -427,8 +419,10 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:TextBox ID="txtDeleteAppointSearch" CssClass="form-control" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnDeleteAppointSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnBackDelete" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:TextBox ID="txtDeleteAppointDate" CssClass="form-control" textmode="Date" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtDeleteAppointTime" CssClass="form-control" textmode="Time" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:Button ID="btnDeleteAppointSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search" OnClick="btnDeleteAppointSearch_Click"></asp:Button>
+                                        <asp:Button ID="btnBackDelete" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back" OnClick="btnBackDelete_Click"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -438,25 +432,27 @@
                             </div>
 
                             <asp:Panel runat="server" ID="pnlDeleteAppointBroad" Visible="false">
-                                <hr />
-
-                                <asp:GridView ID="GridViewDelete" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid table-responsive"
-                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                                <asp:GridView ID="GridViewDelete" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChangingDelete" OnSelectedIndexChanged="GridViewDelete_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                    <%--<EmptyDataTemplate>
-                                        <h2 style="text-align:center"><b><asp:Label ID="lblEmpty" runat="server" Text="No result found!"></asp:Label></b></h2>
-                                    </EmptyDataTemplate>--%>
                                     <Columns>
-                                        <asp:HyperLinkField DataTextField="" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
-                                            <HeaderStyle CssClass="header-centered" />
-                                        </asp:HyperLinkField>
-                                        <asp:BoundField DataField="" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:CommandField ShowSelectButton="true" />
+                                        <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="appointmentTime" HeaderText="Appointment Time" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                     </Columns>
@@ -525,7 +521,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDeletePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true"/>
+                                        <asp:Button ID="btnDeleteAppointment" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeleteAppointment_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>

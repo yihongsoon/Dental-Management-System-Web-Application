@@ -147,7 +147,7 @@ namespace DMS
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            if(ddlSearchType.SelectedValue == "name")
+            if (ddlSearchType.SelectedValue == "name")
             {
                 SqlConnection con = new SqlConnection(strCon);
                 con.Open();
@@ -156,7 +156,7 @@ namespace DMS
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr != null)
                 {
-                    if(dr.Read())
+                    if (dr.Read())
                     {
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
@@ -177,16 +177,17 @@ namespace DMS
                     }
                 }
                 con.Close();
-            }else if(ddlSearchType.SelectedValue == "icNo")
+            }
+            else if (ddlSearchType.SelectedValue == "icNo")
             {
                 SqlConnection con = new SqlConnection(strCon);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("select Person.icNo, Person.name, Person.age, Person.contactNo, Person.gender, Patient.patientID, Patient.allergies from Patient, Person where Person.icNo = @icNo AND Person.icNo = Patient.icNo", con);
                 cmd.Parameters.AddWithValue("@icNo", txtSearchType.Text);
                 SqlDataReader dr = cmd.ExecuteReader();
-                if(dr != null)
+                if (dr != null)
                 {
-                    if(dr.Read())
+                    if (dr.Read())
                     {
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
@@ -207,7 +208,8 @@ namespace DMS
                     }
                 }
                 con.Close();
-            }else if(ddlSearchType.SelectedValue == "patientID")
+            }
+            else if (ddlSearchType.SelectedValue == "patientID")
             {
                 SqlConnection con = new SqlConnection(strCon);
                 con.Open();
@@ -216,7 +218,7 @@ namespace DMS
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr != null)
                 {
-                    if(dr.Read())
+                    if (dr.Read())
                     {
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
@@ -237,14 +239,15 @@ namespace DMS
                     }
                 }
                 con.Close();
-            }else
+            }
+            else
             {
                 SqlConnection con = new SqlConnection(strCon);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("select Person.icNo, Person.name, Person.age, Person.contactNo, Person.gender, Patient.patientID, Patient.allergies from Patient, Person where Person.contactNo = @contactNo AND Person.icNo = Patient.icNo", con);
                 cmd.Parameters.AddWithValue("@contactNo", txtSearchType.Text);
                 SqlDataReader dr = cmd.ExecuteReader();
-                if(dr != null)
+                if (dr != null)
                 {
                     if (dr.Read())
                     {
@@ -437,18 +440,18 @@ namespace DMS
         protected void btnUpdatePatient_Click(object sender, EventArgs e)
         {
             Page.Validate();
-            if(Page.IsValid == true)
+            if (Page.IsValid == true)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 try
                 {
                     con.Open();
                     SqlCommand cmd1 = new SqlCommand("Update Person set name = @name, age = @age, contactNo = @contact, gender = @gender where icNo = @icNo", con);
-                    cmd1.Parameters.AddWithValue("@icNo",txtUpdateIcNo.Text);
-                    cmd1.Parameters.AddWithValue("@name",txtUpdatePatientName.Text);
+                    cmd1.Parameters.AddWithValue("@icNo", txtUpdateIcNo.Text);
+                    cmd1.Parameters.AddWithValue("@name", txtUpdatePatientName.Text);
                     cmd1.Parameters.AddWithValue("@age", txtUpdatePatientAge.Text);
-                    cmd1.Parameters.AddWithValue("@contact",txtUpdatePatientContact.Text);
-                    cmd1.Parameters.AddWithValue("@gender",ddlUpdateGender.SelectedValue);
+                    cmd1.Parameters.AddWithValue("@contact", txtUpdatePatientContact.Text);
+                    cmd1.Parameters.AddWithValue("@gender", ddlUpdateGender.SelectedValue);
                     cmd1.ExecuteNonQuery();
 
                     SqlCommand cmd2 = new SqlCommand("Update Patient set allergies = @allergies where icNo = @icNo", con);
@@ -457,7 +460,7 @@ namespace DMS
                     cmd2.ExecuteNonQuery();
                     AlertMessage("Patient details have been successfully updated.");
                 }
-                catch(SqlException ex)
+                catch (SqlException ex)
                 {
                     AlertMessage(ex.Message);
                 }
@@ -605,7 +608,7 @@ namespace DMS
         protected void btnDeletePatient_Click(object sender, EventArgs e)
         {
             Page.Validate();
-            if(Page.IsValid == true)
+            if (Page.IsValid == true)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 try
@@ -616,7 +619,7 @@ namespace DMS
                     cmd.ExecuteNonQuery();
                     Response.Write("<script type=\"text/javascript\">alert('Patient details have been successfully deleted.');location.href='patientPage.aspx'</script>");
                 }
-                catch(SqlException ex)
+                catch (SqlException ex)
                 {
                     AlertMessage(ex.Message);
                 }

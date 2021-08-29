@@ -114,13 +114,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Button btnBackSearch;
 
         /// <summary>
-        /// pnlSearchPatientBroad control.
+        /// pnlSearchAppointBroad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSearchPatientBroad;
+        protected global::System.Web.UI.WebControls.Panel pnlSearchAppointBroad;
 
         /// <summary>
         /// GridViewSearch control.
@@ -456,22 +456,40 @@ namespace DMS
         protected global::System.Web.UI.WebControls.DropDownList ddlUpdateSearchType;
 
         /// <summary>
-        /// txtUpdatePatientSearch control.
+        /// txtUpdateAppointSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdatePatientSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateAppointSearch;
 
         /// <summary>
-        /// btnUpdatePatientSearch control.
+        /// txtUpdateSearchDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdatePatientSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateSearchDate;
+
+        /// <summary>
+        /// txtUpdateSearchTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateSearchTime;
+
+        /// <summary>
+        /// btnUpdateAppointSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateAppointSearch;
 
         /// <summary>
         /// btnBackUpdate control.
@@ -555,6 +573,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtUpdateID;
 
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// lblUpdateDate control.
         /// </summary>
         /// <remarks>
@@ -571,6 +607,15 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUpdateDate;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// lblUpdateTime control.
@@ -591,6 +636,15 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtUpdateTime;
 
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// lblUpdateStaff control.
         /// </summary>
         /// <remarks>
@@ -609,6 +663,24 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtUpdateStaff;
 
         /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
         /// lblUpdatePurpose control.
         /// </summary>
         /// <remarks>
@@ -625,6 +697,15 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUpdatePurpose;
+
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
 
         /// <summary>
         /// btnUpdateAppoint control.
@@ -661,6 +742,24 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDeleteAppointSearch;
+
+        /// <summary>
+        /// txtDeleteAppointDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteAppointDate;
+
+        /// <summary>
+        /// txtDeleteAppointTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteAppointTime;
 
         /// <summary>
         /// btnDeleteAppointSearch control.
@@ -825,12 +924,12 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDeletePurpose;
 
         /// <summary>
-        /// btnDeletePatient control.
+        /// btnDeleteAppointment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeletePatient;
+        protected global::System.Web.UI.WebControls.Button btnDeleteAppointment;
     }
 }
