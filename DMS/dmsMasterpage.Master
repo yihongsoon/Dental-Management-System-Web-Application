@@ -321,10 +321,10 @@
                                     <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Patient</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink  ID="hyplnkAppointment" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
+                                    <asp:HyperLink  ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink  ID="hyplnkReport" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
+                                    <asp:HyperLink  ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>

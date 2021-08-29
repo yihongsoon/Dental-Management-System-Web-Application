@@ -15,10 +15,10 @@ namespace DMS
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["ID"] == null)
-            //{
-            //    Response.Redirect("~/loginPage.aspx");
-            //}
+            if (Session["ID"] == null)
+            {
+                Response.Redirect("~/loginPage.aspx");
+            }
             id();
             
         }
