@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace DMS
 {
@@ -73,6 +74,7 @@ namespace DMS
             pnlCheckIn.Visible = false;
             pnlCheckOut.Visible = true;
             pnlDetails.Visible = false;
+            pnlQrCode.Visible = false;
             lnkAttendance.CssClass = "nav-link show";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show active";
@@ -85,6 +87,7 @@ namespace DMS
             pnlCheckIn.Visible = false;
             pnlCheckOut.Visible = false;
             pnlDetails.Visible = true;
+            pnlQrCode.Visible = false;
             lnkAttendance.CssClass = "nav-link show";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show";
@@ -97,6 +100,7 @@ namespace DMS
             pnlCheckIn.Visible = false;
             pnlCheckOut.Visible = false;
             pnlDetails.Visible = false;
+            pnlQrCode.Visible = false;
             lnkAttendance.CssClass = "nav-link show active";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show";
@@ -288,6 +292,124 @@ namespace DMS
                 ShowMessage(ex.Message);
             }
 
+
+        }
+
+        protected void lnkbtnQRCheckIn_Click(object sender, EventArgs e)
+        {
+            pnlQrCode.Visible = true;
+            pnlCheckIn.Visible = false;
+        }
+
+        protected void btnBackQRCheckIn_Click(object sender, EventArgs e)
+        {
+            pnlQrCode.Visible = false;
+            pnlCheckIn.Visible = true;
+        }
+
+        protected void QRCheckIn_Click(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(HiddenField1.Value.ToString(), @"^[\d]{12}(,[\w\.-]+@[\w\.-]+\.\w{2,4})$"))
+            {
+                string[] splitvalue = HiddenField1.Value.ToString().Split(',');
+                string first = splitvalue[0];
+                string second = splitvalue[1];
+                QRCheckInCheck(first, second);
+                pnlQrCode.Visible = false;
+                pnlCheckIn.Visible = true;
+            }
+            else
+            {
+                ShowMessage("Wrong QR Code, Please Scan Again");
+                pnlQrCode.Visible = true;
+                pnlCheckIn.Visible = false;
+            }
+
+        }
+
+        protected void QRCheckInCheck(string ic, string email)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from Staff where icNo = @ic AND email = @email", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                cmd.Parameters.AddWithValue("@ic", ic.ToString());
+                cmd.Parameters.AddWithValue("@email", email.ToString());
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        QRCheckInInsert();
+                    }
+                    else
+                    {
+                        ShowMessage("Check In Fail");
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+
+        public void QRCheckInInsert()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from Attendance where staffID = @id AND workingDate = @workingDate", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                cmd.Parameters.AddWithValue("@id", Session["ID"].ToString());
+                cmd.Parameters.AddWithValue("@workingDate", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        ShowMessage("Duplicated Check In");
+                    }
+                    else
+                    {
+                        SqlConnection con2 = new SqlConnection(strCon);
+                        con2.Open();
+                        SqlCommand cmd2 = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, day, month, year)" +
+                            " VALUES(@id, @workingDate, @InTime, @day, @month, @year)", con2);
+                        cmd2.Parameters.AddWithValue("@id", Session["ID"].ToString());
+                        var date = DateTime.Now.ToString("dd-MM-yyyy");
+                        cmd2.Parameters.AddWithValue("@workingDate", DateTime.Now);
+                        var time24 = DateTime.Now.ToString("HH:mm:ss");
+                        cmd2.Parameters.AddWithValue("@InTime", time24);
+                        cmd2.Parameters.AddWithValue("@day", DateTime.Now.Day);
+                        cmd2.Parameters.AddWithValue("@month", DateTime.Now.Month);
+                        cmd2.Parameters.AddWithValue("@year", DateTime.Now.Year);
+                        cmd2.ExecuteNonQuery();
+                        con2.Close();
+                        ShowMessage("Check In Successfully");
+                    }
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                ShowMessage(ex.Message);
+            }
+
+
+        }
+
+        protected void lnkbtnQRCheckOut_Click(object sender, EventArgs e)
+        {
 
         }
     }

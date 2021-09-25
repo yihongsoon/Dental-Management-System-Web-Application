@@ -45,7 +45,7 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
-                                            <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtEmail" runat="server" onkeypress="return event.keyCode != 13;" TextMode="Email" CssClass="form-control"></asp:TextBox>
                                             <%--<asp:Label ID="emptyEmail" runat="server" CssClass="invalid-feedbackEmptyField" Visible="false" Text="Please Fill In The Field."></asp:Label>--%>
                                         </div>                                       
                                     </div>
@@ -54,11 +54,11 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-                                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>                                          
+                                            <asp:TextBox ID="txtPassword" TextMode="Password" onkeypress="return event.keyCode != 13;" runat="server" CssClass="form-control"></asp:TextBox>                                          
                                         </div>
                                     </div>
                                 </div>                            
-                            <asp:Button ID="btnSignIn" runat="server" Text="Sign in" OnClick="btnSignIn_Click" CssClass="mt-2 btn btn-primary" />                            
+                            <asp:Button ID="btnSignIn" runat="server" UseSubmitBehavior="false" Text="Sign in" OnClick="btnSignIn_Click" CssClass="mt-2 btn btn-primary" />                            
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblpassREmail" runat="server" Text="Email"></asp:Label>
-                                            <asp:TextBox ID="txtpassREmail" TextMode="Email" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtpassREmail" TextMode="Email" onkeypress="return event.keyCode != 13;" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -89,11 +89,11 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblPassRICNo" runat="server" Text="IC Number Without Dash"></asp:Label>
-                                            <asp:TextBox ID="txtPassRICNo" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassRICNo" runat="server" onkeypress="return event.keyCode != 13;" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
-                                <asp:Button ID="btnPassR" runat="server" Text="Submit" OnClick="btnPassR_Click" CssClass="mt-2 btn btn-primary" />
+                                <asp:Button ID="btnPassR" runat="server" UseSubmitBehavior="false" Text="Submit" OnClick="btnPassR_Click" CssClass="mt-2 btn btn-primary" />
                             
                         </div>
                     </div>

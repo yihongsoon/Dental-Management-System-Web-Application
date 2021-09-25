@@ -110,6 +110,7 @@
     <Content Include="assets\images\defaultprofilegray.png" />
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\images\tooth14.svg" />
+    <Content Include="assets\Javascript\instascan.min.js" />
     <Content Include="attendancePage.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="homepage.aspx" />
@@ -123,6 +124,7 @@
     <Content Include="reportPage.aspx" />
     <Content Include="staffPage.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attendancePage.aspx.cs">
@@ -209,6 +211,13 @@
     </Compile>
     <Compile Include="staffPage.aspx.designer.cs">
       <DependentUpon>staffPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

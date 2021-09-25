@@ -92,7 +92,6 @@
                                     </div>
                                 </div>
                             </div>--%>
-
                         </div>
                     </div>
                 </div>
@@ -100,13 +99,15 @@
         </asp:Panel>
         <asp:Panel runat="server" Visible="false" ID="pnlCheckIn">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <div class="alert alert-danger fade show" runat="server" ID="checkInFail" visible="false">
-                                    <asp:Label  runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label></div> 
+                            <div class="alert alert-danger fade show" runat="server" id="checkInFail" visible="false">
+                                <asp:Label runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label>
+                            </div>
                             <div class="alert alert-warning fade show" id="emptyField" runat="server" visible="false">
-                                    <asp:Label runat="server" Text="Please Complete All Field"></asp:Label></div>
+                                <asp:Label runat="server" Text="Please Complete All Field"></asp:Label>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
@@ -131,7 +132,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <asp:LinkButton ID="lnkbtnQRCheckIn" runat="server" Text="QR Code">
+                                    <asp:LinkButton ID="lnkbtnQRCheckIn" runat="server" OnClick="lnkbtnQRCheckIn_Click" Text="QR Code">
                                     </asp:LinkButton>
                                 </div>
                             </div>
@@ -142,13 +143,15 @@
         </asp:Panel>
         <asp:Panel runat="server" Visible="false" ID="pnlCheckOut">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <div class="alert alert-danger fade show" runat="server" ID="checkOutInvalid" visible="false">
-                                    <asp:Label  runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label></div> 
+                            <div class="alert alert-danger fade show" runat="server" id="checkOutInvalid" visible="false">
+                                <asp:Label runat="server" Text="Incorrect IC or Password! Please Try Again"></asp:Label>
+                            </div>
                             <div class="alert alert-warning fade show" id="checkOutEmpty" runat="server" visible="false">
-                                    <asp:Label runat="server" Text="Please Complete All Field"></asp:Label></div>
+                                <asp:Label runat="server" Text="Please Complete All Field"></asp:Label>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
@@ -172,7 +175,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <asp:LinkButton ID="lnkbtnQRCheckOut" runat="server" Text="QR Code">
+                                    <asp:LinkButton ID="lnkbtnQRCheckOut" OnClick="lnkbtnQRCheckOut_Click" runat="server" Text="QR Code">
                                     </asp:LinkButton>
                                 </div>
                             </div>
@@ -189,6 +192,71 @@
                             <asp:Button ID="btnGenerateExcel" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />
                             <asp:Label ID="Label6" runat="server" Text="OR"></asp:Label>
                             <asp:Button ID="btnGeneratePDF" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+        <asp:Panel runat="server" Visible="false" ID="pnlQrCode">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="et_pb_code_inner"></div>
+                                    <div class="et_pb_module et_pb_code et_pb_code_1">
+                                        <div class="et_pb_code_inner">
+                                            <style>
+                                                #preview {
+                                                    width: 300px;
+                                                    height: 300px;
+                                                    margin: 0px auto;
+                                                }
+                                            </style>
+                                            <video id="preview"></video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="et_pb_module et_pb_code et_pb_code_2">
+                                        <div class="et_pb_code_inner">
+                                            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+                                            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                            <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+                                            <script type="text/javascript">
+                                                var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 1, mirror: false, refractoryPeriod: 10000 });
+                                                scanner.addListener('scan', function (content) {
+                                                    Checking(content);
+                                                });
+                                                Instascan.Camera.getCameras().then(function (cameras) {
+                                                    if (cameras.length > 0) {
+                                                        scanner.start(cameras[0]);
+                                                    } else {
+                                                        console.error('No cameras found.');
+                                                        alert('No cameras found.');
+                                                    }
+                                                }).catch(function (e) {
+                                                    console.error(e);
+                                                    alert(e);
+                                                });
+                                                function Checking(value) {
+                                                    alert("Scanned");                                                    
+                                                    document.getElementById('<%=HiddenField1.ClientID%>').value = value;
+                                                    document.getElementById('<%=QRCheckIn.ClientID%>').click();
+                                                }
+                                            </script>
+                                            <asp:HiddenField ID="HiddenField1" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:none;">
+                                <asp:Button ID="QRCheckIn" runat="server" OnClick="QRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Yes" />
+                            </div>                            
+                            <asp:Button ID="btnBackCheckIn" runat="server" OnClick="btnBackQRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Back" />
                         </div>
                     </div>
                 </div>
