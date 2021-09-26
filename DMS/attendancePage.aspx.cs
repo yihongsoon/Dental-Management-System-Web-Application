@@ -62,6 +62,8 @@ namespace DMS
             pnlCheckIn.Visible = true;
             pnlCheckOut.Visible = false;
             pnlDetails.Visible = false;
+            pnlQrCode.Visible = false;
+            pnlQrCodeCheckOut.Visible = false;
             lnkAttendance.CssClass = "nav-link show";
             lnkCheckIn.CssClass = "nav-link show active";
             lnkCheckOut.CssClass = "nav-link show";
@@ -75,6 +77,7 @@ namespace DMS
             pnlCheckOut.Visible = true;
             pnlDetails.Visible = false;
             pnlQrCode.Visible = false;
+            pnlQrCodeCheckOut.Visible = false;
             lnkAttendance.CssClass = "nav-link show";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show active";
@@ -88,6 +91,7 @@ namespace DMS
             pnlCheckOut.Visible = false;
             pnlDetails.Visible = true;
             pnlQrCode.Visible = false;
+            pnlQrCodeCheckOut.Visible = false;
             lnkAttendance.CssClass = "nav-link show";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show";
@@ -101,6 +105,7 @@ namespace DMS
             pnlCheckOut.Visible = false;
             pnlDetails.Visible = false;
             pnlQrCode.Visible = false;
+            pnlQrCodeCheckOut.Visible = false;
             lnkAttendance.CssClass = "nav-link show active";
             lnkCheckIn.CssClass = "nav-link show";
             lnkCheckOut.CssClass = "nav-link show";
@@ -267,9 +272,10 @@ namespace DMS
                         {
                             SqlConnection con2 = new SqlConnection(strCon);
                             con2.Open();
-                            SqlCommand cmd2 = new SqlCommand("Update Attendance set checkOutTime = @OutTime", con2);
+                            SqlCommand cmd2 = new SqlCommand("Update Attendance set checkOutTime = @OutTime Where workingDate = @workingDateCheckOut", con2);
                             var time24 = DateTime.Now.ToString("HH:mm:ss");
                             cmd2.Parameters.AddWithValue("@OutTime", time24);
+                            cmd2.Parameters.AddWithValue("@workingDateCheckOut", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
                             cmd2.ExecuteNonQuery();
                             con2.Close();
                             ShowMessage("Check Out Successfully");
@@ -410,6 +416,114 @@ namespace DMS
 
         protected void lnkbtnQRCheckOut_Click(object sender, EventArgs e)
         {
+            pnlQrCodeCheckOut.Visible = true;
+            pnlCheckOut.Visible = false;
+        }
+
+        protected void btnBackQRCheckOut_Click(object sender, EventArgs e) 
+        {
+            pnlQrCodeCheckOut.Visible = false;
+            pnlCheckOut.Visible = true;
+        }
+
+        protected void btnQRCheckOut_Click(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(HiddenField2.Value.ToString(), @"^[\d]{12}(,[\w\.-]+@[\w\.-]+\.\w{2,4})$"))
+            {
+                string[] splitvalue = HiddenField2.Value.ToString().Split(',');
+                string first = splitvalue[0];
+                string second = splitvalue[1];
+                QRCheckOutCheck(first, second);
+                pnlQrCodeCheckOut.Visible = false;
+                pnlCheckOut.Visible = true;
+            }
+            else
+            {
+                ShowMessage("Wrong QR Code, Please Scan Again");
+                pnlQrCodeCheckOut.Visible = true;
+                pnlCheckOut.Visible = false;
+            }
+        }
+
+        protected void QRCheckOutCheck(string ic, string email)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from Staff where icNo = @ic AND email = @email", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                cmd.Parameters.AddWithValue("@ic", ic.ToString());
+                cmd.Parameters.AddWithValue("@email", email.ToString());
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        QRCheckOutInsert();
+                    }
+                    else
+                    {
+                        ShowMessage("Check Out Fail");
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+
+        public void QRCheckOutInsert()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select checkOutTime from Attendance where staffID = @id AND workingDate = @workingDate", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO Attendance(staffID, workingDate, checkInTime, checkOutTime, offday, publicHoliday, day, month, year)" +
+                //    " VALUES(@id, @workingDate, @InTime, @OutTime, @off, @holiday, @day, @month, @year)", con);
+                cmd.Parameters.AddWithValue("@id", Session["ID"].ToString());
+                cmd.Parameters.AddWithValue("@workingDate", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        if (dr.IsDBNull(dr.GetOrdinal("checkOutTime")))
+                        {
+                            SqlConnection con2 = new SqlConnection(strCon);
+                            con2.Open();
+                            SqlCommand cmd2 = new SqlCommand("Update Attendance set checkOutTime = @OutTime Where workingDate = @workingDateCheckOut", con2);
+                            var time24 = DateTime.Now.ToString("HH:mm:ss");
+                            cmd2.Parameters.AddWithValue("@OutTime", time24);
+                            cmd2.Parameters.AddWithValue("@workingDateCheckOut", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy")));
+                            cmd2.ExecuteNonQuery();
+                            con2.Close();
+                            ShowMessage("Check Out Successfully");
+                        }
+                        else
+                        {
+                            ShowMessage("Duplicate Check Out");
+                        }
+                    }
+                    else
+                    {
+                        ShowMessage("Please Check In First");
+                    }
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                ShowMessage(ex.Message);
+            }
+
 
         }
     }

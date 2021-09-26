@@ -223,7 +223,6 @@
                                 <div class="col-md-12">
                                     <div class="et_pb_module et_pb_code et_pb_code_2">
                                         <div class="et_pb_code_inner">
-                                            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
                                             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
                                             <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
                                             <script type="text/javascript">
@@ -257,6 +256,71 @@
                                 <asp:Button ID="QRCheckIn" runat="server" OnClick="QRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Yes" />
                             </div>                            
                             <asp:Button ID="btnBackCheckIn" runat="server" OnClick="btnBackQRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Back" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+        <asp:Panel runat="server" Visible="false" ID="pnlQrCodeCheckOut">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="et_pb_code_inner"></div>
+                                    <div class="et_pb_module et_pb_code et_pb_code_1">
+                                        <div class="et_pb_code_inner">
+                                            <style>
+                                                #previewCheckOut {
+                                                    width: 300px;
+                                                    height: 300px;
+                                                    margin: 0px auto;
+                                                }
+                                            </style>
+                                            <video id="previewCheckOut"></video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="et_pb_module et_pb_code et_pb_code_2">
+                                        <div class="et_pb_code_inner">  
+                                            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                            <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+                                            <script type="text/javascript">
+                                                var scanner = new Instascan.Scanner({ video: document.getElementById('previewCheckOut'), scanPeriod: 1, mirror: false, refractoryPeriod: 10000 });
+                                                scanner.addListener('scan', function (content) {
+                                                    Checking(content);
+                                                });
+                                                Instascan.Camera.getCameras().then(function (cameras) {
+                                                    if (cameras.length > 0) {
+                                                        scanner.start(cameras[0]);
+                                                    } else {
+                                                        console.error('No cameras found.');
+                                                        alert('No cameras found.');
+                                                    }
+                                                }).catch(function (e) {
+                                                    console.error(e);
+                                                    alert(e);
+                                                });
+                                                function Checking(value) {
+                                                    alert("Scanned");
+                                                    document.getElementById('<%=HiddenField2.ClientID%>').value = value;
+                                                    document.getElementById('<%=btnQRCheckOut.ClientID%>').click();
+                                                }
+                                            </script>
+                                            <asp:HiddenField ID="HiddenField2" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:none;">
+                                <asp:Button ID="btnQRCheckOut" runat="server" OnClick="btnQRCheckOut_Click" CssClass="mt-2 btn btn-primary" Text="Yes" />
+                            </div>                            
+                            <asp:Button ID="btnBackQRCheckOut" runat="server" OnClick="btnBackQRCheckOut_Click" CssClass="mt-2 btn btn-primary" Text="Back" />
                         </div>
                     </div>
                 </div>
