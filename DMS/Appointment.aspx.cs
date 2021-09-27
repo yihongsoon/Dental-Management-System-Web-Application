@@ -17,8 +17,10 @@ namespace DMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["username"] == null)
-            //    Response.Redirect("loginPage.aspx");
+            if (Session["ID"] == null)
+            {
+                Response.Redirect("~/loginPage.aspx");
+            }
 
             if (!this.IsPostBack)
             {
