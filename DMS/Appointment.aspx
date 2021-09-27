@@ -51,8 +51,8 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:DropDownList ID="ddlSearchChoice" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSearchChoice_Select">
-                                            <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
-                                            <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
+                                            <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
+                                            <asp:ListItem Value="icNo" Text="By Patient IC"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
                                         </asp:DropDownList>
@@ -122,11 +122,25 @@
                                             <asp:TextBox ID="txtAppointID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblPatientID" runat="server" Text="Patient ID :"></asp:Label>
-                                            <asp:TextBox ID="txtPatientID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblIC" runat="server" Text="Patient IC :"></asp:Label>
+                                            <asp:TextBox ID="txtIcNo" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblName" runat="server" Text="Patient Name :"></asp:Label>
+                                            <asp:TextBox ID="txtName" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblDentToVisit" runat="server" Text="Dentist To Visit :"></asp:Label>
+                                            <asp:TextBox ID="txtDentToVisit" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -184,15 +198,34 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblAddID" runat="server" Text="Patient ID :"></asp:Label>
-                                        <asp:TextBox ID="txtAddID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorID" ControlToValidate="txtAddID" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" ControlToValidate="txtAddID" ForeColor="Red" SetFocusOnError="true" 
+                                        <asp:Label ID="lblAddIC" runat="server" Text="Patient IC :"></asp:Label>
+                                        <asp:TextBox ID="txtAddIC" Text="" CssClass="form-control" runat="server" placeHolder="Enter IC Number without '-'"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorIC" ControlToValidate="txtAddIC" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorIC" ControlToValidate="txtAddIC" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblAddName" runat="server" Text="Patient Name :"></asp:Label>
+                                            <asp:TextBox ID="txtAddName" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblAddToVisit" runat="server" Text="Dentist To Visit :"></asp:Label>
+                                            <asp:TextBox ID="txtAddToVisit" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorName" ControlToValidate="txtAddToVisit" SetFocusOnError="true"
+                                                EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" ControlToValidate="txtAddToVisit" ForeColor="Red" SetFocusOnError="true" 
+                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+                                </div>
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -257,8 +290,8 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:DropDownList ID="ddlUpdateSearchType" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlUpdateSearchType_Select">
-                                            <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
-                                            <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
+                                            <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
+                                            <asp:ListItem Value="icNo" Text="By Patient IC"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
                                         </asp:DropDownList>
@@ -332,15 +365,34 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:Label ID="lblUpdateID" runat="server" Text="Patient ID :"></asp:Label>
-                                        <asp:TextBox ID="txtUpdateID" Text="" CssClass="form-control" runat="server"></asp:TextBox>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtUpdateID" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUpdateID" ForeColor="Red" SetFocusOnError="true" 
+                                        <asp:Label ID="lblUpdateIC" runat="server" Text="Patient IC :"></asp:Label>
+                                        <asp:TextBox ID="txtUpdateIC" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtUpdateIC" SetFocusOnError="true"
+                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtUpdateIC" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblUpdateName" runat="server" Text="Patient Name :"></asp:Label>
+                                            <asp:TextBox ID="txtUpdateName" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblUpdateToVisit" runat="server" Text="Dentist To Visit :"></asp:Label>
+                                            <asp:TextBox ID="txtUpdateToVisit" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtUpdateToVisit" SetFocusOnError="true"
+                                                EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtUpdateToVisit" ForeColor="Red" SetFocusOnError="true" 
+                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+                                </div>
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -406,8 +458,8 @@
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
                                         <asp:DropDownList ID="ddlDeleteSearchChoice" CssClass="ddl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDeleteSearchChoice_Select">
-                                            <asp:ListItem Value="appointID" Selected="true" Text="By Appointment ID"></asp:ListItem>
-                                            <asp:ListItem Value="patientID" Text="By Patient ID"></asp:ListItem>
+                                            <asp:ListItem Value="icNo" Selected="true" Text="By Name"></asp:ListItem>
+                                            <asp:ListItem Value="name" Text="By Patient IC"></asp:ListItem>
                                             <asp:ListItem Value="appointDate" Text="By Appointment Date"></asp:ListItem>
                                             <asp:ListItem Value="appointTime" Text="By Appointment Time"></asp:ListItem>
                                         </asp:DropDownList>
@@ -480,12 +532,27 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="lblDeleteID" runat="server" Text="Patient ID :"></asp:Label>
-                                            <asp:TextBox ID="txtDeleteID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="lblDeleteIC" runat="server" Text="Patient IC :"></asp:Label>
+                                            <asp:TextBox ID="txtDeleteIC" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblDeleteName" runat="server" Text="Patient Name :"></asp:Label>
+                                            <asp:TextBox ID="txtDeleteName" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <asp:Label ID="lblDeleteToVisit" runat="server" Text="Dentist To Visit :"></asp:Label>
+                                            <asp:TextBox ID="txtDeleteToVisit" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">

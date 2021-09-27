@@ -159,22 +159,58 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtAppointID;
 
         /// <summary>
-        /// lblPatientID control.
+        /// lblIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPatientID;
+        protected global::System.Web.UI.WebControls.Label lblIC;
 
         /// <summary>
-        /// txtPatientID control.
+        /// txtIcNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientID;
+        protected global::System.Web.UI.WebControls.TextBox txtIcNo;
+
+        /// <summary>
+        /// lblName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblName;
+
+        /// <summary>
+        /// txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+
+        /// <summary>
+        /// lblDentToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDentToVisit;
+
+        /// <summary>
+        /// txtDentToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDentToVisit;
 
         /// <summary>
         /// lblAppointDate control.
@@ -276,40 +312,94 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtAddAppID;
 
         /// <summary>
-        /// lblAddID control.
+        /// lblAddIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddID;
+        protected global::System.Web.UI.WebControls.Label lblAddIC;
 
         /// <summary>
-        /// txtAddID control.
+        /// txtAddIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddID;
+        protected global::System.Web.UI.WebControls.TextBox txtAddIC;
 
         /// <summary>
-        /// RegularExpressionValidatorID control.
+        /// RegularExpressionValidatorIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorID;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorIC;
 
         /// <summary>
-        /// RequiredFieldValidatorID control.
+        /// RequiredFieldValidatorIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorIC;
+
+        /// <summary>
+        /// lblAddName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddName;
+
+        /// <summary>
+        /// txtAddName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddName;
+
+        /// <summary>
+        /// lblAddToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddToVisit;
+
+        /// <summary>
+        /// txtAddToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddToVisit;
+
+        /// <summary>
+        /// RegularExpressionValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorName;
+
+        /// <summary>
+        /// RequiredFieldValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
 
         /// <summary>
         /// lblAddDate control.
@@ -555,22 +645,22 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtUptAppointID;
 
         /// <summary>
-        /// lblUpdateID control.
+        /// lblUpdateIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateID;
+        protected global::System.Web.UI.WebControls.Label lblUpdateIC;
 
         /// <summary>
-        /// txtUpdateID control.
+        /// txtUpdateIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateID;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateIC;
 
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -589,6 +679,60 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// lblUpdateName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdateName;
+
+        /// <summary>
+        /// txtUpdateName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateName;
+
+        /// <summary>
+        /// lblUpdateToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdateToVisit;
+
+        /// <summary>
+        /// txtUpdateToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateToVisit;
+
+        /// <summary>
+        /// RegularExpressionValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+
+        /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// lblUpdateDate control.
@@ -834,22 +978,58 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDeleteAppointID;
 
         /// <summary>
-        /// lblDeleteID control.
+        /// lblDeleteIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDeleteID;
+        protected global::System.Web.UI.WebControls.Label lblDeleteIC;
 
         /// <summary>
-        /// txtDeleteID control.
+        /// txtDeleteIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeleteID;
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteIC;
+
+        /// <summary>
+        /// lblDeleteName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeleteName;
+
+        /// <summary>
+        /// txtDeleteName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteName;
+
+        /// <summary>
+        /// lblDeleteToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeleteToVisit;
+
+        /// <summary>
+        /// txtDeleteToVisit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeleteToVisit;
 
         /// <summary>
         /// lblDeleteDate control.
