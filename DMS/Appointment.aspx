@@ -102,7 +102,7 @@
                                         <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                     </Columns>
@@ -345,7 +345,7 @@
                                         <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                     </Columns>
@@ -514,7 +514,7 @@
                                         <asp:BoundField DataField="staffID" HeaderText="Staff Register" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="apointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="appointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                     </Columns>
