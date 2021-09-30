@@ -84,7 +84,13 @@
                                         <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="icNo" HeaderText="Patient IC No." ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="appointmentName" HeaderText="Patient Name" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="dentistToVisit" HeaderText="Dentist In Charge" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
@@ -250,11 +256,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddStaff" runat="server" Text="Staff Register :"></asp:Label>
-                                        <asp:TextBox ID="txtAddStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorStaff" ControlToValidate="txtAddStaff" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[S]{1}[\d]{5}$" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorStaff" ControlToValidate="txtAddStaff" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtAddStaff" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -325,7 +327,13 @@
                                         <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="icNo" HeaderText="Patient IC No." ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="appointmentName" HeaderText="Patient Name" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="dentistToVisit" HeaderText="Dentist In Charge" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
@@ -417,11 +425,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateStaff" runat="server" Text="Staff Register :"></asp:Label>
-                                        <asp:TextBox ID="txtUpdateStaff" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtUpdateStaff" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[S]{1}[\d]{5}$" ErrorMessage="Invalid Staff ID!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtUpdateStaff" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtUpdateStaff" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -492,7 +496,13 @@
                                         <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                        <asp:BoundField DataField="icNo" HeaderText="Patient IC No." ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="appointmentName" HeaderText="Patient Name" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="dentistToVisit" HeaderText="Dentist In Charge" ItemStyle-HorizontalAlign="Center">
                                             <HeaderStyle CssClass="header-centered" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="appointmentDate" HeaderText="Appointment Date" ItemStyle-HorizontalAlign="Center">
