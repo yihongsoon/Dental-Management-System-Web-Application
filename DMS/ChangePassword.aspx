@@ -15,16 +15,15 @@
     </div> 
     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
         <li class="nav-item">
-            <asp:LinkButton ID="lnkLogin" CssClass="nav-link show active" runat="server"><span>Login</span></asp:LinkButton>
+            <asp:LinkButton ID="lnkLogin" CssClass="nav-link show active" runat="server"><span>Change Password</span></asp:LinkButton>
         </li>
     </ul>
     <div class="tab-content">
         <asp:Panel runat="server" Visible="true" ID="pnlPasswordChange">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="main-card mb-3 card">
-                        <div class="card-body">
-                            
+                        <div class="card-body">                           
                                 <div class="alert alert-danger fade show" runat="server" ID="newPassNotMatch" visible="false">
                                     <asp:Label runat="server" Text="New Password Does not Match!"></asp:Label></div>
                             <div class="alert alert-danger fade show" runat="server" ID="oldPassNotMatch" visible="false">

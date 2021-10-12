@@ -186,7 +186,7 @@
         </asp:Panel>
         <asp:Panel runat="server" Visible="false" ID="pnlDetails">
             <div class="row">
-                <div class="col-md-6 text-center">
+                <div class="col-md-12 text-center">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             <asp:Button ID="btnGenerateExcel" runat="server" OnClick="btnGenerateExcel_Click" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />

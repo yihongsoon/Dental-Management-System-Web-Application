@@ -32,7 +32,7 @@
         <%--LOGIN SCREEN--%>
         <asp:Panel runat="server" ID="pnllogin">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             
@@ -67,7 +67,7 @@
         <%--PASSWORD RECOVERY SCREEN--%>
         <asp:Panel runat="server" Visible="false" ID="pnlPasswordRecover">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             
