@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
 
 namespace DMS
 {
@@ -22,7 +27,6 @@ namespace DMS
             else
             {
                 fillin();
-                fillinSecond();
             }
 
         } 
@@ -46,13 +50,14 @@ namespace DMS
                 }
             }
             con.Close();
-        }
-
-        public void fillinSecond()
-        {
-            SqlConnection con = new SqlConnection(strCon);
             con.Open();
-
+            int count = 0;
+            SqlCommand cmd2 = new SqlCommand("SELECT COUNT(*) from Attendance where staffID = @id AND month = @month", con);
+            cmd2.Parameters.AddWithValue("@id", Session["ID"].ToString());
+            cmd2.Parameters.AddWithValue("@month", DateTime.Now.Month);
+            count = Convert.ToInt32(cmd2.ExecuteScalar());
+            txtMonth.Text = DateTime.Now.Month.ToString();
+            txtTotalAttendance.Text = count.ToString();
             con.Close();
         }
 
@@ -526,5 +531,86 @@ namespace DMS
 
 
         }
+
+        protected void btnGenerateExcel_Click(object sender, EventArgs e)
+        {
+           this.BindGrid();
+           ExportGridToExcel();
+        }
+
+        protected void btnGeneratePDF_Click(object sender, EventArgs e)
+        {
+            this.BindGrid();
+            ExportGridToPDF();
+        }
+        protected void onPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewPrint.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
+
+        private void BindGrid()
+        {
+            SqlConnection con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT workingDate, checkInTime, checkOutTime, day, month , year from Attendance where staffID = @id and month = @month", con);
+            cmd.Parameters.AddWithValue("@month", DateTime.Now.Month.ToString());
+            cmd.Parameters.AddWithValue("@id", Session["ID"].ToString());
+            DataTable dt = new DataTable();
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+                GridViewPrint.DataSource = dt;
+                GridViewPrint.DataBind();
+            }
+            con.Close();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //required to avoid the runtime error "  
+            //Control 'GridView1' of type 'GridView' must be placed inside a form tag with runat=server."  
+        }
+        private void ExportGridToExcel()
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".xls";
+            StringWriter strwritter = new StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "Application/x-msexcel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            GridViewPrint.GridLines = GridLines.Both;
+            GridViewPrint.HeaderStyle.Font.Bold = true;
+            GridViewPrint.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
+        }
+        private void ExportGridToPDF()
+        {
+            string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".pdf";
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            GridViewPrint.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            GridViewPrint.AllowPaging = true;
+            GridViewPrint.DataBind();
+        }
+
     }
 }

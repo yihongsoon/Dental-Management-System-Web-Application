@@ -186,12 +186,47 @@
         </asp:Panel>
         <asp:Panel runat="server" Visible="false" ID="pnlDetails">
             <div class="row">
-                <div class="col-md-6 text-center">
+                <div class="col-md-12 text-center">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <asp:Button ID="btnGenerateExcel" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />
-                            <asp:Label ID="Label6" runat="server" Text="OR"></asp:Label>
-                            <asp:Button ID="btnGeneratePDF" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />
+                            <asp:Button ID="btnGenerateExcel" runat="server" OnClick="btnGenerateExcel_Click" CssClass="mt-2 btn btn-primary" Text="Generate as Excel" />
+                            &nbsp;&nbsp;&nbsp;<asp:Label ID="Label6" runat="server" Text="OR"></asp:Label>&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnGeneratePDF" runat="server" OnClick="btnGeneratePDF_Click" CssClass="mt-2 btn btn-primary" Text="Generate as PDF" />
+                            
+                            <asp:GridView ID="GridViewPrint" Visible="true" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid" OnPageIndexChanging="onPageIndexChanging"
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <Columns>
+                                        <asp:BoundField DataField="workingDate" HeaderText="Working Date" DataFormatString = "{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="checkInTime" HeaderText="Check In" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="checkOutTime" HeaderText="Check Out" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="day" HeaderText="Day" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="month" HeaderText="Month" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="year" HeaderText="Year" ItemStyle-HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="header-centered" />
+                                        </asp:BoundField>
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center"/>
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
                         </div>
                     </div>
                 </div>
