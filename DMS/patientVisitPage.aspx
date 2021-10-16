@@ -72,7 +72,7 @@
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
                                     <asp:Label ID="lblPatientID" runat="server" Text="Patient ID :"></asp:Label>
-                                    <asp:TextBox ID="txtPatientID" Text="" runat="server" CssClass="form-control" Enabled="true"></asp:TextBox>
+                                    <asp:TextBox ID="txtPatientID" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorID" ControlToValidate="txtPatientID" SetFocusOnError="true"
                                             EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" ControlToValidate="txtPatientID" ForeColor="Red" SetFocusOnError="true" 

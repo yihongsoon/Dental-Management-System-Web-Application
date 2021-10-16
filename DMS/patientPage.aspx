@@ -303,7 +303,7 @@
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
                                             <asp:Button ID="btnAddVisit" CssClass="mt-2 btn btn-visit" runat="server" Text="Add Visit Details" OnClick="btnAddVisit_Click"></asp:Button>
-                                            <asp:Button ID="btnViewVisit" CssClass="mt-2 btn btn-visit left" runat="server" Text="View Visit Record"></asp:Button>
+                                            <asp:Button ID="btnViewVisit" CssClass="mt-2 btn btn-visit left" runat="server" Text="View Visit Record" OnClick="btnViewVisit_Click"></asp:Button>
                                         </div>
                                     </div>
                                 </div>

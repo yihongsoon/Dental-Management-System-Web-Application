@@ -302,6 +302,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtUpdatePatientID.Text = dr["patientID"].ToString();
                         txtUpdateIcNo.Text = dr["icNo"].ToString();
                         txtUpdatePatientName.Text = dr["name"].ToString();
@@ -316,6 +317,7 @@ namespace DMS
                     }
                     else
                     {
+                        Session["Patient_ID"] = string.Empty;
                         patientUpdateNotFound.Visible = true;
                         pnlUpdatePatient.Visible = false;
                         btnBackUpdate.Visible = false;
@@ -628,6 +630,11 @@ namespace DMS
                     con.Close();
                 }
             }
+        }
+
+        protected void btnViewVisit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/PatientVisit.aspx");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DMS.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -21,6 +22,10 @@ namespace DMS
             {
                 Response.Redirect("~/loginPage.aspx");
             }
+            else
+            {
+                txtAddStaff.Text = Session["ID"].ToString();
+            }
 
             if (!this.IsPostBack)
             {
@@ -42,7 +47,7 @@ namespace DMS
                     this.BindGridDelete();
                 }
             }
-            
+
             appointmentId();
 
         }
@@ -181,9 +186,11 @@ namespace DMS
                     cmd1.Parameters.AddWithValue("@dentistToVisit", txtAddToVisit.Text);
                     cmd1.Parameters.AddWithValue("@appointmentDate", txtAddDate.Text);
                     cmd1.Parameters.AddWithValue("@appointmentTime", txtAddTime.Text);
-                    cmd1.Parameters.AddWithValue("@apointmentPurpose", txtAddPurpose.Text);
+                    cmd1.Parameters.AddWithValue("@appointmentPurpose", txtAddPurpose.Text);
                     cmd1.Parameters.AddWithValue("@patientID", txtAddIC.Text);
                     cmd1.Parameters.AddWithValue("@staffID", txtAddStaff.Text);
+                    cmd1.Parameters.AddWithValue("@icNo", txtAddIC.Text);
+
                     cmd1.ExecuteNonQuery();
                     con.Close();
                     Response.Write("<script type=\"text/javascript\">alert('Appointment details have been successfully added.');location.href='Appointment.aspx'</script>");
@@ -270,7 +277,7 @@ namespace DMS
             this.BindGrid();
         }
 
-        
+
         private void BindGrid()
         {
             if (ddlSearchChoice.SelectedValue == "name")
@@ -288,7 +295,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewSearch.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewSearch.DataSource = data;
                             GridViewSearch.DataBind();
                         }
                     }
@@ -310,7 +328,17 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewSearch.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x=> new AppointmentViewModel {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList(); ;
+                            GridViewSearch.DataSource = data;
                             GridViewSearch.DataBind();
                         }
                     }
@@ -331,7 +359,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewSearch.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewSearch.DataSource = data;
                             GridViewSearch.DataBind();
                         }
                     }
@@ -352,7 +391,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewSearch.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewSearch.DataSource = data;
                             GridViewSearch.DataBind();
                         }
                     }
@@ -539,7 +589,7 @@ namespace DMS
         protected void btnUpdateAppoint_Click(object sender, EventArgs e)
         {
             Page.Validate();
-            if(Page.IsValid == true)
+            if (Page.IsValid == true)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 try
@@ -725,6 +775,33 @@ namespace DMS
                     con.Close();
                 }
             }
+        }
+
+        protected void txtAddIC_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(strCon))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT name from Person where icNo =" + txtAddIC.Text + "";
+                        cmd.Connection = con;
+                        var _result = cmd.ExecuteScalar();
+                        cmd.Dispose();
+                        con.Close();
+                        if (_result != null)
+                            txtAddName.Text = _result.ToString();
+                    };
+                };
+            }
+            catch(Exception ex)
+            {
+                txtAddName.Text = string.Empty;
+            }
+           
+         
         }
     }
 }

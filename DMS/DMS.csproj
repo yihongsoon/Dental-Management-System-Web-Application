@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -23,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.9</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,6 +97,89 @@
     <Content Include="assets\CSS\webform.css" />
     <Content Include="assets\fonts\fa-solid-900.svg" />
     <Content Include="assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="assets\fullcalender\fullcalendar.css" />
+    <Content Include="assets\fullcalender\fullcalendar.js" />
+    <Content Include="assets\fullcalender\fullcalendar.min.css" />
+    <Content Include="assets\fullcalender\fullcalendar.min.js" />
+    <Content Include="assets\fullcalender\fullcalendar.print.css" />
+    <Content Include="assets\fullcalender\fullcalendar.print.min.css" />
+    <Content Include="assets\fullcalender\gcal.js" />
+    <Content Include="assets\fullcalender\gcal.min.js" />
+    <Content Include="assets\fullcalender\locale-all.js" />
+    <Content Include="assets\fullcalender\locale\af.js" />
+    <Content Include="assets\fullcalender\locale\ar-dz.js" />
+    <Content Include="assets\fullcalender\locale\ar-kw.js" />
+    <Content Include="assets\fullcalender\locale\ar-ly.js" />
+    <Content Include="assets\fullcalender\locale\ar-ma.js" />
+    <Content Include="assets\fullcalender\locale\ar-sa.js" />
+    <Content Include="assets\fullcalender\locale\ar-tn.js" />
+    <Content Include="assets\fullcalender\locale\ar.js" />
+    <Content Include="assets\fullcalender\locale\be.js" />
+    <Content Include="assets\fullcalender\locale\bg.js" />
+    <Content Include="assets\fullcalender\locale\bs.js" />
+    <Content Include="assets\fullcalender\locale\ca.js" />
+    <Content Include="assets\fullcalender\locale\cs.js" />
+    <Content Include="assets\fullcalender\locale\da.js" />
+    <Content Include="assets\fullcalender\locale\de-at.js" />
+    <Content Include="assets\fullcalender\locale\de-ch.js" />
+    <Content Include="assets\fullcalender\locale\de.js" />
+    <Content Include="assets\fullcalender\locale\el.js" />
+    <Content Include="assets\fullcalender\locale\en-au.js" />
+    <Content Include="assets\fullcalender\locale\en-ca.js" />
+    <Content Include="assets\fullcalender\locale\en-gb.js" />
+    <Content Include="assets\fullcalender\locale\en-ie.js" />
+    <Content Include="assets\fullcalender\locale\en-nz.js" />
+    <Content Include="assets\fullcalender\locale\es-do.js" />
+    <Content Include="assets\fullcalender\locale\es-us.js" />
+    <Content Include="assets\fullcalender\locale\es.js" />
+    <Content Include="assets\fullcalender\locale\et.js" />
+    <Content Include="assets\fullcalender\locale\eu.js" />
+    <Content Include="assets\fullcalender\locale\fa.js" />
+    <Content Include="assets\fullcalender\locale\fi.js" />
+    <Content Include="assets\fullcalender\locale\fr-ca.js" />
+    <Content Include="assets\fullcalender\locale\fr-ch.js" />
+    <Content Include="assets\fullcalender\locale\fr.js" />
+    <Content Include="assets\fullcalender\locale\gl.js" />
+    <Content Include="assets\fullcalender\locale\he.js" />
+    <Content Include="assets\fullcalender\locale\hi.js" />
+    <Content Include="assets\fullcalender\locale\hr.js" />
+    <Content Include="assets\fullcalender\locale\hu.js" />
+    <Content Include="assets\fullcalender\locale\id.js" />
+    <Content Include="assets\fullcalender\locale\is.js" />
+    <Content Include="assets\fullcalender\locale\it.js" />
+    <Content Include="assets\fullcalender\locale\ja.js" />
+    <Content Include="assets\fullcalender\locale\ka.js" />
+    <Content Include="assets\fullcalender\locale\kk.js" />
+    <Content Include="assets\fullcalender\locale\ko.js" />
+    <Content Include="assets\fullcalender\locale\lb.js" />
+    <Content Include="assets\fullcalender\locale\lt.js" />
+    <Content Include="assets\fullcalender\locale\lv.js" />
+    <Content Include="assets\fullcalender\locale\mk.js" />
+    <Content Include="assets\fullcalender\locale\ms-my.js" />
+    <Content Include="assets\fullcalender\locale\ms.js" />
+    <Content Include="assets\fullcalender\locale\nb.js" />
+    <Content Include="assets\fullcalender\locale\nl-be.js" />
+    <Content Include="assets\fullcalender\locale\nl.js" />
+    <Content Include="assets\fullcalender\locale\nn.js" />
+    <Content Include="assets\fullcalender\locale\pl.js" />
+    <Content Include="assets\fullcalender\locale\pt-br.js" />
+    <Content Include="assets\fullcalender\locale\pt.js" />
+    <Content Include="assets\fullcalender\locale\ro.js" />
+    <Content Include="assets\fullcalender\locale\ru.js" />
+    <Content Include="assets\fullcalender\locale\sk.js" />
+    <Content Include="assets\fullcalender\locale\sl.js" />
+    <Content Include="assets\fullcalender\locale\sq.js" />
+    <Content Include="assets\fullcalender\locale\sr-cyrl.js" />
+    <Content Include="assets\fullcalender\locale\sr.js" />
+    <Content Include="assets\fullcalender\locale\sv.js" />
+    <Content Include="assets\fullcalender\locale\th.js" />
+    <Content Include="assets\fullcalender\locale\tr.js" />
+    <Content Include="assets\fullcalender\locale\uk.js" />
+    <Content Include="assets\fullcalender\locale\vi.js" />
+    <Content Include="assets\fullcalender\locale\zh-cn.js" />
+    <Content Include="assets\fullcalender\locale\zh-hk.js" />
+    <Content Include="assets\fullcalender\locale\zh-tw.js" />
+    <Content Include="assets\fullcalender\moment.min.js" />
     <Content Include="assets\images\avatars\1.jpg" />
     <Content Include="assets\images\avatars\10.jpg" />
     <Content Include="assets\images\avatars\11.jpg" />
@@ -125,6 +210,10 @@
     <Content Include="staffPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Calender.aspx" />
+    <Content Include="AppointmentModel.aspx" />
+    <Content Include="PatientVisit.aspx" />
+    <Content Include="Home.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attendancePage.aspx.cs">
@@ -133,6 +222,9 @@
     </Compile>
     <Compile Include="attendancePage.aspx.designer.cs">
       <DependentUpon>attendancePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CalenderHandler.ashx.cs">
+      <DependentUpon>CalenderHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -176,6 +268,8 @@
     <Compile Include="Appointment.aspx.designer.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppointmentViewModel.cs" />
+    <Compile Include="Models\CalenderViewModel.cs" />
     <Compile Include="patientPage.aspx.cs">
       <DependentUpon>patientPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +313,34 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Calender.aspx.cs">
+      <DependentUpon>Calender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calender.aspx.designer.cs">
+      <DependentUpon>Calender.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentModel.aspx.cs">
+      <DependentUpon>AppointmentModel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppointmentModel.aspx.designer.cs">
+      <DependentUpon>AppointmentModel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientVisit.aspx.cs">
+      <DependentUpon>PatientVisit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientVisit.aspx.designer.cs">
+      <DependentUpon>PatientVisit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="dmsMasterpage.Master" />
@@ -230,6 +352,7 @@
     <Content Include="assets\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="assets\fonts\Pe-icon-7-stroke.woff" />
     <Content Include="dmsNoLoginMasterPage.Master" />
+    <Content Include="CalenderHandler.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -239,14 +362,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

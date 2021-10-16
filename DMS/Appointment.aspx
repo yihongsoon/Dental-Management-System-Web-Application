@@ -1,8 +1,12 @@
 ﻿    <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/dmsMasterpage.Master" CodeBehind="Appointment.aspx.cs" Inherits="DMS.mainPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="assets/CSS/webform.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>       
+
 
     <style type="text/css">
         .ddl {
@@ -161,7 +165,7 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblAppointTime" runat="server" Text="Appointment Time :"></asp:Label>
-                                            <asp:TextBox ID="txtAppointTime" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtAppointTime" Text="" runat="server" CssClass="form-control timepicker" Enabled="false"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +209,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddIC" runat="server" Text="Patient IC :"></asp:Label>
-                                        <asp:TextBox ID="txtAddIC" Text="" CssClass="form-control" runat="server" placeHolder="Enter IC Number without '-'"></asp:TextBox>
+                                        <asp:TextBox ID="txtAddIC" Text="" CssClass="form-control" runat="server" placeHolder="Enter IC Number without '-'"  AutoPostBack="true" OnTextChanged="txtAddIC_TextChanged"></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorIC" ControlToValidate="txtAddIC" SetFocusOnError="true"
                                             EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="\d{12}" ErrorMessage="Invalid IC No.!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorIC" ControlToValidate="txtAddIC" ForeColor="Red" SetFocusOnError="true" 
@@ -245,7 +249,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddTime" runat="server" Text="Appointment Time :"></asp:Label>
-                                        <asp:TextBox ID="txtAddTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                                        <asp:TextBox ID="txtAddTime" Text="" Enabled="true" runat="server" CssClass="form-control timepicker"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorTime" ControlToValidate="txtAddTime" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
@@ -608,4 +612,32 @@
             </div>
         </asp:Panel>
     </div>
+
+    <script type="text/javascript">
+        var mains = function () {
+            var handleInitTimePicker = function () {
+                $('.timepicker').timepicker({
+                    timeFormat: 'hh:mm p',
+                    interval: 60,
+                    minTime: '10',
+                    maxTime: '6:00pm',
+                    defaultTime: '11',
+                    startTime: '10:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+            };
+            return {
+                initTimePicker: function () {
+                    handleInitTimePicker();
+                }
+            };
+        }();
+
+
+        mains.initTimePicker();
+    </script>
+
+
 </asp:Content>

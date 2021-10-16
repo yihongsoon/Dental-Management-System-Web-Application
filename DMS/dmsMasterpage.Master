@@ -127,7 +127,7 @@
                                                     <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>--%>
                                                     <div tabindex="-1" class="dropdown-divider"></div>
-                                                    <asp:Button ID="btnSignIn" Visible="false"  TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
+                                                    <asp:Button ID="btnSignIn" Visible="false" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
                                                     <asp:Button ID="btnSignOut" OnClick="btnSignOut_Click" Visible="true" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign Out" />
                                                     <%--<button type="button" tabindex="0" class="dropdown-item">Dividers</button>--%>
                                                 </div>
@@ -313,18 +313,25 @@
                             </ul>--%>
                             <ul class="vertical-nav-menu metismenu">
                                 <li class="app-sidebar__heading">Admin Function</li>
+
                                 <li>
-                                    <asp:HyperLink  ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Staff</asp:HyperLink>
+                                    <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Staff</asp:HyperLink>
                                 </li>
                                 <li class="app-sidebar__heading">Staff Function</li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/home.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Today's Appointments</asp:HyperLink>
+                                </li>
                                 <li>
                                     <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Patient</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink  ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
+                                    <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink  ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
+                                    <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Calender</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>

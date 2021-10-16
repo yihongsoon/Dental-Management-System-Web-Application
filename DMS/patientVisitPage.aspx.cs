@@ -17,6 +17,10 @@ namespace DMS
         {
             //if (Session["username"] == null)
             //    Response.Redirect("loginPage.aspx");
+            if (Session["Patient_ID"] != null)
+            {
+                txtPatientID.Text = Session["Patient_ID"].ToString();
+            }
             visitID();
         }
 
@@ -63,27 +67,28 @@ namespace DMS
         protected void btnAddVisitDetails_Click(object sender, EventArgs e)
         {
             Page.Validate();
-            if(Page.IsValid == true)
+            if (Page.IsValid == true)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("INSERT INTO VisitRecord(visitID, dateVisit, status, diagnosis, medicineGiven, dentistVisited, roomNo, patientID) VALUES(@visitID, @dateVisit, @status, @diagnosis, @medicineGiven, @dentistVisited, @roomNo, @patientID)", con);
+                    SqlCommand cmd1 = new SqlCommand("INSERT INTO VisitRecord (visitID, dateVisit, status, diagnosis, medicineGiven, dentistVisited, roomNo,totalVisit, patientID) VALUES(@visitID, @dateVisit, @status, @diagnosis, @medicineGiven, @dentistVisited, @roomNo, @totalVisit, @patientID)", con);
                     cmd1.Parameters.AddWithValue("@visitID", txtVisitID.Text);
                     cmd1.Parameters.AddWithValue("@dateVisit", txtDateVisit.Text);
                     cmd1.Parameters.AddWithValue("@status", ddlPresence.SelectedValue);
                     cmd1.Parameters.AddWithValue("@diagnosis", txtDiagnosis.Text);
                     cmd1.Parameters.AddWithValue("@medicineGiven", txtMedicineGiven.Text);
                     cmd1.Parameters.AddWithValue("@dentistVisited", txtDentistVisit.Text);
-                    cmd1.Parameters.AddWithValue("@roomNo", txtRoomNo.Text);
+                    cmd1.Parameters.AddWithValue("@roomNo", Convert.ToInt32(txtRoomNo.Text));
                     cmd1.Parameters.AddWithValue("@patientID", txtPatientID.Text);
+                    cmd1.Parameters.AddWithValue("@totalVisit", 1);
                     cmd1.ExecuteNonQuery();
 
                     con.Close();
                     Response.Write("<script type=\"text/javascript\">alert('Patient visit details have been successfully added.');location.href='patientPage.aspx'</script>");
                 }
-                catch(SqlException ex)
+                catch (SqlException ex)
                 {
                     AlertMessage(ex.Message);
                 }
