@@ -912,5 +912,164 @@ namespace DMS
             //Response.Clear();
         }
         //ATTENDANCE END
+
+        protected void btnSearchReport_Click(object sender, EventArgs e)
+        {
+            if(txtSearch.Text == string.Empty)
+            {
+                noInput.Visible = true;
+                pnlsearchResult.Visible = false;
+            }
+            else
+            {
+                noInput.Visible = false;
+                BindGridSearch();                
+            }
+            
+        }
+
+        protected void gridViewSearchResult_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridViewSearchResult.PageIndex = e.NewPageIndex;
+            this.BindGridSearch();
+        }
+
+        private void BindGridSearch()
+        {
+            SqlConnection con = new SqlConnection(strCon);
+            if (ddlSearchCriteria.SelectedValue == "name")
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT reportName, reportCategory, reportMonth, reportYear from Report where reportName like @Name", con);
+                cmd.Parameters.AddWithValue("@Name", "%" + txtSearch.Text + "%");
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (!dr.Read())
+                    {
+                        noResult.Visible = true;
+                        pnlsearchResult.Visible = false;
+                    }
+                    else
+                    {
+                        con.Close();
+                        con.Open();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            gridViewSearchResult.DataSource = dt;
+                            gridViewSearchResult.DataBind();
+                        }
+                        pnlsearchResult.Visible = true;
+                        con.Close();
+                    }
+                }               
+                con.Close();
+            }
+            else if (ddlSearchCriteria.SelectedValue == "category")
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT reportName, reportCategory, reportMonth, reportYear from Report where reportCategory like @Name", con);
+                cmd.Parameters.AddWithValue("@Name", "%" + txtSearch.Text + "%");
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (!dr.Read())
+                    {
+                        noResult.Visible = true;
+                        pnlsearchResult.Visible = false;
+                    }
+                    else
+                    {
+                        con.Close();
+                        con.Open();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            gridViewSearchResult.DataSource = dt;
+                            gridViewSearchResult.DataBind();
+                        }
+                        pnlsearchResult.Visible = true;
+                        con.Close();
+                    }
+                }
+                con.Close();
+            }
+            else if (ddlSearchCriteria.SelectedValue == "year")
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT reportName, reportCategory, reportMonth, reportYear from Report where reportYear like @Name", con);
+                cmd.Parameters.AddWithValue("@Name", "%" + txtSearch.Text + "%");
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (!dr.Read())
+                    {
+                        noResult.Visible = true;
+                        pnlsearchResult.Visible = false;
+                    }
+                    else
+                    {
+                        con.Close();
+                        con.Open();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                            gridViewSearchResult.DataSource = dt;
+                            gridViewSearchResult.DataBind();
+                        }
+                        pnlsearchResult.Visible = true;
+                        con.Close();
+                    }
+                }
+                con.Close();
+            }   
+        }
+
+        protected void gridViewSearchResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = gridViewSearchResult.SelectedRow.Cells[1].Text;
+            string category = gridViewSearchResult.SelectedRow.Cells[2].Text;
+            string reportMonth = gridViewSearchResult.SelectedRow.Cells[3].Text;
+            string reportYear = gridViewSearchResult.SelectedRow.Cells[4].Text;
+
+
+            SqlConnection con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select reportByte from Report where reportName = @name and reportCategory = @category and reportMonth = @month and reportYear = @year", con);
+
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@category", category);
+            cmd.Parameters.AddWithValue("@month", reportMonth);
+            cmd.Parameters.AddWithValue("@year", reportYear);
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {              
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        byte[] pdfBytes = (byte[])dr["reportByte"];
+                        Response.ClearContent();
+                        Response.ClearHeaders();
+                        Response.ContentType = "application/pdf";
+                        string FileName = "" + name + "GeneratedIn" + DateTime.Now.ToString("ddMMyyyy") + ".pdf";
+                        Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+                        Response.BinaryWrite(pdfBytes);
+                        Response.End();
+                        Response.Flush();
+                        Response.Clear();
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                ShowMessage(ex.Message);
+            }            
+        }
     }
 }
