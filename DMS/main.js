@@ -1639,32 +1639,32 @@
     }).call(this, n(158)(e))
 }, function (e, t, n) {
     var i;
-	/*!
-	 * jQuery JavaScript Library v3.3.1
-	 * https://jquery.com/
-	 *
-	 * Includes Sizzle.js
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright JS Foundation and other contributors
-	 * Released under the MIT license
-	 * https://jquery.org/license
-	 *
-	 * Date: 2018-01-20T17:24Z
-	 */
-	/*!
-	 * jQuery JavaScript Library v3.3.1
-	 * https://jquery.com/
-	 *
-	 * Includes Sizzle.js
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright JS Foundation and other contributors
-	 * Released under the MIT license
-	 * https://jquery.org/license
-	 *
-	 * Date: 2018-01-20T17:24Z
-	 */
+    /*!
+     * jQuery JavaScript Library v3.3.1
+     * https://jquery.com/
+     *
+     * Includes Sizzle.js
+     * https://sizzlejs.com/
+     *
+     * Copyright JS Foundation and other contributors
+     * Released under the MIT license
+     * https://jquery.org/license
+     *
+     * Date: 2018-01-20T17:24Z
+     */
+    /*!
+     * jQuery JavaScript Library v3.3.1
+     * https://jquery.com/
+     *
+     * Includes Sizzle.js
+     * https://sizzlejs.com/
+     *
+     * Copyright JS Foundation and other contributors
+     * Released under the MIT license
+     * https://jquery.org/license
+     *
+     * Date: 2018-01-20T17:24Z
+     */
     ! function (t, n) {
         "use strict";
         "object" == typeof e.exports ? e.exports = t.document ? n(t, !0) : function (e) {
@@ -1830,16 +1830,16 @@
             h["[object " + t + "]"] = t.toLowerCase()
         });
         var k =
-			/*!
-			 * Sizzle CSS Selector Engine v2.3.3
-			 * https://sizzlejs.com/
-			 *
-			 * Copyright jQuery Foundation and other contributors
-			 * Released under the MIT license
-			 * http://jquery.org/license
-			 *
-			 * Date: 2016-08-08
-			 */
+            /*!
+             * Sizzle CSS Selector Engine v2.3.3
+             * https://sizzlejs.com/
+             *
+             * Copyright jQuery Foundation and other contributors
+             * Released under the MIT license
+             * http://jquery.org/license
+             *
+             * Date: 2016-08-08
+             */
             function (e) {
                 var t, n, i, r, a, o, l, s, d, u, c, h, p, f, m, g, _, y, v, M = "sizzle" + 1 * new Date,
                     b = e.document,
@@ -4298,9 +4298,9 @@
                             value: e.replace(Tt, "\r\n")
                         }
                     }) : {
-                            name: t.name,
-                            value: n.replace(Tt, "\r\n")
-                        }
+                        name: t.name,
+                        value: n.replace(Tt, "\r\n")
+                    }
                 }).get()
             }
         });
@@ -4595,8 +4595,8 @@
                             t && (t = i = l.onload = l.onerror = l.onabort = l.ontimeout = l.onreadystatechange = null, "abort" === e ? l.abort() : "error" === e ? "number" != typeof l.status ? a(0, "error") : a(l.status, l.statusText) : a(zt[l.status] || l.status, l.statusText, "text" !== (l.responseType || "text") || "string" != typeof l.responseText ? {
                                 binary: l.response
                             } : {
-                                    text: l.responseText
-                                }, l.getAllResponseHeaders()))
+                                text: l.responseText
+                            }, l.getAllResponseHeaders()))
                         }
                     }, l.onload = t(), i = l.onerror = l.ontimeout = t("error"), void 0 !== l.onabort ? l.onabort = i : l.onreadystatechange = function () {
                         4 === l.readyState && n.setTimeout(function () {
@@ -4705,9 +4705,9 @@
                     top: t.top + n.pageYOffset,
                     left: t.left + n.pageXOffset
                 }) : {
-                        top: 0,
-                        left: 0
-                    } : void 0
+                    top: 0,
+                    left: 0
+                } : void 0
             },
             position: function () {
                 if (this[0]) {
@@ -5806,11 +5806,11 @@
     }, r.getValueOrDefault = r.valueOrDefault, r.getValueAtIndexOrDefault = r.valueAtIndexOrDefault
 }, function (e, t, n) {
     "use strict";
-	/*!
-	 * perfect-scrollbar v1.4.0
-	 * (c) 2018 Hyunje Jun
-	 * @license MIT
-	 */
+    /*!
+     * perfect-scrollbar v1.4.0
+     * (c) 2018 Hyunje Jun
+     * @license MIT
+     */
     function i(e) {
         return getComputedStyle(e)
     }
@@ -16908,11 +16908,11 @@
         })
     })
 }, function (e, t, n) {
-	/*!
-	 * Bootstrap v4.2.1 (https://getbootstrap.com/)
-	 * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 */
+    /*!
+     * Bootstrap v4.2.1 (https://getbootstrap.com/)
+     * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     */
     ! function (e, t, n) {
         "use strict";
 
@@ -18722,30 +18722,30 @@
     n.r(t),
         function (e) {
             for (
-				/**!
-				 * @fileOverview Kickass library to create and place poppers near their reference elements.
-				 * @version 1.14.6
-				 * @license
-				 * Copyright (c) 2016 Federico Zivolo and contributors
-				 *
-				 * Permission is hereby granted, free of charge, to any person obtaining a copy
-				 * of this software and associated documentation files (the "Software"), to deal
-				 * in the Software without restriction, including without limitation the rights
-				 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-				 * copies of the Software, and to permit persons to whom the Software is
-				 * furnished to do so, subject to the following conditions:
-				 *
-				 * The above copyright notice and this permission notice shall be included in all
-				 * copies or substantial portions of the Software.
-				 *
-				 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-				 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-				 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-				 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-				 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-				 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-				 * SOFTWARE.
-				 */
+                /**!
+                 * @fileOverview Kickass library to create and place poppers near their reference elements.
+                 * @version 1.14.6
+                 * @license
+                 * Copyright (c) 2016 Federico Zivolo and contributors
+                 *
+                 * Permission is hereby granted, free of charge, to any person obtaining a copy
+                 * of this software and associated documentation files (the "Software"), to deal
+                 * in the Software without restriction, including without limitation the rights
+                 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                 * copies of the Software, and to permit persons to whom the Software is
+                 * furnished to do so, subject to the following conditions:
+                 *
+                 * The above copyright notice and this permission notice shall be included in all
+                 * copies or substantial portions of the Software.
+                 *
+                 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                 * SOFTWARE.
+                 */
                 var n = "undefined" != typeof window && "undefined" != typeof document, i = ["Edge", "Trident", "Firefox"], r = 0, a = 0; a < i.length; a += 1)
                 if (n && navigator.userAgent.indexOf(i[a]) >= 0) {
                     r = 1;
@@ -19593,13 +19593,13 @@
     }
     e.exports = n
 }, function (e, t, n) {
-	/*!
-	 * metismenu https://github.com/onokumus/metismenu#readme
-	 * A jQuery menu plugin
-	 * @version 3.0.3
-	 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
-	 * @license: MIT 
-	 */
+    /*!
+     * metismenu https://github.com/onokumus/metismenu#readme
+     * A jQuery menu plugin
+     * @version 3.0.3
+     * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
+     * @license: MIT 
+     */
     e.exports = function (e) {
         "use strict";
 
@@ -19917,6 +19917,13 @@
                     navLinks: !0,
                     editable: !0,
                     eventLimit: !0,
+                    eventClick: function (calEvent, jsEvent, view) {
+                        debugger
+                        if (calEvent != null && calEvent != undefined) {
+                            var id = calEvent.id;
+                            window.location.href = "../Detail.aspx?Id=" + id + "";
+                        }
+                    },
                     events: {
                         url: '/CalenderHandler.ashx',
                         error: function () {
@@ -19945,11 +19952,11 @@
             })
         }.call(this, n(1))
 }, function (e, t, n) {
-	/*!
-	 * FullCalendar v3.10.0
-	 * Docs & License: https://fullcalendar.io/
-	 * (c) 2018 Adam Shaw
-	 */
+    /*!
+     * FullCalendar v3.10.0
+     * Docs & License: https://fullcalendar.io/
+     * (c) 2018 Adam Shaw
+     */
     var i;
     "undefined" != typeof self && self, i = function (e, t) {
         return function (e) {
@@ -20210,11 +20217,11 @@
                     field: n.substring(1),
                     order: -1
                 } : {
-                        field: n,
-                        order: 1
-                    }) : "function" == typeof n && i.push({
-                        func: n
-                    });
+                    field: n,
+                    order: 1
+                }) : "function" == typeof n && i.push({
+                    func: n
+                });
                 return i
             }, t.compareByFieldSpecs = function (e, t, n, i, r) {
                 var a, o;
@@ -31181,9 +31188,9 @@
                 start: t - n - 5,
                 end: t
             } : {
-                        start: t,
-                        end: t + n + 5
-                    }
+                start: t,
+                end: t + n + 5
+            }
         }
 
         function u(e) {
@@ -31259,9 +31266,9 @@
                             w: r.longestText(h, h.font, f),
                             h: f.length * p + 1.5 * (f.length - 1) * p
                         } : {
-                                w: h.measureText(f).width,
-                                h: p
-                            }, e._pointLabelSizes[t] = n;
+                            w: h.measureText(f).width,
+                            h: p
+                        }, e._pointLabelSizes[t] = n;
                         var g = e.getIndexAngle(t),
                             _ = r.toDegrees(g) % 360,
                             y = d(_, i.x, n.w, 0, 180),
@@ -33026,10 +33033,10 @@
                     y: e.top + n.padding,
                     line: 0
                 } : {
-                        x: e.left + n.padding,
-                        y: e.top + n.padding,
-                        line: 0
-                    };
+                    x: e.left + n.padding,
+                    y: e.top + n.padding,
+                    line: 0
+                };
                 var b = f + n.padding;
                 a.each(e.legendItems, function (i, s) {
                     var p = c.measureText(i.text).width,

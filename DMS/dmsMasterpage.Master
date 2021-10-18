@@ -328,7 +328,7 @@
                                     <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Calender</asp:HyperLink>
+                                    <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Calendar</asp:HyperLink>
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
