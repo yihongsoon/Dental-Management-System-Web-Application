@@ -81,7 +81,8 @@
 
                             <asp:Panel runat="server" ID="pnlSearchAppointBroad" Visible="false">
                                 <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
-                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging" DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewSearch_SelectedIndexChanged">
+                                   HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="onPageIndexChanging" 
+                                    DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewSearch_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:CommandField ShowSelectButton="true" />
@@ -228,11 +229,13 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <asp:Label ID="lblAddToVisit" runat="server" Text="Dentist To Visit :"></asp:Label>
-                                            <asp:TextBox ID="txtAddToVisit" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <%--<asp:TextBox ID="txtAddToVisit" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorName" ControlToValidate="txtAddToVisit" SetFocusOnError="true"
                                                 EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" ControlToValidate="txtAddToVisit" ForeColor="Red" SetFocusOnError="true" 
-                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                                EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>--%>
+                                            <asp:DropDownList ID="ddlAddDentist" runat="server" CssClass="form-control">
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -249,9 +252,26 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddTime" runat="server" Text="Appointment Time :"></asp:Label>
-                                        <asp:TextBox ID="txtAddTime" Text="" Enabled="true" runat="server" CssClass="form-control timepicker"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorTime" ControlToValidate="txtAddTime" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        <%--<asp:TextBox ID="txtAddTime" Text="" Enabled="true" runat="server" CssClass="form-control timepicker"></asp:TextBox>--%>
+                                        <asp:DropDownList ID="ddlAddTime" runat="server" CssClass="form-control timepicker">
+                                            <asp:ListItem Value="Please Select" Selected="True">Please Select A Time</asp:ListItem>
+                                            <asp:ListItem Text="09:30 AM" Value="09:30 AM">09:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="10:00 AM" Value="10:00 AM">10:00 AM </asp:ListItem> 
+                                            <asp:ListItem Text="10:30 AM" Value="10:30 AM">10:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:00 AM" Value="11:00 AM">11:00 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:30 AM" Value="11:30 AM">11:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:30 AM" Value="11:30 AM">11:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="12:00 PM" Value="12:00 PM">12:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="1:30 PM" Value="1:30 PM">1:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="2:00 PM" Value="2:00 PM">2:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="2:30 PM" Value="2:30 PM">2:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="3:00 PM" Value="3:00 PM">3:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="3:30 PM" Value="3:30 PM">3:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="4:00 PM" Value="4:00 PM">4:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="4:30 PM" Value="4:30 PM">4:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="5:00 PM" Value="5:00 PM">5:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="5:30 PM" Value="5:30 PM">5:30 PM </asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -418,9 +438,25 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateTime" runat="server" Text="Appointment Time :"></asp:Label>
-                                        <asp:TextBox ID="txtUpdateTime" Text="" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtUpdateTime" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                        <asp:DropDownList ID="ddlUpdateTime" runat="server" CssClass="form-control timepicker">
+                                            <asp:ListItem Value="Please Select" Selected="True">Please Select A Time</asp:ListItem>
+                                            <asp:ListItem Text="09:30 AM" Value="09:30 AM">09:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="10:00 AM" Value="10:00 AM">10:00 AM </asp:ListItem> 
+                                            <asp:ListItem Text="10:30 AM" Value="10:30 AM">10:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:00 AM" Value="11:00 AM">11:00 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:30 AM" Value="11:30 AM">11:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="11:30 AM" Value="11:30 AM">11:30 AM </asp:ListItem>
+                                            <asp:ListItem Text="12:00 PM" Value="12:00 PM">12:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="1:30 PM" Value="1:30 PM">1:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="2:00 PM" Value="2:00 PM">2:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="2:30 PM" Value="2:30 PM">2:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="3:00 PM" Value="3:00 PM">3:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="3:30 PM" Value="3:30 PM">3:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="4:00 PM" Value="4:00 PM">4:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="4:30 PM" Value="4:30 PM">4:30 PM </asp:ListItem>
+                                            <asp:ListItem Text="5:00 PM" Value="5:00 PM">5:00 PM </asp:ListItem>
+                                            <asp:ListItem Text="5:30 PM" Value="5:30 PM">5:30 PM </asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -640,4 +676,4 @@
     </script>
 
 
-</asp:Content>
+    </asp:Content>

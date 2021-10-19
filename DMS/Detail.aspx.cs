@@ -29,22 +29,40 @@ namespace DMS
                             cmd.CommandText = "SELECT appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID FROM Appointment where appointmentID like '"+ id + "'";
                             cmd.Connection = con;
                             DataTable dt = new DataTable();
+                            SqlDataReader dr = cmd.ExecuteReader();
                             using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                             {
-                                da.Fill(dt);
-                                var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                                //da.Fill(dt);
+                                //var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                                //{
+                                //    appointmentID = x.Field<string>("appointmentID"),
+                                //    appointmentName = x.Field<string>("appointmentName"),
+                                //    dentistToVisit = x.Field<string>("dentistToVisit"),
+                                //    appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                //    appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                //    appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                //    icNo = x.Field<string>("icNo"),
+                                //    staffID = x.Field<string>("staffID")
+                                //}).ToList();
+                                //GridViewCalendar.DataSource = data;
+                                //GridViewCalendar.DataBind();
+
+                                if (dr != null)
                                 {
-                                    appointmentID = x.Field<string>("appointmentID"),
-                                    appointmentName = x.Field<string>("appointmentName"),
-                                    dentistToVisit = x.Field<string>("dentistToVisit"),
-                                    appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
-                                    appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
-                                    appointmentPurpose = x.Field<string>("appointmentPurpose"),
-                                    icNo = x.Field<string>("icNo"),
-                                    staffID = x.Field<string>("staffID")
-                                }).ToList();
-                                GridViewSearch.DataSource = data;
-                                GridViewSearch.DataBind();
+                                    if (dr.Read())
+                                    {
+                                        txtAppointID.Text = dr["appointmentID"].ToString();
+                                        txtIcNo.Text = dr["icNo"].ToString();
+                                        txtName.Text = dr["appointmentName"].ToString();
+                                        txtDentToVisit.Text = dr["dentistToVisit"].ToString();
+                                        txtAppointDate.Text = dr["appointmentDate"].ToString();
+                                        txtAppointTime.Text = dr["appointmentTime"].ToString();
+                                        txtStaffReg.Text = dr["staffID"].ToString();
+                                        txtPurpose.Text = dr["appointmentPurpose"].ToString();
+                                    }
+                                    
+                                }
+                                con.Close();
                             }
                         }
                     }
@@ -53,14 +71,24 @@ namespace DMS
             }
         }
 
-        protected void GridViewSearch_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void GridViewCalendar_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
 
         }
 
-        protected void GridViewSearch_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridViewCalendar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnBackCalendar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Calender.aspx");
+        }
+
+        protected void btnCalendarReminder_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

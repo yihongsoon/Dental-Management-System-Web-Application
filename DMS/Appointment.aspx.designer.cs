@@ -375,31 +375,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblAddToVisit;
 
         /// <summary>
-        /// txtAddToVisit control.
+        /// ddlAddDentist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddToVisit;
-
-        /// <summary>
-        /// RegularExpressionValidatorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorName;
-
-        /// <summary>
-        /// RequiredFieldValidatorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddDentist;
 
         /// <summary>
         /// lblAddDate control.
@@ -438,22 +420,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblAddTime;
 
         /// <summary>
-        /// txtAddTime control.
+        /// ddlAddTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddTime;
-
-        /// <summary>
-        /// RequiredFieldValidatorTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTime;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddTime;
 
         /// <summary>
         /// lblAddStaff control.
@@ -753,22 +726,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblUpdateTime;
 
         /// <summary>
-        /// txtUpdateTime control.
+        /// ddlUpdateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateTime;
-
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateTime;
 
         /// <summary>
         /// lblUpdateStaff control.
