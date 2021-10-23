@@ -11,35 +11,35 @@ namespace DMS
 {
 
 
-    public partial class Home
+    public partial class Detail
     {
 
         /// <summary>
-        /// pnlGridToday control.
+        /// btnBackCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlGridToday;
+        protected global::System.Web.UI.WebControls.Button btnBackCalendar;
 
         /// <summary>
-        /// GridViewTodayAppoint control.
+        /// pnlSearchAppointBroad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewTodayAppoint;
+        protected global::System.Web.UI.WebControls.Panel pnlSearchAppointBroad;
 
         /// <summary>
-        /// todayAppointNotFound control.
+        /// GridViewCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl todayAppointNotFound;
+        protected global::System.Web.UI.WebControls.GridView GridViewCalendar;
 
         /// <summary>
         /// pnlTodayDetails control.
@@ -49,15 +49,6 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlTodayDetails;
-
-        /// <summary>
-        /// btnBackToday control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackToday;
 
         /// <summary>
         /// lblAppointID control.
@@ -204,12 +195,12 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtPurpose;
 
         /// <summary>
-        /// btnReminderToday control.
+        /// btnCalendarReminder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReminderToday;
+        protected global::System.Web.UI.WebControls.Button btnCalendarReminder;
     }
 }

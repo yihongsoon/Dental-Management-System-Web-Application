@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dmsMasterpage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="DMS.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dmsMasterpage.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="DMS.Detail" %>
+
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div>
-                    Today Appointments
+                     Appointment Details
                     <div class="page-title-subheading">
                         Dentist Management System
                     </div>
@@ -13,17 +14,25 @@
             </div>
         </div>
     </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <asp:Button ID="btnBackCalendar" CssClass="mt-2 btn btn-primary" runat="server" Text="Back" OnClick="btnBackCalendar_Click"/>
+        </div>
+    </div>
+    <br />
+
     <div class="row">   
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <asp:Panel runat="server" ID="pnlGridToday" Visible="true">
-                        <asp:GridView ID="GridViewTodayAppoint" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
-                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewTodayAppoint_PageIndexChanging" 
-                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewTodayAppoint_SelectedIndexChanged">
+                    <asp:Panel runat="server" ID="pnlSearchAppointBroad" Visible="false">
+                        <asp:GridView ID="GridViewCalendar" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
+                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewCalendar_PageIndexChanging" 
+                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewCalendar_SelectedIndexChanged">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:CommandField ShowSelectButton="true" />
                                 <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
@@ -48,7 +57,6 @@
                                 <asp:BoundField DataField="appointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:CommandField ShowDeleteButton="true" />
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -63,18 +71,7 @@
                         </asp:GridView>
                     </asp:Panel>
 
-                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="false">
-                        <asp:Label runat="server" Text="No Appointment Today!"></asp:Label>
-                    </div>
-
-                    <asp:Panel runat="server" ID="pnlTodayDetails" Visible="false">
-                                <hr />
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <asp:Button ID="btnBackToday" CssClass="mt-2 btn btn-primary" runat="server" Text="Back" OnClick="btnBackToday_Click"/>
-                                    </div>
-                                </div>
+                    <asp:Panel runat="server" ID="pnlTodayDetails" Visible="true">
                                 <br />
 
                                 <div class="row">
@@ -142,7 +139,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnReminderToday" CssClass="mt-2 btn btn-primary" runat="server" Text="Send Appointment Reminder" Font-Bold="true" OnClick="btnReminderToday_Click"/>
+                                        <asp:Button ID="btnCalendarReminder" CssClass="mt-2 btn btn-primary" runat="server" Text="Send Appointment Reminder" Font-Bold="true" OnClick="btnCalendarReminder_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>

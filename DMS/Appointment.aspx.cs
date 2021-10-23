@@ -50,6 +50,19 @@ namespace DMS
 
             appointmentId();
 
+            SqlConnection con = new SqlConnection(strCon);
+            // SqlCommand cmd = new SqlCommand();
+            con.Open();
+            string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+            SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            ddlAddDentist.DataSource = dt;
+            ddlAddDentist.DataBind();
+            ddlAddDentist.DataTextField = "name";
+            ddlAddDentist.DataValueField = "name";
+            ddlAddDentist.DataBind();
+            
         }
 
         void AlertMessage(string msg)
@@ -183,9 +196,9 @@ namespace DMS
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO Appointment(appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID) VALUES(@appointmentID, @appointmentName, @dentistToVisit, @appointmentDate, @appointmentTime, @appointmentPurpose, @icNo, @staffID)", con);
                     cmd1.Parameters.AddWithValue("@appointmentID", txtAddAppID.Text);
                     cmd1.Parameters.AddWithValue("@appointmentName", txtAddName.Text);
-                    cmd1.Parameters.AddWithValue("@dentistToVisit", txtAddToVisit.Text);
+                    cmd1.Parameters.AddWithValue("@dentistToVisit", ddlAddDentist.SelectedValue);
                     cmd1.Parameters.AddWithValue("@appointmentDate", txtAddDate.Text);
-                    cmd1.Parameters.AddWithValue("@appointmentTime", txtAddTime.Text);
+                    cmd1.Parameters.AddWithValue("@appointmentTime", ddlAddTime.SelectedValue);
                     cmd1.Parameters.AddWithValue("@appointmentPurpose", txtAddPurpose.Text);
                     cmd1.Parameters.AddWithValue("@patientID", txtAddIC.Text);
                     cmd1.Parameters.AddWithValue("@staffID", txtAddStaff.Text);
@@ -559,7 +572,7 @@ namespace DMS
             txtUpdateName.Text = GridViewUpdate.SelectedRow.Cells[3].Text;
             txtUpdateToVisit.Text = GridViewUpdate.SelectedRow.Cells[4].Text;
             txtUpdateDate.Text = GridViewUpdate.SelectedRow.Cells[5].Text;
-            txtUpdateTime.Text = GridViewUpdate.SelectedRow.Cells[6].Text;
+            ddlUpdateTime.SelectedValue = GridViewUpdate.SelectedRow.Cells[6].Text;
             txtUpdateStaff.Text = GridViewUpdate.SelectedRow.Cells[7].Text;
             txtUpdatePurpose.Text = GridViewUpdate.SelectedRow.Cells[8].Text;
             pnlUpdateAppointBroad.Visible = false;
@@ -600,7 +613,7 @@ namespace DMS
                     cmd.Parameters.AddWithValue("@appointmentName", txtUpdateName.Text);
                     cmd.Parameters.AddWithValue("@dentistToVisit", txtUpdateToVisit.Text);
                     cmd.Parameters.AddWithValue("@appointmentDate", txtUpdateDate.Text);
-                    cmd.Parameters.AddWithValue("@appointmentTime", txtUpdateTime.Text);
+                    cmd.Parameters.AddWithValue("@appointmentTime", ddlUpdateTime.SelectedValue);
                     cmd.Parameters.AddWithValue("@apointmentPurpose", txtUpdatePurpose.Text);
                     cmd.Parameters.AddWithValue("@icNo", txtUpdateIC.Text);
                     cmd.Parameters.AddWithValue("@staffID", txtUpdateStaff.Text);

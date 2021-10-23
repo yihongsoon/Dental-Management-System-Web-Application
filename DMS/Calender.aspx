@@ -11,9 +11,9 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div>
-                    Calender
+                    Calendar
                         <div class="page-title-subheading">
-                            Manage Appointment Details through Calender Here
+                            Manage Patient's Reminder Here
                         </div>
                 </div>
             </div>
