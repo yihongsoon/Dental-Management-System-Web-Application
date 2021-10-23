@@ -237,6 +237,12 @@
     <Content Include="assets\Javascript\instascan.min.js" />
     <Content Include="attendancePage.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="component\Bubbles.js" />
+    <Content Include="component\styles\input.css" />
+    <Content Include="component\styles\reply.css" />
+    <Content Include="component\styles\says.css" />
+    <Content Include="component\styles\setup.css" />
+    <Content Include="component\styles\typing.css" />
     <Content Include="homepage.aspx" />
     <Content Include="loginPage.aspx" />
     <Content Include="main.css" />
@@ -253,7 +259,6 @@
     <Content Include="AppointmentModel.aspx" />
     <Content Include="PatientVisit.aspx" />
     <Content Include="Home.aspx" />
-    <Content Include="Detail.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attendancePage.aspx.cs">
@@ -380,13 +385,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Detail.aspx.cs">
-      <DependentUpon>Detail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Detail.aspx.designer.cs">
-      <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

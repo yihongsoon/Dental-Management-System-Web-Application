@@ -309,38 +309,37 @@
                         <ul class="vertical-nav-menu metismenu">
                             <li class="app-sidebar__heading">Admin Function</li>
 
-                            <li>
-                                <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-add-user"></i>Staff</asp:HyperLink>
-                            </li>
-                            <li class="app-sidebar__heading">Staff Function</li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink1" NavigateUrl="~/home.aspx" runat="server"><i class="metismenu-icon pe-7s-check"></i>Today's Appointments</asp:HyperLink>
-                            </li>
-                            <li>
-                                <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-user"></i>Patient</asp:HyperLink>
-                            </li>
-                            <li>
-                                <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-note"></i>Appointment</asp:HyperLink>
-                            </li>
-                            <li>
-                                <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-date"></i>Calender</asp:HyperLink>
-                            </li>
-                            <li>
-                                <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-file"></i>Report</asp:HyperLink>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 82px;">
-                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                    </div>
-                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Staff</asp:HyperLink>
+                                </li>
+                                <li class="app-sidebar__heading">Staff Function</li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/home.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Today's Appointments</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Patient</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Calender</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 82px;">
+                            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <form runat="server">
+                <div class="app-main__outer">
+                    <div class="app-main__inner">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                         </asp:ContentPlaceHolder>
                     </form>
