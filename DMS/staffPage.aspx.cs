@@ -662,5 +662,134 @@ namespace DMS
                 }
             }
         }
+
+        protected void btnAttBack_Click(object sender, EventArgs e)
+        {
+            txtSearchAttCriteria.Text = "";
+            txtAttID.Text = "";
+            txtAttPosition.Text = "";
+            txtAttName.Text = "";
+            txtAttIC.Text = "";
+            txtAttMonth.Text = "";
+            txtTotalAttendance.Text = "";
+            pnlAttSearch.Visible = false;
+            btnAttBack.Visible = false;
+            noAttResult.Visible = false;
+        }
+
+        protected void btnAttSearch_Click(object sender, EventArgs e)
+        {
+            if (ddlSearchAttendance.SelectedValue == "name")
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select Staff.staffID, Staff.position, Staff.icNo, Person.name from Staff, Person where Person.name = @name AND Person.icNo = Staff.icNo", con);
+                cmd.Parameters.AddWithValue("@name", txtSearchAttCriteria.Text);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        txtAttID.Text = dr["staffID"].ToString();
+                        txtAttPosition.Text = dr["position"].ToString();
+                        txtAttName.Text = dr["name"].ToString();
+                        txtAttIC.Text = dr["icNo"].ToString();
+                        txtAttMonth.Text = DateTime.Now.Month.ToString();
+                        pnlAttSearch.Visible = true;
+                        btnAttBack.Visible = true;
+                        noAttResult.Visible = false;
+                    }
+                    else
+                    {
+                        noAttResult.Visible = true;
+                        pnlAttSearch.Visible = false;
+                        btnAttBack.Visible = false;
+                    }
+                }
+                con.Close();
+                con.Open();
+                int count = 0;
+                SqlCommand cmd2 = new SqlCommand("SELECT COUNT(*) from Attendance, Person, Staff where Person.name = @name AND Attendance.month = @month AND Person.icNo = Staff.icNo", con);
+                cmd2.Parameters.AddWithValue("@name", txtSearchAttCriteria.Text);
+                cmd2.Parameters.AddWithValue("@month", DateTime.Now.Month);
+                count = Convert.ToInt32(cmd2.ExecuteScalar());
+                txtTotalAttendance.Text = count.ToString();
+                con.Close();
+            }
+            else if (ddlSearchAttendance.SelectedValue == "contact")
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select Staff.staffID, Staff.position, Staff.icNo, Person.name from Staff, Person where Person.contactNo = @contact AND Person.icNo = Staff.icNo", con);
+                cmd.Parameters.AddWithValue("@contact", txtSearchAttCriteria.Text);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        txtAttID.Text = dr["staffID"].ToString();
+                        txtAttPosition.Text = dr["position"].ToString();
+                        txtAttName.Text = dr["name"].ToString();
+                        txtAttIC.Text = dr["icNo"].ToString();
+                        txtAttMonth.Text = DateTime.Now.Month.ToString();
+                        pnlAttSearch.Visible = true;
+                        btnAttBack.Visible = true;
+                        noAttResult.Visible = false;
+                    }
+                    else
+                    {
+                        noAttResult.Visible = true;
+                        pnlAttSearch.Visible = false;
+                        btnAttBack.Visible = false;
+                    }
+                }
+                con.Close();
+                con.Open();
+                int count = 0;
+                SqlCommand cmd2 = new SqlCommand("SELECT COUNT(*) from Attendance, Person, Staff where Person.contactNo = @contact AND Attendance.month = @month AND Person.icNo = Staff.icNo", con);
+                cmd2.Parameters.AddWithValue("@contact", txtSearchAttCriteria.Text);
+                cmd2.Parameters.AddWithValue("@month", DateTime.Now.Month);
+                count = Convert.ToInt32(cmd2.ExecuteScalar());
+                txtTotalAttendance.Text = count.ToString();
+                con.Close();
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select Staff.staffID, Staff.position, Staff.icNo, Person.name from Staff, Person where Staff.staffID = @id AND Person.icNo = Staff.icNo", con);
+                cmd.Parameters.AddWithValue("@id", txtSearchAttCriteria.Text);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    if (dr.Read())
+                    {
+                        txtAttID.Text = dr["staffID"].ToString();
+                        txtAttPosition.Text = dr["position"].ToString();
+                        txtAttName.Text = dr["name"].ToString();
+                        txtAttIC.Text = dr["icNo"].ToString();
+                        txtAttMonth.Text = DateTime.Now.Month.ToString();
+                        pnlAttSearch.Visible = true;
+                        btnAttBack.Visible = true;
+                        noAttResult.Visible = false;
+                    }
+                    else
+                    {
+                        noAttResult.Visible = true;
+                        pnlAttSearch.Visible = false;
+                        btnAttBack.Visible = false;
+                    }
+                }
+                con.Close();
+                con.Open();
+                int count = 0;
+                SqlCommand cmd2 = new SqlCommand("SELECT COUNT(*) from Attendance, Person, Staff where Staff.staffID = @id AND Attendance.month = @month AND Person.icNo = Staff.icNo", con);
+                cmd2.Parameters.AddWithValue("@id", txtSearchAttCriteria.Text);
+                cmd2.Parameters.AddWithValue("@month", DateTime.Now.Month);
+                count = Convert.ToInt32(cmd2.ExecuteScalar());
+                txtTotalAttendance.Text = count.ToString();
+                con.Close();
+            }
+        }
     }
 }

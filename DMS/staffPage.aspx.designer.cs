@@ -1482,58 +1482,112 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Panel tabstaffAttendance;
 
         /// <summary>
-        /// ddlAttendanceSearchCriteria control.
+        /// ddlSearchAttendance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAttendanceSearchCriteria;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSearchAttendance;
 
         /// <summary>
-        /// txtAttendanceSearch control.
+        /// txtSearchAttCriteria control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtSearchAttCriteria;
 
         /// <summary>
-        /// btnAttendanceSearch control.
+        /// btnAttSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAttendanceSearch;
+        protected global::System.Web.UI.WebControls.Button btnAttSearch;
 
         /// <summary>
-        /// btnAttendanceBack control.
+        /// btnAttBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAttendanceBack;
+        protected global::System.Web.UI.WebControls.Button btnAttBack;
 
         /// <summary>
-        /// Div3 control.
+        /// noAttResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noAttResult;
 
         /// <summary>
-        /// pnlAttendanceSearchResult control.
+        /// pnlAttSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAttendanceSearchResult;
+        protected global::System.Web.UI.WebControls.Panel pnlAttSearch;
+
+        /// <summary>
+        /// label13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label13;
+
+        /// <summary>
+        /// txtAttID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAttID;
+
+        /// <summary>
+        /// label36 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label36;
+
+        /// <summary>
+        /// txtAttPosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAttPosition;
+
+        /// <summary>
+        /// label49 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label49;
+
+        /// <summary>
+        /// txtAttName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAttName;
 
         /// <summary>
         /// label53 control.
@@ -1545,13 +1599,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label53;
 
         /// <summary>
-        /// txtAttendanceID control.
+        /// txtAttIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceID;
+        protected global::System.Web.UI.WebControls.TextBox txtAttIC;
 
         /// <summary>
         /// label54 control.
@@ -1563,13 +1617,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label54;
 
         /// <summary>
-        /// txtAttendancePosition control.
+        /// txtAttMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendancePosition;
+        protected global::System.Web.UI.WebControls.TextBox txtAttMonth;
 
         /// <summary>
         /// label55 control.
@@ -1581,120 +1635,12 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label label55;
 
         /// <summary>
-        /// txtAttendanceName control.
+        /// txtTotalAttendance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceName;
-
-        /// <summary>
-        /// label56 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label56;
-
-        /// <summary>
-        /// txtAttendanceIC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceIC;
-
-        /// <summary>
-        /// label57 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label57;
-
-        /// <summary>
-        /// txtAttendanceMonth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceMonth;
-
-        /// <summary>
-        /// label58 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label58;
-
-        /// <summary>
-        /// txtAttendanceNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceNo;
-
-        /// <summary>
-        /// label59 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label59;
-
-        /// <summary>
-        /// txtAttendanceLeave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceLeave;
-
-        /// <summary>
-        /// label60 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label60;
-
-        /// <summary>
-        /// txtAttendanceOffDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAttendanceOffDay;
-
-        /// <summary>
-        /// btnGenerateQR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerateQR;
-
-        /// <summary>
-        /// btnAttendanceDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAttendanceDetails;
+        protected global::System.Web.UI.WebControls.TextBox txtTotalAttendance;
     }
 }

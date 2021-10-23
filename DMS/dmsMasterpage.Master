@@ -4,6 +4,22 @@
 
 <html>
 <head runat="server">
+    <style>
+        .bubble-container {
+            height: 100vh;
+        }
+        .ui-theme-settings .bubble-container .input-wrap textarea {
+            margin: 0;
+            width: calc(100% - 30px);
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="component/styles/setup.css" />
+    <link rel="stylesheet" type="text/css" href="component/styles/says.css" />
+    <link rel="stylesheet" type="text/css" href="component/styles/reply.css" />
+    <link rel="stylesheet" type="text/css" href="component/styles/typing.css" />
+    <link rel="stylesheet" type="text/css" href="component/styles/input.css" />
+    <script src="component/Bubbles.js"></script>
+
     <link href="main.css" rel="stylesheet" />
     <script type="text/javascript" src="main.js"></script>
     <meta charset="utf-8" />
@@ -15,77 +31,49 @@
     <meta name="description" content="Dental Management System" />
     <meta name="msapplication-tap-highlight" content="no" />
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <style type="text/css">
-            /* Chart.js */
-            @-webkit-keyframes chartjs-render-animation {
-                from {
-                    opacity: 0.99
-                }
-
-                to {
-                    opacity: 1
-                }
-            }
-
-            @keyframes chartjs-render-animation {
-                from {
-                    opacity: 0.99
-                }
-
-                to {
-                    opacity: 1
-                }
-            }
-
-            .chartjs-render-monitor {
-                -webkit-animation: chartjs-render-animation 0.001s;
-                animation: chartjs-render-animation 0.001s;
-            }
-        </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <%--START OF HEADER--%>
-                <div class="app-header header-shadow">
-                    <div class="app-header__logo">
-                        <div>
-                            <asp:Image runat="server" CssClass="logo-src" ImageUrl="~/assets/images/tooth14.svg"></asp:Image>
-                            <asp:Label ID="Label2" CssClass="logo-src" runat="server" Text="DMS"></asp:Label>
-                        </div>
-
-                        <div class="header__pane ml-auto">
-                            <div>
-                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <%--START OF HEADER--%>
+            <div class="app-header header-shadow">
+                <div class="app-header__logo">
+                    <div>
+                        <asp:Image runat="server" CssClass="logo-src" ImageUrl="~/assets/images/tooth14.svg"></asp:Image>
+                        <asp:Label ID="Label2" CssClass="logo-src" runat="server" Text="DMS"></asp:Label>
                     </div>
-                    <div class="app-header__mobile-menu">
+
+                    <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
                             </button>
                         </div>
                     </div>
-                    <div class="app-header__menu">
-                        <span>
-                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                                <span class="btn-icon-wrapper">
-                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                                </span>
-                            </button>
-                        </span>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
                     </div>
-                    <div class="app-header__content">
-                        <%--<div class="app-header-left">
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                <div class="app-header__content">
+                    <%--<div class="app-header-left">
                             <ul class="header-menu nav">
                                 <li class="nav-item">
                                     <a href="javascript:void(0);" class="nav-link">
@@ -107,89 +95,96 @@
                                 </li>
                             </ul>
                         </div>--%>
-                        <div class="app-header-right">
-                            <div class="header-btn-lg pr-0">
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left">
-                                            <div class="btn-group">
-                                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                                    <asp:Image runat="server" Width="42" CssClass="rounded-circle" ImageUrl="~/assets/images/defaultprofilegray.png" />
-                                                    <asp:Label runat="server" CssClass="fa fa-angle-down ml-2 opacity-8"></asp:Label>
-                                                </a>
-                                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                                    <asp:HyperLink ID="hyplnkViewProfile" Visible="true" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
-                                                    <asp:HyperLink ID="hyplnkViewAttendance" Visible="true" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
-                                                    <asp:HyperLink ID="hyplnkChangePassword" Visible="true" NavigateUrl="~/ChangePassword.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">Change Password</asp:HyperLink>
-                                                    <%--<asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />--%>
-                                                    <%--<asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />--%>
-                                                    <%--<button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                    <div class="app-header-right">
+                        <div class="header-btn-lg pr-0">
+                            <div class="widget-content p-0">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                        <div class="btn-group">
+                                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                                <asp:Image runat="server" Width="42" CssClass="rounded-circle" ImageUrl="~/assets/images/defaultprofilegray.png" />
+                                                <asp:Label runat="server" CssClass="fa fa-angle-down ml-2 opacity-8"></asp:Label>
+                                            </a>
+                                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                                <asp:HyperLink ID="hyplnkViewProfile" Visible="true" NavigateUrl="~/profilePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Profile</asp:HyperLink>
+                                                <asp:HyperLink ID="hyplnkViewAttendance" Visible="true" NavigateUrl="~/attendancePage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">View Attendance</asp:HyperLink>
+                                                <asp:HyperLink ID="hyplnkChangePassword" Visible="true" NavigateUrl="~/ChangePassword.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">Change Password</asp:HyperLink>
+                                                <%--<asp:Button ID="btnViewProfile" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Profile" />--%>
+                                                <%--<asp:Button ID="btnViewAttendance" TabIndex="0" CssClass="dropdown-item" runat="server" Text="View Attendance" />--%>
+                                                <%--<button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                                     <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>--%>
-                                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                                    <asp:Button ID="btnSignIn" Visible="false" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
-                                                    <asp:Button ID="btnSignOut" OnClick="btnSignOut_Click" Visible="true" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign Out" />
-                                                    <%--<button type="button" tabindex="0" class="dropdown-item">Dividers</button>--%>
-                                                </div>
+                                                <div tabindex="-1" class="dropdown-divider"></div>
+                                                <asp:Button ID="btnSignIn" Visible="false" TabIndex="0" CssClass="dropdown-item" runat="server" Text="Sign In" />
+                                                <asp:HyperLink ID="hyplnkSignOut" Visible="true" NavigateUrl="~/loginPage.aspx" TabIndex="0" CssClass="dropdown-item" runat="server">Sign Out</asp:HyperLink>
+                                                <%--<button type="button" tabindex="0" class="dropdown-item">Dividers</button>--%>
                                             </div>
                                         </div>
-                                        <div class="widget-content-left  ml-3 header-user-info">
-                                            <div class="widget-heading">
-                                                <asp:Label ID="welcomeName" runat="server" Text=""></asp:Label>
-                                            </div>
-                                            <div class="widget-subheading">
-                                                Welcome Back
-                                            </div>
+                                    </div>
+                                    <div class="widget-content-left  ml-3 header-user-info">
+                                        <div class="widget-heading">
+                                            <asp:Label ID="welcomeName" runat="server" Text=""></asp:Label>
                                         </div>
-                                        <%--<div class="widget-content-right header-user-info ml-3">
+                                        <div class="widget-subheading">
+                                            Welcome Back
+                                        </div>
+                                    </div>
+                                    <%--<div class="widget-content-right header-user-info ml-3">
                                             <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
                                                 <i class="fa text-white fa-calendar pr-1 pl-1"></i>
                                             </button>
                                         </div>--%>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <%--END OF HEADER--%>
-            </asp:ContentPlaceHolder>
-
-            <div class="app-main">
-                <div class="app-sidebar sidebar-shadow">
-                    <div class="app-header__logo">
-                        <div class="logo-src"></div>
-                        <div class="header__pane ml-auto">
-                            <div>
-                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="app-header__mobile-menu">
+            </div>
+            <%--END OF HEADER--%>
+        </asp:ContentPlaceHolder>
+        <div class="ui-theme-settings">
+            <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+                <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
+            </button>
+            <div class="theme-settings__inner">
+                <div id="chat"></div>
+            </div>
+        </div>
+        <div class="app-main">
+            <div class="app-sidebar sidebar-shadow">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
                             </button>
                         </div>
                     </div>
-                    <div class="app-header__menu">
-                        <span>
-                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                                <span class="btn-icon-wrapper">
-                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                                </span>
-                            </button>
-                        </span>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
                     </div>
-                    <div class="scrollbar-sidebar ps">
-                        <div class="app-sidebar__inner">
-                            <%--<ul class="vertical-nav-menu metismenu">
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                <div class="scrollbar-sidebar ps">
+                    <div class="app-sidebar__inner">
+                        <%--<ul class="vertical-nav-menu metismenu">
                                 <li class="app-sidebar__heading">Admin Function</li>
                                 <li>
                                     <a href="#">
@@ -311,46 +306,152 @@
                                     </ul>
                                 </li>
                             </ul>--%>
-                            <ul class="vertical-nav-menu metismenu">
-                                <li class="app-sidebar__heading">Admin Function</li>
+                        <ul class="vertical-nav-menu metismenu">
+                            <li class="app-sidebar__heading">Admin Function</li>
 
-                                <li>
-                                    <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Staff</asp:HyperLink>
-                                </li>
-                                <li class="app-sidebar__heading">Staff Function</li>
-                                <li>
-                                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/home.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Today's Appointments</asp:HyperLink>
-                                </li>
-                                <li>
-                                    <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Patient</asp:HyperLink>
-                                </li>
-                                <li>
-                                    <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Appointment</asp:HyperLink>
-                                </li>
-                                <li>
-                                    <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Calender</asp:HyperLink>
-                                </li>
-                                <li>
-                                    <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-diamond"></i>Report</asp:HyperLink>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 82px;">
-                            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                        </div>
-                        <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-                        </div>
+                            <li>
+                                <asp:HyperLink ID="hyplnkStaff" NavigateUrl="~/staffPage.aspx" runat="server"><i class="metismenu-icon pe-7s-add-user"></i>Staff</asp:HyperLink>
+                            </li>
+                            <li class="app-sidebar__heading">Staff Function</li>
+                            <li>
+                                <asp:HyperLink ID="HyperLink1" NavigateUrl="~/home.aspx" runat="server"><i class="metismenu-icon pe-7s-check"></i>Today's Appointments</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hyplnkPatient" NavigateUrl="~/patientPage.aspx" runat="server"><i class="metismenu-icon pe-7s-user"></i>Patient</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hyplnkAppointment" NavigateUrl="~/Appointment.aspx" runat="server"><i class="metismenu-icon pe-7s-note"></i>Appointment</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hyplnkCalender" NavigateUrl="~/Calender.aspx" runat="server"><i class="metismenu-icon pe-7s-date"></i>Calender</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="hyplnkReport" NavigateUrl="~/reportPage.aspx" runat="server"><i class="metismenu-icon pe-7s-file"></i>Report</asp:HyperLink>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="app-main__outer">
-                    <div class="app-main__inner">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-                        </asp:ContentPlaceHolder>
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px; width: 82px;">
+                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
                     </div>
                 </div>
             </div>
+            <div class="app-main__outer">
+                <div class="app-main__inner">
+                    <form runat="server">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </form>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+    <script type="text/javascript">
+        var convo = {
+            ice: {
+                says: [
+                    "Hello!",
+                    "I am a Message Bot",
+                    "How Can I Help You?",
+                ],
+                reply: [
+                    {
+                        question: "Other Problems",
+                        answer: "sidetrack"
+                    },
+                    {
+                        question: "Nothing",
+                        answer: "end"
+                    },
+                    {
+                        question: "My Staff Details is incorrect",
+                        answer: "staffdetail"
+                    },
+                    {
+                        question: "I cannot access the Staff Management Function",
+                        answer: "no-access"
+                    }
+                ]
+            },
+            sidetrack: {
+                says: [
+                    "Please Contact this email",
+                    "And list out the problem you faced.",
+                    "abc21312412@gmail.com",
+                    "We will reply you soon in 1 working day."
+                ],
+                reply: [
+                    {
+                        question: "Ok",
+                        answer: "end"
+                    },
+                    {
+                        question: "Nevermind",
+                        answer: "end"
+                    }
+                ]
+            },
+            "staffdetail": {
+                says: [
+                    "Oh!",
+                    "Perhaps you should contact our admin",
+                    "This is the phone number and email",
+                    "yihongsoon@ymail.com",
+                    "+60174887271"
+                ],
+                reply: [
+                    {
+                        question: "Ok",
+                        answer: "end"
+                    },
+                    {
+                        question: "Another Problem",
+                        answer: "ice"
+                    }
+                ]
+            },
+            "no-access": {
+                says: [
+                    "Perhaps you are not admin?",
+                    "The staff management module only accessible for admin",
+                    "Sorry for the inconvenience"
+                ],
+                reply: [
+                    {
+                        question: "Noted",
+                        answer: "end"
+                    },
+                    {
+                        question: "Another Problem",
+                        answer: "ice"
+                    }
+                ]
+            },
+            end: {
+                says: [
+                    "Thanks for your attention.",
+                    "Have a Good Day"
+                ],
+                reply: [
+                    {
+                        question: "Another Problem",
+                        answer: "ice"
+                    }
+                ]
+            }
+        }
+
+
+        var chatWindow = new Bubbles(
+            document.getElementById("chat"),
+            "chatWindow"
+        )
+
+        chatWindow.talk(
+            convo
+        )
+    </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ namespace DMS
                 if (Session["Role"].ToString() == "STAFF")
                 {
                     hyplnkStaff.Enabled = false;
-                    btnSignOut.Visible = true;
+                    hyplnkSignOut.Visible = true;
                     hyplnkViewAttendance.Visible = true;
                     hyplnkViewProfile.Visible = true;
                     hyplnkChangePassword.Visible = true;
@@ -25,7 +25,7 @@ namespace DMS
                 else if (Session["Role"].ToString() == "ADMIN")
                 {
                     hyplnkStaff.Enabled = true;
-                    btnSignOut.Visible = true;
+                    hyplnkSignOut.Visible = true;
                     hyplnkViewAttendance.Visible = false;
                     hyplnkViewProfile.Visible = false;
                     hyplnkChangePassword.Visible = false;

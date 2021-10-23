@@ -15,10 +15,14 @@ namespace DMS
             hyplnkPatient.Enabled = false;
             hyplnkAppointment.Enabled = false;
             hyplnkReport.Enabled = false;
+            hyplnkTAppoint.Enabled = false;
+            hyplnkCalender.Enabled = false;
             hyplnkViewProfile.Visible = false;
             hyplnkViewAttendance.Visible = false;
             btnSignOut.Visible = false;
             WelcomeName.Visible = false;
+            Session["ID"] = "";
+            Session["Role"] = "";
         }
 
         protected void btnSignIn_Click(object sender, EventArgs e)

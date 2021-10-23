@@ -601,7 +601,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group">
-                                        <asp:DropDownList ID="ddlAttendanceSearchCriteria" CssClass="ddl" runat="server">
+                                        <asp:DropDownList ID="ddlSearchAttendance" CssClass="ddl" runat="server">
                                             <asp:ListItem Value="name" Selected="true" Text="By Name"></asp:ListItem>
                                             <asp:ListItem Value="contact" Text="By Contact"></asp:ListItem>
                                             <asp:ListItem Value="id" Text="By ID"></asp:ListItem>
@@ -612,80 +612,58 @@
                             <div class="row ">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <asp:TextBox ID="txtAttendanceSearch" CssClass="form-control"  AutoPostBack="false" placeholder="Type and search" runat="server"></asp:TextBox>
-                                        <asp:Button ID="btnAttendanceSearch" CssClass="mt-2 btn btn-primary" runat="server" Text="Search"></asp:Button>
-                                        <asp:Button ID="btnAttendanceBack" CssClass="mt-2 btn btn-primary" runat="server" Visible="false" Text="Back"></asp:Button>
+                                        <asp:TextBox ID="txtSearchAttCriteria" CssClass="form-control" AutoPostBack="false" placeholder="Type and search" runat="server"></asp:TextBox>
+                                        <asp:Button ID="btnAttSearch" CssClass="mt-2 btn btn-primary" OnClick="btnAttSearch_Click" runat="server" Text="Search"></asp:Button>
+                                        <asp:Button ID="btnAttBack" CssClass="mt-2 btn btn-primary" OnClick="btnAttBack_Click" runat="server" Visible="false" Text="Back"></asp:Button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="alert alert-info fade show" runat="server" id="Div3" visible="false">
+                            <div class="alert alert-info fade show" runat="server" id="noAttResult" visible="false">
                                 <asp:Label runat="server" Text="No Result Found"></asp:Label>
                             </div>
-                            <asp:Panel runat="server" ID="pnlAttendanceSearchResult" Visible="false">
+                            <asp:Panel runat="server" ID="pnlAttSearch" Visible="false">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label53" runat="server" Text="ID"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceID" Enabled="false" Text=""  AutoPostBack="false" CssClass="form-control" runat="server"></asp:TextBox>
-                                            <%--<asp:Label ID="emptyEmail" runat="server" CssClass="invalid-feedbackEmptyField" Visible="false" Text="Please Fill In The Field."></asp:Label>--%>
+                                            <asp:Label ID="label13" runat="server" Text="ID"></asp:Label>
+                                            <asp:TextBox ID="txtAttID" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label54" runat="server" Text="Position"></asp:Label>
-                                            <asp:TextBox ID="txtAttendancePosition" Enabled="false" Text=""  AutoPostBack="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="label36" runat="server" Text="Position"></asp:Label>
+                                            <asp:TextBox ID="txtAttPosition" Enabled="false" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label55" runat="server" Text="Name"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceName" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="label49" runat="server" Text="Name"></asp:Label>
+                                            <asp:TextBox ID="txtAttName" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label56" runat="server" Text="IC"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceIC" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="label53" runat="server" Text="IC"></asp:Label>
+                                            <asp:TextBox ID="txtAttIC" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label57" runat="server" Text="Month"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceMonth" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="label54" runat="server" Text="Month"></asp:Label>
+                                            <asp:TextBox ID="txtAttMonth" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <asp:Label ID="label58" runat="server" Text="Attendance No."></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceNo" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Label ID="label55" runat="server" Text="Total Attendance"></asp:Label>
+                                            <asp:TextBox ID="txtTotalAttendance" Enabled="false" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="label59" runat="server" Text="Leave Taken"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceLeave" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <asp:Label ID="label60" runat="server" Text="Off Day"></asp:Label>
-                                            <asp:TextBox ID="txtAttendanceOffDay" Enabled="false" Text=""  AutoPostBack="false" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <asp:Button ID="btnGenerateQR" runat="server" CssClass="mt-2 btn btn-primary" Text="Generate QR Code" />
-                                        <asp:Button ID="btnAttendanceDetails" runat="server" CssClass="mt-2 btn btn-primary" Text="Details" />
                                     </div>
                                 </div>
                             </asp:Panel>

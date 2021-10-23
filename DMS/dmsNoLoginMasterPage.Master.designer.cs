@@ -114,6 +114,15 @@ namespace DMS
         protected global::System.Web.UI.WebControls.HyperLink hyplnkStaff;
 
         /// <summary>
+        /// hyplnkTAppoint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyplnkTAppoint;
+
+        /// <summary>
         /// hyplnkPatient control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hyplnkAppointment;
+
+        /// <summary>
+        /// hyplnkCalender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyplnkCalender;
 
         /// <summary>
         /// hyplnkReport control.
