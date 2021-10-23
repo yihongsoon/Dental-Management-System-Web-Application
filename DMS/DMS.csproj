@@ -259,6 +259,7 @@
     <Content Include="AppointmentModel.aspx" />
     <Content Include="PatientVisit.aspx" />
     <Content Include="Home.aspx" />
+	<Content Include="Detail.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attendancePage.aspx.cs">
@@ -386,6 +387,13 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+	  <Compile Include="Detail.aspx.cs">
+		  <DependentUpon>Detail.aspx</DependentUpon>
+		  <SubType>ASPXCodeBehind</SubType>
+	  </Compile>
+	  <Compile Include="Detail.aspx.designer.cs">
+		  <DependentUpon>Detail.aspx</DependentUpon>
+	  </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="dmsMasterpage.Master" />
