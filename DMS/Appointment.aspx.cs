@@ -290,7 +290,6 @@ namespace DMS
             this.BindGrid();
         }
 
-
         private void BindGrid()
         {
             if (ddlSearchChoice.SelectedValue == "name")

@@ -342,11 +342,11 @@
                     <div class="app-main__inner">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                         </asp:ContentPlaceHolder>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <script type="text/javascript">
         var convo = {
             ice: {
