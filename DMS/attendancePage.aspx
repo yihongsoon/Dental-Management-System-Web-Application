@@ -287,9 +287,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12"><asp:Label ID="Label12" runat="server" Text="Scan QR Code Here"></asp:Label></div>
+                                </div>
                                 <div style="display: none;">
                                     <asp:Button ID="QRCheckIn" runat="server" OnClick="QRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Yes" />
                                 </div>
+                                
                                 <asp:Button ID="btnBackCheckIn" runat="server" OnClick="btnBackQRCheckIn_Click" CssClass="mt-2 btn btn-primary" Text="Back" />
                             </div>
                         </div>
@@ -354,6 +358,9 @@
                                 </div>
                                 <div style="display: none;">
                                     <asp:Button ID="btnQRCheckOut" runat="server" OnClick="btnQRCheckOut_Click" CssClass="mt-2 btn btn-primary" Text="Yes" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"><asp:Label ID="Label7" runat="server" Text="Scan QR Code Here"></asp:Label></div>
                                 </div>
                                 <asp:Button ID="btnBackQRCheckOut" runat="server" OnClick="btnBackQRCheckOut_Click" CssClass="mt-2 btn btn-primary" Text="Back" />
                             </div>
