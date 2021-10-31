@@ -16,10 +16,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
+                <div class="row">
+                    <div class="col-md-2">
+                        &nbsp;&nbsp;<asp:Button ID="btnBackPatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Back" OnClick="btnBackPatient_Click"></asp:Button>
+                    </div>
+                </div>
+                
                 <div class="card-body">
                     <asp:Panel runat="server" ID="pnlSearchAppointBroad" Visible="true">
-                        <asp:GridView ID="GridViewSearch" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
-                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewSearch_PageIndexChanging" DataKeyNames="visitID" OnSelectedIndexChanged="GridViewSearch_SelectedIndexChanged" Visible="True">
+                        <asp:GridView ID="GridViewVisitRecord" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
+                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewVisitRecord_PageIndexChanging" 
+                            DataKeyNames="visitID" OnSelectedIndexChanged="GridViewVisitRecord_SelectedIndexChanged" Visible="True">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="PatientName" HeaderText="Patient Name" ItemStyle-HorizontalAlign="Center">

@@ -15,6 +15,15 @@ namespace DMS
     {
 
         /// <summary>
+        /// btnBackPatient control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBackPatient;
+
+        /// <summary>
         /// pnlSearchAppointBroad control.
         /// </summary>
         /// <remarks>
@@ -24,12 +33,12 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Panel pnlSearchAppointBroad;
 
         /// <summary>
-        /// GridViewSearch control.
+        /// GridViewVisitRecord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewSearch;
+        protected global::System.Web.UI.WebControls.GridView GridViewVisitRecord;
     }
 }

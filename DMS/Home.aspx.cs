@@ -20,8 +20,6 @@ namespace DMS
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    if (GridViewTodayAppoint.Rows != null)
-                    {
                         con.Open();
                         cmd.CommandText = "SELECT appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID FROM Appointment";
                         cmd.Connection = con;
@@ -42,11 +40,7 @@ namespace DMS
                             }).ToList();
                             GridViewTodayAppoint.DataSource = data;
                             GridViewTodayAppoint.DataBind();
-                        }
-                    }
-                    else
-                    {
-                        todayAppointNotFound.Visible = true;
+                        todayAppointNotFound.Visible = false;
                     }
                 }
             }

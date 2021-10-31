@@ -62,7 +62,12 @@ namespace DMS
             ddlAddDentist.DataTextField = "name";
             ddlAddDentist.DataValueField = "name";
             ddlAddDentist.DataBind();
-            
+
+            ddlUpdateDentist.DataSource = dt;
+            ddlUpdateDentist.DataBind();
+            ddlUpdateDentist.DataTextField = "name";
+            ddlUpdateDentist.DataValueField = "name";
+            ddlUpdateDentist.DataBind();
         }
 
         void AlertMessage(string msg)
@@ -486,7 +491,19 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewUpdate.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                //appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("dd/MM/yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewUpdate.DataSource = data;
                             GridViewUpdate.DataBind();
                         }
                     }
@@ -508,7 +525,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewUpdate.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList(); ;
+                            GridViewUpdate.DataSource = data;
                             GridViewUpdate.DataBind();
                         }
                     }
@@ -529,7 +557,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewUpdate.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewUpdate.DataSource = data;
                             GridViewUpdate.DataBind();
                         }
                     }
@@ -550,7 +589,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewUpdate.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewUpdate.DataSource = data;
                             GridViewUpdate.DataBind();
                         }
                     }
@@ -569,7 +619,7 @@ namespace DMS
             txtUptAppointID.Text = GridViewUpdate.SelectedRow.Cells[1].Text;
             txtUpdateIC.Text = GridViewUpdate.SelectedRow.Cells[2].Text;
             txtUpdateName.Text = GridViewUpdate.SelectedRow.Cells[3].Text;
-            txtUpdateToVisit.Text = GridViewUpdate.SelectedRow.Cells[4].Text;
+            ddlUpdateDentist.SelectedValue = GridViewUpdate.SelectedRow.Cells[4].Text;
             txtUpdateDate.Text = GridViewUpdate.SelectedRow.Cells[5].Text;
             ddlUpdateTime.SelectedValue = GridViewUpdate.SelectedRow.Cells[6].Text;
             txtUpdateStaff.Text = GridViewUpdate.SelectedRow.Cells[7].Text;
@@ -610,7 +660,7 @@ namespace DMS
                     SqlCommand cmd = new SqlCommand("Update Appointment set appointmentDate = @appointmentDate, appointmentName = @appointmentName, dentistToVisit = @dentistToVisit, appointmentTime = @appointmentTime, apointmentPurpose = @apointmentPurpose, icNo = @icNo, staffID = @staffID where appointmentID = @appointmentID", con);
                     cmd.Parameters.AddWithValue("@appointmentID", txtUptAppointID.Text);
                     cmd.Parameters.AddWithValue("@appointmentName", txtUpdateName.Text);
-                    cmd.Parameters.AddWithValue("@dentistToVisit", txtUpdateToVisit.Text);
+                    cmd.Parameters.AddWithValue("@dentistToVisit", ddlUpdateDentist.SelectedValue);
                     cmd.Parameters.AddWithValue("@appointmentDate", txtUpdateDate.Text);
                     cmd.Parameters.AddWithValue("@appointmentTime", ddlUpdateTime.SelectedValue);
                     cmd.Parameters.AddWithValue("@apointmentPurpose", txtUpdatePurpose.Text);
@@ -652,7 +702,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewDelete.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewDelete.DataSource = data;
                             GridViewDelete.DataBind();
                         }
                     }
@@ -674,7 +735,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewDelete.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList(); ;
+                            GridViewDelete.DataSource = data;
                             GridViewDelete.DataBind();
                         }
                     }
@@ -695,7 +767,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewDelete.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewDelete.DataSource = data;
                             GridViewDelete.DataBind();
                         }
                     }
@@ -716,7 +799,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewDelete.DataSource = dt;
+                            var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
+                            {
+                                appointmentID = x.Field<string>("appointmentID"),
+                                appointmentName = x.Field<string>("appointmentName"),
+                                dentistToVisit = x.Field<string>("dentistToVisit"),
+                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                                icNo = x.Field<string>("icNo"),
+                                staffID = x.Field<string>("staffID")
+                            }).ToList();
+                            GridViewDelete.DataSource = data;
                             GridViewDelete.DataBind();
                         }
                     }

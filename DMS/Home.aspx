@@ -63,13 +63,12 @@
                         </asp:GridView>
                     </asp:Panel>
 
-                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="false">
+                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="true">
                         <asp:Label runat="server" Text="No Appointment Today!"></asp:Label>
                     </div>
 
                     <asp:Panel runat="server" ID="pnlTodayDetails" Visible="false">
                                 <hr />
-
                                 <div class="row">
                                     <div class="col-md-12">
                                         <asp:Button ID="btnBackToday" CssClass="mt-2 btn btn-primary" runat="server" Text="Back" OnClick="btnBackToday_Click"/>
@@ -146,7 +145,6 @@
                                     </div>
                                 </div>
                             </asp:Panel>
-
                 </div>
             </div>
         </div>

@@ -18,12 +18,12 @@ namespace DMS
             BindGrid();
         }
 
-        protected void GridViewSearch_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void GridViewVisitRecord_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
 
         }
 
-        protected void GridViewSearch_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridViewVisitRecord_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -45,13 +45,18 @@ namespace DMS
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
-                            GridViewSearch.DataSource = dt;
-                            GridViewSearch.DataBind();
+                            GridViewVisitRecord.DataSource = dt;
+                            GridViewVisitRecord.DataBind();
                         }
                     }
                 }
             }
 
+        }
+
+        protected void btnBackPatient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/patientPage.aspx");
         }
 
     }
