@@ -961,6 +961,7 @@ namespace DMS
                             gridViewSearchResult.DataSource = dt;
                             gridViewSearchResult.DataBind();
                         }
+                        noResult.Visible = false;
                         pnlsearchResult.Visible = true;
                         con.Close();
                     }
@@ -991,6 +992,7 @@ namespace DMS
                             gridViewSearchResult.DataSource = dt;
                             gridViewSearchResult.DataBind();
                         }
+                        noResult.Visible = false;
                         pnlsearchResult.Visible = true;
                         con.Close();
                     }
@@ -1021,6 +1023,7 @@ namespace DMS
                             gridViewSearchResult.DataSource = dt;
                             gridViewSearchResult.DataBind();
                         }
+                        noResult.Visible = false;
                         pnlsearchResult.Visible = true;
                         con.Close();
                     }
