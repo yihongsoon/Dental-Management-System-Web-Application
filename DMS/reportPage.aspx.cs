@@ -10,8 +10,11 @@ using System.Web.UI.WebControls;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
+using iTextSharp.tool.xml;
 using System.Data;
 using System.Globalization;
+
+
 
 namespace DMS
 {
@@ -665,38 +668,50 @@ namespace DMS
                     else
                     {
                         this.BindGridPatientVisit(btntext);
-                        byte[] pdfBytes;
-                        using (StringWriter sw = new StringWriter())
+                        int rowCount = GridViewPatientVisit.Rows.Count;
+
+                        if (rowCount != 0)
                         {
-                            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                            byte[] pdfBytes;
+                            using (StringWriter sw = new StringWriter())
                             {
-                                GridViewPatientVisit.RenderControl(hw);
-                                StringReader sr = new StringReader(sw.ToString());
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-                                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                                using (MemoryStream memoryStream = new MemoryStream())
+                                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                                 {
-                                    PdfWriter.GetInstance(pdfDoc, memoryStream);
-                                    pdfDoc.Open();
-                                    htmlparser.Parse(sr);
-                                    pdfDoc.Close();
-                                    pdfBytes = memoryStream.ToArray();
-                                    memoryStream.Close();
+                                    GridViewPatientVisit.RenderControl(hw);
+                                    StringReader sr = new StringReader(sw.ToString());
+                                    Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+                                    //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+
+                                    using (MemoryStream memoryStream = new MemoryStream())
+                                    {
+                                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                                        pdfDoc.Open();
+                                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                                        //htmlparser.Parse(sr);
+                                        pdfDoc.Close();
+                                        pdfBytes = memoryStream.ToArray();
+                                        memoryStream.Close();
+                                    }
                                 }
                             }
+                            SqlConnection con2 = new SqlConnection(strCon);
+                            con2.Open();
+                            SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
+                                "VALUES(@name, @category, @byte, @month, @year)", con2);
+                            cmd2.Parameters.AddWithValue("@name", reportname);
+                            cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
+                            cmd2.Parameters.AddWithValue("@byte", pdfBytes);
+                            cmd2.Parameters.AddWithValue("@month", btntext);
+                            cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
+                            cmd2.ExecuteNonQuery();
+                            con2.Close();
+                            ShowMessage("Generate Successfully, View Or Print In Search Tab");
                         }
-                        SqlConnection con2 = new SqlConnection(strCon);
-                        con2.Open();
-                        SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
-                            "VALUES(@name, @category, @byte, @month, @year)", con2);
-                        cmd2.Parameters.AddWithValue("@name", reportname);
-                        cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
-                        cmd2.Parameters.AddWithValue("@byte", pdfBytes);
-                        cmd2.Parameters.AddWithValue("@month", btntext);
-                        cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
-                        cmd2.ExecuteNonQuery();
-                        con2.Close();
-                        ShowMessage("Generate Successfully, View Or Print In Search Tab");
+                        else
+                        {
+                            ShowMessage("No Data for Report to Generate");
+                        }
+                        
                     }
                 }
                 con.Close();
@@ -743,7 +758,7 @@ namespace DMS
                 SqlCommand cmd = new SqlCommand("select reportName from Report where reportName = @name", con);
                 cmd.Parameters.AddWithValue("@name", reportname);
                 SqlDataReader dr = cmd.ExecuteReader();
-
+                byte[] pdfBytes;
                 if (dr != null)
                 {
                     if (dr.Read())
@@ -753,38 +768,48 @@ namespace DMS
                     else
                     {
                         this.BindGridAppointment(btntext);
-                        byte[] pdfBytes;
-                        using (StringWriter sw = new StringWriter())
+                        int rowCount = GridViewAppointment.Rows.Count;
+
+                        if (rowCount != 0)
                         {
-                            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                            using (StringWriter sw = new StringWriter())
                             {
-                                GridViewAppointment.RenderControl(hw);
-                                StringReader sr = new StringReader(sw.ToString());
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-                                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                                using (MemoryStream memoryStream = new MemoryStream())
+                                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                                 {
-                                    PdfWriter.GetInstance(pdfDoc, memoryStream);
-                                    pdfDoc.Open();
-                                    htmlparser.Parse(sr);
-                                    pdfDoc.Close();
-                                    pdfBytes = memoryStream.ToArray();
-                                    memoryStream.Close();
+                                    GridViewAppointment.RenderControl(hw);
+                                    StringReader sr = new StringReader(sw.ToString());
+                                    Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+                                    //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+
+                                    using (MemoryStream memoryStream = new MemoryStream())
+                                    {
+                                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                                        pdfDoc.Open();
+                                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                                        //htmlparser.Parse(sr);
+                                        pdfDoc.Close();
+                                        pdfBytes = memoryStream.ToArray();
+                                        memoryStream.Close();
+                                    }
                                 }
                             }
+                            SqlConnection con2 = new SqlConnection(strCon);
+                            con2.Open();
+                            SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
+                                "VALUES(@name, @category, @byte, @month, @year)", con2);
+                            cmd2.Parameters.AddWithValue("@name", reportname);
+                            cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
+                            cmd2.Parameters.AddWithValue("@byte", pdfBytes);
+                            cmd2.Parameters.AddWithValue("@month", btntext);
+                            cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
+                            cmd2.ExecuteNonQuery();
+                            con2.Close();
+                            ShowMessage("Generate Successfully, View Or Print In Search Tab");
                         }
-                        SqlConnection con2 = new SqlConnection(strCon);
-                        con2.Open();
-                        SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
-                            "VALUES(@name, @category, @byte, @month, @year)", con2);
-                        cmd2.Parameters.AddWithValue("@name", reportname);
-                        cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
-                        cmd2.Parameters.AddWithValue("@byte", pdfBytes);
-                        cmd2.Parameters.AddWithValue("@month", btntext);
-                        cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
-                        cmd2.ExecuteNonQuery();
-                        con2.Close();
-                        ShowMessage("Generate Successfully, View Or Print In Search Tab");
+                        else
+                        {
+                            ShowMessage("No Data for Report to Generate");
+                        }                  
                     }
                 }
                 con.Close();
@@ -861,38 +886,49 @@ namespace DMS
                     else
                     {
                         this.BindGridAttendance(btntext);
-                        byte[] pdfBytes;
-                        using (StringWriter sw = new StringWriter())
+                        int rowCount = GridViewAttendance.Rows.Count;
+
+                        if (rowCount != 0)
                         {
-                            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                            byte[] pdfBytes;
+                            using (StringWriter sw = new StringWriter())
                             {
-                                GridViewAttendance.RenderControl(hw);
-                                StringReader sr = new StringReader(sw.ToString());
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-                                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                                using (MemoryStream memoryStream = new MemoryStream())
+                                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                                 {
-                                    PdfWriter.GetInstance(pdfDoc, memoryStream);
-                                    pdfDoc.Open();
-                                    htmlparser.Parse(sr);
-                                    pdfDoc.Close();
-                                    pdfBytes = memoryStream.ToArray();
-                                    memoryStream.Close();
+                                    GridViewAttendance.RenderControl(hw);
+                                    StringReader sr = new StringReader(sw.ToString());
+                                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                                    //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+
+                                    using (MemoryStream memoryStream = new MemoryStream())
+                                    {
+                                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                                        pdfDoc.Open();
+                                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                                        //htmlparser.Parse(sr);
+                                        pdfDoc.Close();
+                                        pdfBytes = memoryStream.ToArray();
+                                        memoryStream.Close();
+                                    }
                                 }
                             }
+                            SqlConnection con2 = new SqlConnection(strCon);
+                            con2.Open();
+                            SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
+                                "VALUES(@name, @category, @byte, @month, @year)", con2);
+                            cmd2.Parameters.AddWithValue("@name", reportname);
+                            cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
+                            cmd2.Parameters.AddWithValue("@byte", pdfBytes);
+                            cmd2.Parameters.AddWithValue("@month", btntext);
+                            cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
+                            cmd2.ExecuteNonQuery();
+                            con2.Close();
+                            ShowMessage("Generate Successfully, View Or Print In Search Tab");
                         }
-                        SqlConnection con2 = new SqlConnection(strCon);
-                        con2.Open();
-                        SqlCommand cmd2 = new SqlCommand("INSERT INTO Report(reportName, reportCategory, reportByte, reportMonth, reportYear) " +
-                            "VALUES(@name, @category, @byte, @month, @year)", con2);
-                        cmd2.Parameters.AddWithValue("@name", reportname);
-                        cmd2.Parameters.AddWithValue("@category", ddlCategory.SelectedValue);
-                        cmd2.Parameters.AddWithValue("@byte", pdfBytes);
-                        cmd2.Parameters.AddWithValue("@month", btntext);
-                        cmd2.Parameters.AddWithValue("@year", ddlYear.SelectedValue);
-                        cmd2.ExecuteNonQuery();
-                        con2.Close();
-                        ShowMessage("Generate Successfully, View Or Print In Search Tab");
+                        else
+                        {
+                            ShowMessage("No Data for Report to Generate");
+                        }                       
                     }
                 }
                 con.Close();

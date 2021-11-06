@@ -584,7 +584,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDelete" OnClick="btnDelete_Click" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" />
+                                        <asp:Button ID="btnDelete" OnClick="btnDelete_Click" OnClientClick="Confirm()" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" />
                                     </div>
                                 </div>
                             </asp:Panel>
@@ -673,4 +673,22 @@
             </div>
         </asp:Panel>
     </div>
+
+    <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+
+            if (confirm("Do you confirm to delete?")) {
+                confirm_value.value = "Yes";
+            }
+            else {
+                confirm_value.value = "No";
+            }
+
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 </asp:Content>

@@ -632,34 +632,44 @@ namespace DMS
             Page.Validate();
             if (Page.IsValid == true)
             {
-                SqlConnection con = new SqlConnection(strCon);
-                try
+                string confirmValue = Request.Form["confirm_value"];
+
+                if (confirmValue == "Yes")
                 {
-                    con.Open();
-                    //SqlCommand cmd1 = new SqlCommand("DELETE FROM Staff, Address, Person WHERE Staff.icNo = @icNo1, Address.icNo = @icNo2, Person.icNo = @icNo3", con);
-                    //cmd1.Parameters.AddWithValue("@icNo1", txtDeleteIC.Text);
-                    //cmd1.Parameters.AddWithValue("@icNo2", txtDeleteIC.Text);
-                    //cmd1.Parameters.AddWithValue("@icNo3", txtDeleteIC.Text);
-                    //cmd1.ExecuteNonQuery();
-                    //SqlCommand cmd2 = new SqlCommand("DELETE FROM Staff, Address, Person WHERE Staff.icNo = @icNo1, Address.icNo = @icNo2, Person.icNo = @icNo3", con);
-                    //cmd2.Parameters.AddWithValue("@icNo1", txtDeleteIC.Text);
-                    //cmd2.Parameters.AddWithValue("@icNo2", txtDeleteIC.Text);
-                    //cmd2.Parameters.AddWithValue("@icNo3", txtDeleteIC.Text);
-                    //cmd2.ExecuteNonQuery();
-                    SqlCommand cmd3 = new SqlCommand("DELETE FROM Person WHERE icNo = @icNo", con);
-                    cmd3.Parameters.AddWithValue("@icNo", txtDeleteIC.Text);
-                    cmd3.ExecuteNonQuery();
-                    Response.Write("<script type=\"text/javascript\">alert('Staff Deleted Successfully');location.href='staffPage.aspx'</script>");
-                    //ShowMessage("Staff Deleted Successfully");
+                    SqlConnection con = new SqlConnection(strCon);
+                    try
+                    {
+                        con.Open();
+                        //SqlCommand cmd1 = new SqlCommand("DELETE FROM Staff, Address, Person WHERE Staff.icNo = @icNo1, Address.icNo = @icNo2, Person.icNo = @icNo3", con);
+                        //cmd1.Parameters.AddWithValue("@icNo1", txtDeleteIC.Text);
+                        //cmd1.Parameters.AddWithValue("@icNo2", txtDeleteIC.Text);
+                        //cmd1.Parameters.AddWithValue("@icNo3", txtDeleteIC.Text);
+                        //cmd1.ExecuteNonQuery();
+                        //SqlCommand cmd2 = new SqlCommand("DELETE FROM Staff, Address, Person WHERE Staff.icNo = @icNo1, Address.icNo = @icNo2, Person.icNo = @icNo3", con);
+                        //cmd2.Parameters.AddWithValue("@icNo1", txtDeleteIC.Text);
+                        //cmd2.Parameters.AddWithValue("@icNo2", txtDeleteIC.Text);
+                        //cmd2.Parameters.AddWithValue("@icNo3", txtDeleteIC.Text);
+                        //cmd2.ExecuteNonQuery();
+                        SqlCommand cmd3 = new SqlCommand("DELETE FROM Person WHERE icNo = @icNo", con);
+                        cmd3.Parameters.AddWithValue("@icNo", txtDeleteIC.Text);
+                        cmd3.ExecuteNonQuery();
+                        Response.Write("<script type=\"text/javascript\">alert('Staff Deleted Successfully');location.href='staffPage.aspx'</script>");
+                        //ShowMessage("Staff Deleted Successfully");
+                    }
+                    catch (SqlException ex)
+                    {
+                        ShowMessage(ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                 }
-                catch (SqlException ex)
+                else
                 {
-                    ShowMessage(ex.Message);
+                    Response.Write("<script type=\"text/javascript\">alert('Cancelled Delete Successfully')</script>");
                 }
-                finally
-                {
-                    con.Close();
-                }
+                
             }
         }
 

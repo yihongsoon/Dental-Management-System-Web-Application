@@ -186,22 +186,22 @@
                             HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:BoundField DataField="workingDate" HeaderText="Working Date" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="workingDate" HeaderText="Working Date" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="checkInTime" HeaderText="Check In" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="checkInTime" HeaderText="Check In" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="checkOutTime" HeaderText="Check Out" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="checkOutTime" HeaderText="Check Out" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="day" HeaderText="Day" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="day" HeaderText="Day" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="month" HeaderText="Month" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="month" HeaderText="Month" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="year" HeaderText="Year" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="year" HeaderText="Year" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
                             </Columns>
@@ -222,28 +222,28 @@
                             HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="appointmentName" HeaderText="Name" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="appointmentName" HeaderText="Name" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="dentistToVisit" HeaderText="Dentist" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="dentistToVisit" HeaderText="Dentist" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="appointmentDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="appointmentDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="appointmentTime" HeaderText="Time" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="appointmentTime" HeaderText="Time" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="appointmentPurpose" HeaderText="Purpose" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="appointmentPurpose" HeaderText="Purpose" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="icNo" HeaderText="IC No" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="icNo" HeaderText="IC No" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="staffID" HeaderText="Staff ID" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="staffID" HeaderText="Staff ID" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
                             </Columns>
@@ -264,31 +264,31 @@
                             HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:BoundField DataField="visitID" HeaderText="Visit ID" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="visitID" HeaderText="Visit ID" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="dateVisit" HeaderText="Date Visit" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="dateVisit" HeaderText="Date Visit" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="status" HeaderText="Status" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="status" HeaderText="Status" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="diagnosis" HeaderText="Diagnosis" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="diagnosis" HeaderText="Diagnosis" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="medicineGiven" HeaderText="Medicine Given" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="medicineGiven" HeaderText="Medicine Given" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="dentistVisited" HeaderText="Dentist" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="dentistVisited" HeaderText="Dentist" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="roomNo" HeaderText="Room No" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="roomNo" HeaderText="Room No" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="totalVisit" HeaderText="Total Visit" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="totalVisit" HeaderText="Total Visit" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Center">
+                                <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
                             </Columns>
