@@ -20,7 +20,7 @@
                     <asp:Panel runat="server" ID="pnlGridToday" Visible="true">
                         <asp:GridView ID="GridViewTodayAppoint" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
                             HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewTodayAppoint_PageIndexChanging" 
-                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewTodayAppoint_SelectedIndexChanged">
+                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewTodayAppoint_SelectedIndexChanged" OnRowDeleting="GridViewTodayAppoint_RowDeleting">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="true" />
@@ -63,7 +63,7 @@
                         </asp:GridView>
                     </asp:Panel>
 
-                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="true">
+                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="false">
                         <asp:Label runat="server" Text="No Appointment Today!"></asp:Label>
                     </div>
 

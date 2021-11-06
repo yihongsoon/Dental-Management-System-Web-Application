@@ -28,7 +28,6 @@ namespace DMS
 
         }
 
-
         private void BindGrid()
         {
             if (Session["Patient_ID"] != null)

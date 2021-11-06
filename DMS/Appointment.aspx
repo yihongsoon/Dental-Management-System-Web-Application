@@ -426,7 +426,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblUpdateDate" runat="server" Text="Appointment Date :"></asp:Label>
-                                        <asp:TextBox ID="txtUpdateDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                        <asp:TextBox ID="txtUpdateDate" runat="server" Text="" CssClass="form-control" TextMode="Date" ></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtUpdateDate" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>

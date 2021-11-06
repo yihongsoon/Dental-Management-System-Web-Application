@@ -71,6 +71,11 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
+
+                        <div class="alert alert-info fade show" runat="server" id="visitRecordNotFound" visible="true">
+                            <asp:Label runat="server" Text="No Visit Record Available!"></asp:Label>
+                        </div>
+
                     </asp:Panel>
                 </div>
             </div>
