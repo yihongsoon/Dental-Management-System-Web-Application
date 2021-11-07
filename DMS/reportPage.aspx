@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/dmsMasterpage.Master" AutoEventWireup="true" CodeBehind="reportPage.aspx.cs" Inherits="DMS.reportPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/dmsMasterpage.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="reportPage.aspx.cs" Inherits="DMS.reportPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <style type="text/css">
@@ -183,7 +183,7 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body">
                         <asp:GridView ID="GridViewAttendance" Visible="true" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid" OnPageIndexChanging="GridViewAttendance_PageIndexChanging"
-                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="false" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="workingDate" HeaderText="Working Date" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Justify">
@@ -219,7 +219,7 @@
 
                         <%--appointment--%>
                         <asp:GridView ID="GridViewAppointment" Visible="true" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid" OnPageIndexChanging="GridViewAppointment_PageIndexChanging"
-                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="false" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="appointmentID" HeaderText="Appointment ID" ItemStyle-HorizontalAlign="Justify">
@@ -261,7 +261,7 @@
 
                         <%--patient visit--%>
                         <asp:GridView ID="GridViewPatientVisit" Visible="true" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid" OnPageIndexChanging="GridViewPatientVisit_PageIndexChanging"
-                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%">
+                            HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="false" AutoGenerateColumns="False" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="visitID" HeaderText="Visit ID" ItemStyle-HorizontalAlign="Justify">

@@ -38,6 +38,33 @@ namespace DMS
                 int month = DateTime.Now.Month;
                 if (month == 1)
                 {
+                    BtnGen1.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen2.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen3.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen4.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen5.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen6.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen7.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen8.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen9.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen10.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen11.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen12.CssClass = "mt-2 btn btn-secondary";
+                    BtnGen1.Enabled = false;
+                    BtnGen2.Enabled = false;
+                    BtnGen3.Enabled = false;
+                    BtnGen4.Enabled = false;
+                    BtnGen5.Enabled = false;
+                    BtnGen6.Enabled = false;
+                    BtnGen7.Enabled = false;
+                    BtnGen8.Enabled = false;
+                    BtnGen9.Enabled = false;
+                    BtnGen10.Enabled = false;
+                    BtnGen11.Enabled = false;
+                    BtnGen12.Enabled = false;
+                }
+                else if (month == 2)
+                {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-secondary";
                     BtnGen3.CssClass = "mt-2 btn btn-secondary";
@@ -63,7 +90,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 2)
+                else if (month == 3)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -90,7 +117,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 3)
+                else if (month == 4)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -117,7 +144,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 4)
+                else if (month == 5)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -144,7 +171,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 5)
+                else if (month == 6)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -171,7 +198,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 6)
+                else if (month == 7)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -198,7 +225,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 7)
+                else if (month == 8)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -225,7 +252,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 8)
+                else if (month == 9)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -252,7 +279,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 9)
+                else if (month == 10)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -279,7 +306,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 10)
+                else if (month == 11)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -306,7 +333,7 @@ namespace DMS
                     BtnGen11.Enabled = false;
                     BtnGen12.Enabled = false;
                 }
-                else if (month == 11)
+                else if (month == 12)
                 {
                     BtnGen1.CssClass = "mt-2 btn btn-primary";
                     BtnGen2.CssClass = "mt-2 btn btn-primary";
@@ -332,33 +359,6 @@ namespace DMS
                     BtnGen10.Enabled = true;
                     BtnGen11.Enabled = true;
                     BtnGen12.Enabled = false;
-                }
-                else if (month == 12)
-                {
-                    BtnGen1.CssClass = "mt-2 btn btn-primary";
-                    BtnGen2.CssClass = "mt-2 btn btn-primary";
-                    BtnGen3.CssClass = "mt-2 btn btn-primary";
-                    BtnGen4.CssClass = "mt-2 btn btn-primary";
-                    BtnGen5.CssClass = "mt-2 btn btn-primary";
-                    BtnGen6.CssClass = "mt-2 btn btn-primary";
-                    BtnGen7.CssClass = "mt-2 btn btn-primary";
-                    BtnGen8.CssClass = "mt-2 btn btn-primary";
-                    BtnGen9.CssClass = "mt-2 btn btn-primary";
-                    BtnGen10.CssClass = "mt-2 btn btn-primary";
-                    BtnGen11.CssClass = "mt-2 btn btn-primary";
-                    BtnGen12.CssClass = "mt-2 btn btn-primary";
-                    BtnGen1.Enabled = true;
-                    BtnGen2.Enabled = true;
-                    BtnGen3.Enabled = true;
-                    BtnGen4.Enabled = true;
-                    BtnGen5.Enabled = true;
-                    BtnGen6.Enabled = true;
-                    BtnGen7.Enabled = true;
-                    BtnGen8.Enabled = true;
-                    BtnGen9.Enabled = true;
-                    BtnGen10.Enabled = true;
-                    BtnGen11.Enabled = true;
-                    BtnGen12.Enabled = true;
                 }
                 else
                 {
@@ -651,6 +651,7 @@ namespace DMS
         private void patientVisit(string btntext)
         {
             string reportname = ddlCategory.SelectedValue + btntext + ddlYear.SelectedValue;
+            
             try
             {
                 SqlConnection con = new SqlConnection(strCon);
@@ -658,7 +659,7 @@ namespace DMS
                 SqlCommand cmd = new SqlCommand("select reportName from Report where reportName = @name", con);
                 cmd.Parameters.AddWithValue("@name", reportname);
                 SqlDataReader dr = cmd.ExecuteReader();
-
+                byte[] pdfBytes;
                 if (dr != null)
                 {
                     if (dr.Read())
@@ -672,7 +673,6 @@ namespace DMS
 
                         if (rowCount != 0)
                         {
-                            byte[] pdfBytes;
                             using (StringWriter sw = new StringWriter())
                             {
                                 using (HtmlTextWriter hw = new HtmlTextWriter(sw))
@@ -711,7 +711,6 @@ namespace DMS
                         {
                             ShowMessage("No Data for Report to Generate");
                         }
-                        
                     }
                 }
                 con.Close();
@@ -876,7 +875,7 @@ namespace DMS
                 SqlCommand cmd = new SqlCommand("select reportName from Report where reportName = @name", con);
                 cmd.Parameters.AddWithValue("@name", reportname);
                 SqlDataReader dr = cmd.ExecuteReader();
-
+                byte[] pdfBytes;
                 if (dr != null)
                 {
                     if (dr.Read())
@@ -890,14 +889,13 @@ namespace DMS
 
                         if (rowCount != 0)
                         {
-                            byte[] pdfBytes;
                             using (StringWriter sw = new StringWriter())
                             {
                                 using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                                 {
                                     GridViewAttendance.RenderControl(hw);
                                     StringReader sr = new StringReader(sw.ToString());
-                                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                                    Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
                                     //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
 
                                     using (MemoryStream memoryStream = new MemoryStream())
@@ -928,7 +926,7 @@ namespace DMS
                         else
                         {
                             ShowMessage("No Data for Report to Generate");
-                        }                       
+                        }
                     }
                 }
                 con.Close();
