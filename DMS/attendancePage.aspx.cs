@@ -12,6 +12,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
+using iTextSharp.tool.xml;
 
 namespace DMS
 {
@@ -573,43 +574,63 @@ namespace DMS
         }
         private void ExportGridToExcel()
         {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.ClearContent();
-            Response.ClearHeaders();
-            Response.Charset = "";
-            string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".xls";
-            StringWriter strwritter = new StringWriter();
-            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = "Application/x-msexcel";
-            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
-            GridViewPrint.GridLines = GridLines.Both;
-            GridViewPrint.HeaderStyle.Font.Bold = true;
-            GridViewPrint.RenderControl(htmltextwrtter);
-            Response.Write(strwritter.ToString());
-            Response.End();
+            int rowCount = GridViewPrint.Rows.Count;
+
+            if (rowCount != 0)
+            {
+                Response.Clear();
+                Response.Buffer = true;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Response.Charset = "";
+                string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".xls";
+                StringWriter strwritter = new StringWriter();
+                HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = "Application/x-msexcel";
+                Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+                GridViewPrint.GridLines = GridLines.Both;
+                GridViewPrint.HeaderStyle.Font.Bold = true;
+                GridViewPrint.RenderControl(htmltextwrtter);
+                Response.Write(strwritter.ToString());
+                Response.End();
+            }
+            else
+            {
+                ShowMessage("No Data for Report to Generate");
+            }
+            
         }
         private void ExportGridToPDF()
         {
-            string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".pdf";
-            Response.ContentType = "application/pdf";
-            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            StringWriter sw = new StringWriter();
-            HtmlTextWriter hw = new HtmlTextWriter(sw);
-            GridViewPrint.RenderControl(hw);
-            StringReader sr = new StringReader(sw.ToString());
-            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-            pdfDoc.Open();
-            htmlparser.Parse(sr);
-            pdfDoc.Close();
-            Response.Write(pdfDoc);
-            Response.End();
-            GridViewPrint.AllowPaging = true;
-            GridViewPrint.DataBind();
+            int rowCount = GridViewPrint.Rows.Count;
+
+            if (rowCount != 0)
+            {
+                string FileName = "" + Session["ID"].ToString() + "_StaffMonthlyAttendanceReport_" + DateTime.Now.ToString("ddMMyyyy") + ".pdf";
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+                GridViewPrint.RenderControl(hw);
+                StringReader sr = new StringReader(sw.ToString());
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                //htmlparser.Parse(sr);
+                pdfDoc.Close();
+                Response.Write(pdfDoc);
+                Response.End();
+                GridViewPrint.AllowPaging = true;
+                GridViewPrint.DataBind();
+            }
+            else
+            {
+                ShowMessage("No Data for Report to Generate");
+            }           
         }
 
     }
