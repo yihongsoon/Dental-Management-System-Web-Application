@@ -205,10 +205,10 @@ namespace DMS
                     cmd1.Parameters.AddWithValue("@appointmentDate", txtAddDate.Text);
                     cmd1.Parameters.AddWithValue("@appointmentTime", ddlAddTime.SelectedValue);
                     cmd1.Parameters.AddWithValue("@appointmentPurpose", txtAddPurpose.Text);
-                    cmd1.Parameters.AddWithValue("@patientID", txtAddIC.Text);
-                    cmd1.Parameters.AddWithValue("@staffID", txtAddStaff.Text);
+                    cmd1.Parameters.AddWithValue("@patientID",txtAddIC.Text);
                     cmd1.Parameters.AddWithValue("@icNo", txtAddIC.Text);
-
+                    cmd1.Parameters.AddWithValue("@staffID", txtAddStaff.Text);
+                    
                     cmd1.ExecuteNonQuery();
                     con.Close();
                     Response.Write("<script type=\"text/javascript\">alert('Appointment details have been successfully added.');location.href='Appointment.aspx'</script>");
@@ -620,7 +620,7 @@ namespace DMS
             txtUpdateIC.Text = GridViewUpdate.SelectedRow.Cells[2].Text;
             txtUpdateName.Text = GridViewUpdate.SelectedRow.Cells[3].Text;
             ddlUpdateDentist.SelectedValue = GridViewUpdate.SelectedRow.Cells[4].Text;
-            txtUpdateDate.Text = GridViewUpdate.SelectedRow.Cells[5].Text;
+            txtUpdateDate.Text = Convert.ToDateTime(GridViewUpdate.SelectedRow.Cells[5].Text).ToString("yyyy-MM-dd");
             ddlUpdateTime.SelectedValue = GridViewUpdate.SelectedRow.Cells[6].Text;
             txtUpdateStaff.Text = GridViewUpdate.SelectedRow.Cells[7].Text;
             txtUpdatePurpose.Text = GridViewUpdate.SelectedRow.Cells[8].Text;

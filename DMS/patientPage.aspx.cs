@@ -158,6 +158,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
                         txtSearchName.Text = dr["name"].ToString();
@@ -189,6 +190,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
                         txtSearchName.Text = dr["name"].ToString();
@@ -220,6 +222,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
                         txtSearchName.Text = dr["name"].ToString();
@@ -251,6 +254,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtSearchID.Text = dr["patientID"].ToString();
                         txtSearchIcNo.Text = dr["icNo"].ToString();
                         txtSearchName.Text = dr["name"].ToString();
@@ -336,6 +340,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtUpdatePatientID.Text = dr["patientID"].ToString();
                         txtUpdateIcNo.Text = dr["icNo"].ToString();
                         txtUpdatePatientName.Text = dr["name"].ToString();
@@ -368,6 +373,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtUpdatePatientID.Text = dr["patientID"].ToString();
                         txtUpdateIcNo.Text = dr["icNo"].ToString();
                         txtUpdatePatientName.Text = dr["name"].ToString();
@@ -400,6 +406,7 @@ namespace DMS
                 {
                     if (dr.Read())
                     {
+                        Session["Patient_ID"] = dr["patientID"].ToString();
                         txtUpdatePatientID.Text = dr["patientID"].ToString();
                         txtUpdateIcNo.Text = dr["icNo"].ToString();
                         txtUpdatePatientName.Text = dr["name"].ToString();

@@ -16,14 +16,16 @@ namespace DMS
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(strCon))
-            {
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlConnection con = new SqlConnection(strCon))
                 {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
                         con.Open();
                         cmd.CommandText = "SELECT appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID FROM Appointment";
                         cmd.Connection = con;
                         DataTable dt = new DataTable();
+                        
+                        
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             da.Fill(dt);
@@ -40,10 +42,15 @@ namespace DMS
                             }).ToList();
                             GridViewTodayAppoint.DataSource = data;
                             GridViewTodayAppoint.DataBind();
-                        todayAppointNotFound.Visible = false;
+                        }
+                    
                     }
                 }
-            }
+        }
+
+        void AlertMessage(string msg)
+        {
+            Response.Write("<script type=\"text/javascript\">alert('" + msg + "')</script>");
         }
 
         protected void GridViewTodayAppoint_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -81,7 +88,12 @@ namespace DMS
 
         protected void btnReminderToday_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void GridViewTodayAppoint_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            
         }
     }
 }
