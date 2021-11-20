@@ -73,7 +73,7 @@ namespace DMS
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("INSERT INTO VisitRecord (visitID, dateVisit, status, diagnosis, medicineGiven, dentistVisited, roomNo,totalVisit, patientID) VALUES(@visitID, @dateVisit, @status, @diagnosis, @medicineGiven, @dentistVisited, @roomNo, @totalVisit, @patientID)", con);
+                    SqlCommand cmd1 = new SqlCommand("INSERT INTO VisitRecord (visitID, dateVisit, status, diagnosis, medicineGiven, dentistVisited, roomNo, patientID) VALUES(@visitID, @dateVisit, @status, @diagnosis, @medicineGiven, @dentistVisited, @roomNo, @patientID)", con);
                     cmd1.Parameters.AddWithValue("@visitID", txtVisitID.Text);
                     cmd1.Parameters.AddWithValue("@dateVisit", txtDateVisit.Text);
                     cmd1.Parameters.AddWithValue("@status", ddlPresence.SelectedValue);
@@ -82,7 +82,6 @@ namespace DMS
                     cmd1.Parameters.AddWithValue("@dentistVisited", txtDentistVisit.Text);
                     cmd1.Parameters.AddWithValue("@roomNo", Convert.ToInt32(txtRoomNo.Text));
                     cmd1.Parameters.AddWithValue("@patientID", txtPatientID.Text);
-                    cmd1.Parameters.AddWithValue("@totalVisit", 1);
                     cmd1.ExecuteNonQuery();
 
                     con.Close();

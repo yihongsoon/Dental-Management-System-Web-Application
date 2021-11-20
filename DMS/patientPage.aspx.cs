@@ -619,22 +619,31 @@ namespace DMS
             Page.Validate();
             if (Page.IsValid == true)
             {
-                SqlConnection con = new SqlConnection(strCon);
-                try
+                string confirmValue = Request.Form["confirm_value"];
+
+                if (confirmValue == "Yes")
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Person WHERE icNo = @icNo", con);
-                    cmd.Parameters.AddWithValue("@icNo", txtDeleteIcNo.Text);
-                    cmd.ExecuteNonQuery();
-                    Response.Write("<script type=\"text/javascript\">alert('Patient details have been successfully deleted.');location.href='patientPage.aspx'</script>");
+                    SqlConnection con = new SqlConnection(strCon);
+                    try
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand("DELETE FROM Person WHERE icNo = @icNo", con);
+                        cmd.Parameters.AddWithValue("@icNo", txtDeleteIcNo.Text);
+                        cmd.ExecuteNonQuery();
+                        Response.Write("<script type=\"text/javascript\">alert('Patient details have been successfully deleted.');location.href='patientPage.aspx'</script>");
+                    }
+                    catch (SqlException ex)
+                    {
+                        AlertMessage(ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                 }
-                catch (SqlException ex)
+                else
                 {
-                    AlertMessage(ex.Message);
-                }
-                finally
-                {
-                    con.Close();
+                    Response.Write("<script type=\"text/javascript\">alert('Patient Details have not been successfully deleted.')</script>");
                 }
             }
         }

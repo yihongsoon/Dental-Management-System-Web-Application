@@ -33,6 +33,15 @@ namespace DMS
         protected global::System.Web.UI.WebControls.GridView GridViewTodayAppoint;
 
         /// <summary>
+        /// pnlNotFound control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNotFound;
+
+        /// <summary>
         /// todayAppointNotFound control.
         /// </summary>
         /// <remarks>

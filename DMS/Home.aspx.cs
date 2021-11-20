@@ -8,7 +8,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Windows.Forms;
+using WhatsAppApi;
 namespace DMS
 {
     public partial class Home : System.Web.UI.Page
@@ -16,36 +17,47 @@ namespace DMS
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-                using (SqlConnection con = new SqlConnection(strCon))
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    using (SqlCommand cmd = new SqlCommand())
+                    con.Open();
+                    cmd.CommandText = "SELECT appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID FROM Appointment";
+                    cmd.Connection = con;
+                    DataTable dt = new DataTable();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        con.Open();
-                        cmd.CommandText = "SELECT appointmentID, appointmentName, dentistToVisit, appointmentDate, appointmentTime, appointmentPurpose, icNo, staffID FROM Appointment";
-                        cmd.Connection = con;
-                        DataTable dt = new DataTable();
-                        
-                        
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        da.Fill(dt);
+                        var data = dt.AsEnumerable().Where(x => x.Field<DateTime>("appointmentDate").Date == DateTime.Now.Date).Select(x => new AppointmentViewModel
                         {
-                            da.Fill(dt);
-                            var data = dt.AsEnumerable().Where(x => x.Field<DateTime>("appointmentDate").Date == DateTime.Now.Date).Select(x => new AppointmentViewModel
-                            {
-                                appointmentID = x.Field<string>("appointmentID"),
-                                appointmentName = x.Field<string>("appointmentName"),
-                                dentistToVisit = x.Field<string>("dentistToVisit"),
-                                appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
-                                appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
-                                appointmentPurpose = x.Field<string>("appointmentPurpose"),
-                                icNo = x.Field<string>("icNo"),
-                                staffID = x.Field<string>("staffID")
-                            }).ToList();
-                            GridViewTodayAppoint.DataSource = data;
-                            GridViewTodayAppoint.DataBind();
+                            appointmentID = x.Field<string>("appointmentID"),
+                            appointmentName = x.Field<string>("appointmentName"),
+                            dentistToVisit = x.Field<string>("dentistToVisit"),
+                            appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
+                            appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
+                            appointmentPurpose = x.Field<string>("appointmentPurpose"),
+                            icNo = x.Field<string>("icNo"),
+                            staffID = x.Field<string>("staffID")
+                        }).ToList();
+                        GridViewTodayAppoint.DataSource = data;
+                        GridViewTodayAppoint.DataBind();
+                        if (data.Count > 0)
+                        {
+                            pnlGridToday.Visible = true;
+                            pnlNotFound.Visible = false;
                         }
-                    
+                        else
+                        {
+                            pnlGridToday.Visible = false;
+                            pnlNotFound.Visible = true;
+                        }
                     }
+
+
+
                 }
+            }
         }
 
         void AlertMessage(string msg)
@@ -86,14 +98,28 @@ namespace DMS
             pnlTodayDetails.Visible = false;
         }
 
-        protected void btnReminderToday_Click(object sender, EventArgs e)
+        protected void sendWhatsapp(string number, string message)
         {
-            
+            try
+            {
+                if(number.Length <= 10)
+                {
+                    MessageBox.Show("Code added automatically.");
+                    number = "+60" + number;
+                }
+                //number = number.Replace("", "");
+
+                System.Diagnostics.Process.Start("http://api.whatsapp.com/send?phone=" + number + "&text=" + message);
+            }
+            catch(Exception ex)
+            {
+                AlertMessage(ex.Message);
+            }
         }
 
-        protected void GridViewTodayAppoint_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnReminderToday_Click(object sender, EventArgs e)
         {
-            
+            sendWhatsapp("+60164428512", "Hello there");
         }
     }
 }

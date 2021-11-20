@@ -488,7 +488,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDeletePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeletePatient_Click"/>
+                                        <asp:Button ID="btnDeletePatient" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeletePatient_Click" OnClientClick="Confirm()"/>
                                     </div>
                                 </div>
                             </asp:Panel>
@@ -499,88 +499,22 @@
         </asp:Panel>
     </div>
 
-    <%--<div class="modal fade" id="visitModal" role="dialog" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="form">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title font-weight-bold">Add patient visit details here.</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="lblVisitID" runat="server" Text="Visit ID :"></asp:Label>
-                                    <asp:TextBox ID="txtVisitID" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="Label1" runat="server" Text="Patient ID :"></asp:Label>
-                                    <asp:TextBox ID="TextBox1" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
+    <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="lblDateVisit" runat="server" Text="Date Visit :"></asp:Label>
-                                    <asp:TextBox ID="txtDateVisit" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="lblPresence" runat="server" Text="Presence :"></asp:Label>
-                                    <asp:TextBox ID="txtPresence" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="lblDentisitVisit" runat="server" Text="Dentist Visited :"></asp:Label>
-                                    <asp:TextBox ID="txtDentistVisit" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="position-relative form-group">
-                                    <asp:Label ID="lblRoomNo" runat="server" Text="Room No. :"></asp:Label>
-                                    <asp:TextBox ID="txtRoomNo" Text="" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
+            if (confirm("Are you sure to delete selected patient details?")) {
+                confirm_value.value = "Yes";
+            }
+            else {
+                confirm_value.value = "No";
+            }
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="position-relative">
-                                    <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis :"></asp:Label><br />
-                                    <asp:TextBox ID="txtDiagnosis" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="position-relative">
-                                    <asp:Label ID="lblMedicineGiven" runat="server" Text="Medicine Given :"></asp:Label><br />
-                                    <asp:TextBox ID="txtMedicineGiven" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <asp:Button ID="btnAddVisitDetails" CssClass="mt-2 btn btn-primary" runat="server" Text="Add" Font-Bold="true"/>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>--%>
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
 </asp:Content>

@@ -633,7 +633,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <asp:Button ID="btnDeleteAppointment" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeleteAppointment_Click"/>
+                                        <asp:Button ID="btnDeleteAppointment" CssClass="mt-2 btn btn-primary" runat="server" Text="Delete" Font-Bold="true" OnClick="btnDeleteAppointment_Click" OnClientClick="Confirm()"/>
                                     </div>
                                 </div>
                             </asp:Panel>
@@ -644,30 +644,22 @@
         </asp:Panel>
     </div>
 
-    <%--<script type="text/javascript">
-        var mains = function () {
-            var handleInitTimePicker = function () {
-                $('.timepicker').timepicker({
-                    timeFormat: 'hh:mm p',
-                    interval: 60,
-                    minTime: '10',
-                    maxTime: '6:00pm',
-                    startTime: '10:00',
-                    dynamic: false,
-                    dropdown: true,
-                    scrollbar: true
-                });
-            };
-            return {
-                initTimePicker: function () {
-                    handleInitTimePicker();
-                }
-            };
-        }();
+    <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
 
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
 
-        mains.initTimePicker();
-    </script>--%>
+            if (confirm("Are you sure to delete selected appointment details?")) {
+                confirm_value.value = "Yes";
+            }
+            else {
+                confirm_value.value = "No";
+            }
 
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
 </asp:Content>

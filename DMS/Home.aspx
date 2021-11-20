@@ -20,7 +20,7 @@
                     <asp:Panel runat="server" ID="pnlGridToday" Visible="true">
                         <asp:GridView ID="GridViewTodayAppoint" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" PagerStyle-CssClass="pager" CssClass="mydatagrid"
                             HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GridViewTodayAppoint_PageIndexChanging" 
-                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewTodayAppoint_SelectedIndexChanged" OnRowDeleting="GridViewTodayAppoint_RowDeleting">
+                            DataKeyNames="appointmentID" OnSelectedIndexChanged="GridViewTodayAppoint_SelectedIndexChanged">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="true" />
@@ -48,7 +48,6 @@
                                 <asp:BoundField DataField="appointmentPurpose" HeaderText="Appointment Purpose" ItemStyle-HorizontalAlign="Center">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
-                                <asp:CommandField ShowDeleteButton="true" />
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -63,10 +62,12 @@
                         </asp:GridView>
                     </asp:Panel>
 
-                    <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound" visible="false">
-                        <asp:Label runat="server" Text="No Appointment Today!"></asp:Label>
-                    </div>
-
+                    <asp:Panel runat="server" id="pnlNotFound" Visible="true">
+                        <div class="alert alert-info fade show" runat="server" id="todayAppointNotFound">
+                            <asp:Label runat="server" Text="No Appointment Today!"></asp:Label>
+                        </div>
+                    </asp:Panel>
+         
                     <asp:Panel runat="server" ID="pnlTodayDetails" Visible="false">
                                 <hr />
                                 <div class="row">
