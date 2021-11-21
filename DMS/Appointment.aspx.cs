@@ -657,13 +657,13 @@ namespace DMS
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Update Appointment set appointmentDate = @appointmentDate, appointmentName = @appointmentName, dentistToVisit = @dentistToVisit, appointmentTime = @appointmentTime, apointmentPurpose = @apointmentPurpose, icNo = @icNo, staffID = @staffID where appointmentID = @appointmentID", con);
+                    SqlCommand cmd = new SqlCommand("Update Appointment set appointmentDate = @appointmentDate, appointmentName = @appointmentName, dentistToVisit = @dentistToVisit, appointmentTime = @appointmentTime, appointmentPurpose = @appointmentPurpose, icNo = @icNo, staffID = @staffID where appointmentID = @appointmentID", con);
                     cmd.Parameters.AddWithValue("@appointmentID", txtUptAppointID.Text);
                     cmd.Parameters.AddWithValue("@appointmentName", txtUpdateName.Text);
                     cmd.Parameters.AddWithValue("@dentistToVisit", ddlUpdateDentist.SelectedValue);
                     cmd.Parameters.AddWithValue("@appointmentDate", txtUpdateDate.Text);
                     cmd.Parameters.AddWithValue("@appointmentTime", ddlUpdateTime.SelectedValue);
-                    cmd.Parameters.AddWithValue("@apointmentPurpose", txtUpdatePurpose.Text);
+                    cmd.Parameters.AddWithValue("@appointmentPurpose", txtUpdatePurpose.Text);
                     cmd.Parameters.AddWithValue("@icNo", txtUpdateIC.Text);
                     cmd.Parameters.AddWithValue("@staffID", txtUpdateStaff.Text);
                     cmd.ExecuteNonQuery();
@@ -914,6 +914,7 @@ namespace DMS
             catch(Exception ex)
             {
                 txtAddName.Text = string.Empty;
+                Response.Write("<script type=\"text/javascript\">alert('Patient does not exist in the system.')</script>");
             }
            
          

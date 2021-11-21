@@ -104,11 +104,10 @@ namespace DMS
             {
                 if(number.Length <= 10)
                 {
-                    MessageBox.Show("Code added automatically.");
+                    //MessageBox.Show("Code added automatically.");
                     number = "+60" + number;
                 }
-                //number = number.Replace("", "");
-
+             
                 System.Diagnostics.Process.Start("http://api.whatsapp.com/send?phone=" + number + "&text=" + message);
             }
             catch(Exception ex)
@@ -119,7 +118,31 @@ namespace DMS
 
         protected void btnReminderToday_Click(object sender, EventArgs e)
         {
-            sendWhatsapp("+60164428512", "Hello there");
+            SqlConnection con = new SqlConnection(strCon);
+
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT Appointment.appointmentName, Appointment.appointmentDate, Appointment.appointmentTime, Person.contactNo, Appointment.appointmentID " +
+                "from Person, Appointment where Person.icNo = Appointment.icNo AND Appointment.appointmentID = '"+txtAppointID.Text+"'",con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    Session["appointmentName"] = dr[0];
+                    Session["appointmentDate"] = dr[1];
+                    Session["appointmentTime"] = dr[2];
+                    Session["contactNo"] = dr[3];
+                    Session["appointmentID"] = dr[4];
+                }
+                con.Close();
+            }
+            con.Close();
+            String msg = "Hello " + Session["appointmentName"].ToString() + ", " +
+                           "we are sending from TARUC Dental Clinic. " +
+                           "Please be reminded that you will be having an appointment with us today at " + Session["appointmentTime"].ToString() + ". " +
+                           "Thank You!";
+            sendWhatsapp(Session["contactNo"].ToString(), msg);
         }
     }
 }

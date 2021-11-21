@@ -57,21 +57,6 @@ namespace DMS
 
                                 }
                                 con.Close();
-                                //da.Fill(dt);
-                                //var data = dt.AsEnumerable().Select(x => new AppointmentViewModel
-                                //{
-                                //    txtAppointID = x.Field<string>("appointmentID"),
-                                //    appointmentName = x.Field<string>("appointmentName"),
-                                //    dentistToVisit = x.Field<string>("dentistToVisit"),
-                                //    appointmentDate = (x.Field<DateTime>("appointmentDate")).ToString("MMM dd, yyyy"),
-                                //    appointmentTime = ((x.Field<TimeSpan>("appointmentTime")).ToString()),
-                                //    appointmentPurpose = x.Field<string>("appointmentPurpose"),
-                                //    icNo = x.Field<string>("icNo"),
-                                //    staffID = x.Field<string>("staffID")
-                                //}).ToList();
-                                //GridViewCalendar.DataSource = data;
-                                //GridViewCalendar.DataBind();
-
                             }
                         }
                     }
@@ -98,6 +83,24 @@ namespace DMS
         protected void btnBackCalendar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Calender.aspx");
+        }
+
+        protected void sendWhatsapp(string number, string message)
+        {
+            try
+            {
+                if (number.Length <= 10)
+                {
+                    //MessageBox.Show("Code added automatically.");
+                    number = "+60" + number;
+                }
+
+                System.Diagnostics.Process.Start("http://api.whatsapp.com/send?phone=" + number + "&text=" + message);
+            }
+            catch (Exception ex)
+            {
+                AlertMessage(ex.Message);
+            }
         }
 
         protected void btnCalendarReminder_Click(object sender, EventArgs e)
