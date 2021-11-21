@@ -105,7 +105,30 @@ namespace DMS
 
         protected void btnCalendarReminder_Click(object sender, EventArgs e)
         {
-            
+            SqlConnection con = new SqlConnection(strCon);
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT Appointment.appointmentName, Appointment.appointmentDate, Appointment.appointmentTime, Person.contactNo, Appointment.appointmentID " +
+                "from Person, Appointment where Person.icNo = Appointment.icNo AND Appointment.appointmentID = '" + txtAppointID.Text + "'", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    Session["appointmentName"] = dr[0];
+                    Session["appointmentDate"] = Convert.ToDateTime(dr[1].ToString()).ToString("MMM dd, yyyy");
+                    Session["appointmentTime"] = dr[2];
+                    Session["contactNo"] = dr[3];
+                    Session["appointmentID"] = dr[4];
+                }
+                con.Close();
+            }
+            con.Close();
+            String msg = "Hello " + Session["appointmentName"].ToString() + ", " +
+                           "we are sending from TARUC Dental Clinic. " +
+                           "Please be reminded that you will be having an appointment with us on " + Session["appointmentDate"].ToString() + " at " + Session["appointmentTime"].ToString() + ". " +
+                           "Thank You!";
+            sendWhatsapp(Session["contactNo"].ToString(), msg);
         }
     }
 }

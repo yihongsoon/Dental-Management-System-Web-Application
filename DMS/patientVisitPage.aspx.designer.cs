@@ -222,15 +222,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtDiagnosis;
 
         /// <summary>
-        /// RegularExpressionValidatorDiagnosis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorDiagnosis;
-
-        /// <summary>
         /// RequiredFieldValidatorDiagnosis control.
         /// </summary>
         /// <remarks>
@@ -256,15 +247,6 @@ namespace DMS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedicineGiven;
-
-        /// <summary>
-        /// RegularExpressionValidatorMed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorMed;
 
         /// <summary>
         /// RequiredFieldValidatorMed control.

@@ -5,9 +5,9 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div>
-                    Today Appointments
+                    Today's Appointments
                     <div class="page-title-subheading">
-                        Dentist Management System
+                        A List of Patient Appointment That We Are Having Today
                     </div>
                 </div>
             </div>

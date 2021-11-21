@@ -32,14 +32,14 @@ namespace DMS
         protected void GridViewVisitRecord_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtVisitID.Text = GridViewVisitRecord.SelectedRow.Cells[1].Text;
-            txtPatientName.Text = GridViewVisitRecord.SelectedRow.Cells[2].Text;
-            txtPatientIC.Text = GridViewVisitRecord.SelectedRow.Cells[3].Text;
+            txtPatientIC.Text = GridViewVisitRecord.SelectedRow.Cells[2].Text;
+            txtPatientName.Text = GridViewVisitRecord.SelectedRow.Cells[3].Text;
             txtDateVisit.Text = GridViewVisitRecord.SelectedRow.Cells[4].Text;
             txtStatus.Text = GridViewVisitRecord.SelectedRow.Cells[5].Text;
-            txtDiagnosis.Text = GridViewVisitRecord.SelectedRow.Cells[6].Text;
-            txtMedGiven.Text = GridViewVisitRecord.SelectedRow.Cells[7].Text;
-            txtDentVisited.Text = GridViewVisitRecord.SelectedRow.Cells[8].Text;
-            txtRoomNo.Text = GridViewVisitRecord.SelectedRow.Cells[9].Text;
+            txtDentVisited.Text = GridViewVisitRecord.SelectedRow.Cells[6].Text;
+            txtRoomNo.Text = GridViewVisitRecord.SelectedRow.Cells[7].Text;
+            txtDiagnosis.Text = GridViewVisitRecord.SelectedRow.Cells[8].Text;
+            txtMedGiven.Text = GridViewVisitRecord.SelectedRow.Cells[9].Text;
             pnlViewVisitBroad.Visible = true;
             pnlViewVisitSpec.Visible = true;
         }
@@ -66,15 +66,15 @@ namespace DMS
                             da.Fill(dt);
                             var _reformedData = dt.AsEnumerable().Select(x => new PatientVisitViewModel
                             {
-                                PatientName = x.Field<string>("PatientName"),
-                                icNo = x.Field<string>("icNo").ToString(),
                                 visitId = x.Field<string>("visitID"),
+                                icNo = x.Field<string>("icNo").ToString(),
+                                PatientName = x.Field<string>("PatientName"),
                                 dateVisit = ((x.Field<DateTime>("dateVisit")).ToString("MMM dd, yyyy")),
                                 status = x.Field<string>("status"),
-                                diagnosis = x.Field<string>("diagnosis"),
-                                medicineGiven = x.Field<string>("medicineGiven"),
                                 dentistVisited = x.Field<string>("dentistVisited"),
-                                roomNo = x.Field<int>("roomNo").ToString()
+                                roomNo = x.Field<int>("roomNo").ToString(),
+                                diagnosis = x.Field<string>("diagnosis"),
+                                medicineGiven = x.Field<string>("medicineGiven")
                             }).ToList();
 
                             GridViewVisitRecord.DataSource = _reformedData;

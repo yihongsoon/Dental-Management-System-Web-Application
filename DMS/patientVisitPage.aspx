@@ -42,7 +42,7 @@
                 <div>
                     Patient Visit Details
                         <div class="page-title-subheading">
-                            Add new patient visit details here
+                            Add New Patient Visit Details Here
                         </div>
                 </div>
             </div>
@@ -130,8 +130,6 @@
                                 <div class="position-relative">
                                     <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis :"></asp:Label><br />
                                     <asp:TextBox ID="txtDiagnosis" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control" placeHolder="If patient absent, please enter '-'"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorDiagnosis" ControlToValidate="txtDiagnosis" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]{1,300}$" ErrorMessage="Invalid length!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorDiagnosis" ControlToValidate="txtDiagnosis" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                 </div>
@@ -143,8 +141,6 @@
                                 <div class="position-relative">
                                     <asp:Label ID="lblMedicineGiven" runat="server" Text="Medicine Given :"></asp:Label><br />
                                     <asp:TextBox ID="txtMedicineGiven" runat="server" TextMode="MultiLine" Height="200px" Width="100%" CssClass="form-control" placeHolder="If patient absent, please enter '-'"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorMed" ControlToValidate="txtMedicineGiven" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]{1,300}$" ErrorMessage="Invalid length!"></asp:RegularExpressionValidator>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorMed" ControlToValidate="txtMedicineGiven" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                 </div>
