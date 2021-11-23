@@ -234,7 +234,7 @@
                                                 EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z][a-zA-Z ]*$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" ControlToValidate="txtAddToVisit" ForeColor="Red" SetFocusOnError="true" 
                                                 EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>--%>
-                                            <asp:DropDownList ID="ddlAddDentist" runat="server" CssClass="form-control" AutoPostBack="true">
+                                            <asp:DropDownList ID="ddlAddDentist" runat="server" CssClass="form-control">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -244,7 +244,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <asp:Label ID="lblAddDate" runat="server" Text="Appointment Date :"></asp:Label>
-                                        <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control" TextMode="Date" AutoPostBack="true"></asp:TextBox>
+                                        <asp:TextBox ID="txtAddDate" runat="server" Text="" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorDate" ControlToValidate="txtAddDate" ForeColor="Red" SetFocusOnError="true" 
                                             EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                     </div>
