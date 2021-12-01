@@ -731,7 +731,7 @@ namespace DMS
 
             SqlConnection con = new SqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT visitID, dateVisit, status, diagnosis, medicineGiven , dentistVisited, roomNo, totalVisit, patientID from VisitRecord WHERE MONTH(dateVisit)= @text;", con);
+            SqlCommand cmd = new SqlCommand("SELECT visitID, dateVisit, status, diagnosis, medicineGiven , dentistVisited, roomNo, patientID from VisitRecord WHERE MONTH(dateVisit)= @text;", con);
             cmd.Parameters.AddWithValue("@text", btntext);
             //cmd.Parameters.AddWithValue("@dateto", Convert.ToDateTime(datet));
             DataTable dt = new DataTable();

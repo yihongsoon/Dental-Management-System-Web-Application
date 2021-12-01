@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item">
             <asp:LinkButton ID="lnkGenerate" CssClass="nav-link show" OnClick="lnkGenerate_Click" runat="server"><span>Generate</span></asp:LinkButton>
-        </li>
+        </li> 
     </ul>
 
     <div class="tab-content">
@@ -283,9 +283,6 @@
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="roomNo" HeaderText="Room No" ItemStyle-HorizontalAlign="Justify">
-                                    <HeaderStyle CssClass="header-centered" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="totalVisit" HeaderText="Total Visit" ItemStyle-HorizontalAlign="Justify">
                                     <HeaderStyle CssClass="header-centered" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="patientID" HeaderText="Patient ID" ItemStyle-HorizontalAlign="Justify">
