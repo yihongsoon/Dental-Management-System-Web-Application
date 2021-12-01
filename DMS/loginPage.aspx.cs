@@ -89,7 +89,7 @@ namespace DMS
                             {
                                 Session["ID"] = dr["adminID"].ToString();
                                 Session["Role"] = "ADMIN";
-                                Response.Redirect("~/Appointment.aspx");
+                                Response.Redirect("~/Home.aspx");
                             }
                             else
                             {
@@ -113,7 +113,7 @@ namespace DMS
                             {
                                 Session["ID"] = dr["staffID"].ToString();
                                 Session["Role"] = "STAFF";
-                                Response.Redirect("~/Appointment.aspx");
+                                Response.Redirect("~/Home.aspx");
                             }
                             else
                             {
