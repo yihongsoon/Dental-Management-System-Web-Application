@@ -21,6 +21,19 @@ namespace DMS
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection con2 = new SqlConnection(strCon);
+            con2.Open();
+            string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+            SqlDataAdapter adpt = new SqlDataAdapter(com, con2);
+            DataTable dt2 = new DataTable();
+            adpt.Fill(dt2);
+
+            ddlUpdateDentist.DataSource = dt2;
+            ddlUpdateDentist.DataBind();
+            ddlUpdateDentist.DataTextField = "name";
+            ddlUpdateDentist.DataValueField = "name";
+            ddlUpdateDentist.DataBind();
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["Id"] != null && Request.QueryString["Id"] != string.Empty)
@@ -45,14 +58,21 @@ namespace DMS
                                     if (dr.Read())
                                     {
                                         txtAppointID.Text = dr["appointmentID"].ToString();
+                                        txtUptAppointID.Text = dr["appointmentID"].ToString();
                                         txtIcNo.Text = dr["icNo"].ToString();
+                                        txtUpdateIC.Text = dr["icNo"].ToString();
                                         txtName.Text = dr["appointmentName"].ToString();
+                                        txtUpdateName.Text = dr["appointmentName"].ToString();
                                         txtDentToVisit.Text = dr["dentistToVisit"].ToString();
-                                        //txtAppointDate.Text = dr["appointmentDate"].ToString();
+                                        ddlUpdateDentist.SelectedValue = dr["dentistToVisit"].ToString();
                                         txtAppointDate.Text = Convert.ToDateTime(dr["appointmentDate"].ToString()).ToString("MMM dd, yyyy");
+                                        txtUpdateDate.Text = Convert.ToDateTime(dr["appointmentDate"].ToString()).ToString("yyyy-MM-dd");
                                         txtAppointTime.Text = dr["appointmentTime"].ToString();
+                                        ddlUpdateTime.SelectedValue = dr["appointmentTime"].ToString();
                                         txtStaffReg.Text = dr["staffID"].ToString();
+                                        txtUpdateStaff.Text = dr["staffID"].ToString();
                                         txtPurpose.Text = dr["appointmentPurpose"].ToString();
+                                        txtUpdatePurpose.Text = dr["appointmentPurpose"].ToString();
                                     }
 
                                 }
@@ -63,6 +83,7 @@ namespace DMS
                 }
 
             }
+            
         }
 
         void AlertMessage(string msg)
@@ -78,6 +99,22 @@ namespace DMS
         protected void GridViewCalendar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void lnkSendRem_Click(object sender, EventArgs e)
+        {
+            tabSendRem.Visible = true;
+            tabUpdateApp.Visible = false;
+            lnkSendRem.CssClass = "nav-link show active";
+            lnkUpdateApp.CssClass = "nav-link show";
+        }
+
+        protected void lnkUpdateApp_Click(object sender, EventArgs e)
+        {
+            tabSendRem.Visible = false;
+            tabUpdateApp.Visible = true;
+            lnkSendRem.CssClass = "nav-link show";
+            lnkUpdateApp.CssClass = "nav-link show active";
         }
 
         protected void btnBackCalendar_Click(object sender, EventArgs e)
@@ -129,6 +166,38 @@ namespace DMS
                            "Please be reminded that you will be having an appointment with us on " + Session["appointmentDate"].ToString() + " at " + Session["appointmentTime"].ToString() + ". " +
                            "Thank You!";
             sendWhatsapp(Session["contactNo"].ToString(), msg);
+        }
+
+        protected void btnUpdateApp_Click(object sender, EventArgs e)
+        {
+            Page.Validate();
+            if (Page.IsValid == true)
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Update Appointment set appointmentDate = @appointmentDate, appointmentName = @appointmentName, dentistToVisit = @dentistToVisit, appointmentTime = @appointmentTime, appointmentPurpose = @appointmentPurpose, icNo = @icNo, staffID = @staffID where appointmentID = @appointmentID", con);
+                    cmd.Parameters.AddWithValue("@appointmentID", txtUptAppointID.Text);
+                    cmd.Parameters.AddWithValue("@appointmentName", txtUpdateName.Text);
+                    cmd.Parameters.AddWithValue("@dentistToVisit", ddlUpdateDentist.SelectedValue);
+                    cmd.Parameters.AddWithValue("@appointmentDate", txtUpdateDate.Text);
+                    cmd.Parameters.AddWithValue("@appointmentTime", ddlUpdateTime.SelectedValue);
+                    cmd.Parameters.AddWithValue("@appointmentPurpose", txtUpdatePurpose.Text);
+                    cmd.Parameters.AddWithValue("@icNo", txtUpdateIC.Text);
+                    cmd.Parameters.AddWithValue("@staffID", txtUpdateStaff.Text);
+                    cmd.ExecuteNonQuery();
+                    AlertMessage("Appointment details have been successfully updated.");
+                }
+                catch (SqlException ex)
+                {
+                    AlertMessage(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
         }
     }
 }

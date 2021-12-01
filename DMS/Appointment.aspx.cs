@@ -47,32 +47,6 @@ namespace DMS
             ddlUpdateDentist.DataValueField = "name";
             ddlUpdateDentist.DataBind();
 
-            //if (this.IsPostBack)
-            //{
-            //    SqlConnection con2 = new SqlConnection(strCon);
-            //    con2.Open();
-            //    SqlCommand cmd = new SqlCommand("SELECT Appointment.dentistToVisit, Appointment.appointmentDate, Appointment.appointmentTime from Appointment " +
-            //        "where Appointment.appointmentID = Appointment.appointmentID", con2);
-            //    SqlDataReader dr = cmd.ExecuteReader();
-            //    if (dr.HasRows)
-            //    {
-            //        while (dr.Read())
-            //        {
-            //            Session["dentistToVisit"] = dr[0];
-            //            Session["appointmentDate"] = Convert.ToDateTime(dr[1].ToString()).ToString("dd/MM/yyyy");
-            //            Session["appointmentTime"] = dr[2];
-            //        }
-            //        con2.Close();
-            //    }
-            //    con2.Close();
-
-            //    if (txtAddDate.Text == Session["dentistToVisit"].ToString() && ddlAddDentist.SelectedValue == Session["appointmentDate"].ToString())
-            //    {
-            //        ddlAddTime.Items.FindByText(Session["appointmentTime"].ToString()).Enabled = false;
-            //    }
-
-            //}
-
             if (!this.IsPostBack)
             {
                 if (GridViewSearch.Rows != null)

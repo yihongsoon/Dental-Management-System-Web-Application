@@ -16,7 +16,7 @@ namespace DMS
             hyplnkAppointment.Enabled = false;
             hyplnkReport.Enabled = false;
             hyplnkTAppoint.Enabled = false;
-            hyplnkCalender.Enabled = false;
+            hyplnkCalendar.Enabled = false;
             hyplnkViewProfile.Visible = false;
             hyplnkViewAttendance.Visible = false;
             btnSignOut.Visible = false;
