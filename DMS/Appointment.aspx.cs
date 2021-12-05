@@ -29,23 +29,23 @@ namespace DMS
 
             appointmentId();
 
-            SqlConnection con = new SqlConnection(strCon);
-            con.Open();
-            string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
-            SqlDataAdapter adpt = new SqlDataAdapter(com, con);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-            ddlAddDentist.DataSource = dt;
-            ddlAddDentist.DataBind();
-            ddlAddDentist.DataTextField = "name";
-            ddlAddDentist.DataValueField = "name";
-            ddlAddDentist.DataBind();
+            //SqlConnection con = new SqlConnection(strCon);
+            //con.Open();
+            //string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+            //SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+            //DataTable dt = new DataTable();
+            //adpt.Fill(dt);
+            //ddlAddDentist.DataSource = dt;
+            //ddlAddDentist.DataBind();
+            //ddlAddDentist.DataTextField = "name";
+            //ddlAddDentist.DataValueField = "name";
+            //ddlAddDentist.DataBind();
 
-            ddlUpdateDentist.DataSource = dt;
-            ddlUpdateDentist.DataBind();
-            ddlUpdateDentist.DataTextField = "name";
-            ddlUpdateDentist.DataValueField = "name";
-            ddlUpdateDentist.DataBind();
+            //ddlUpdateDentist.DataSource = dt;
+            //ddlUpdateDentist.DataBind();
+            //ddlUpdateDentist.DataTextField = "name";
+            //ddlUpdateDentist.DataValueField = "name";
+            //ddlUpdateDentist.DataBind();
 
             if (!this.IsPostBack)
             {
@@ -66,6 +66,23 @@ namespace DMS
                     pnlDeleteAppointBroad.Visible = true;
                     this.BindGridDelete();
                 }
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ddlAddDentist.DataSource = dt;
+                ddlAddDentist.DataBind();
+                ddlAddDentist.DataTextField = "name";
+                ddlAddDentist.DataValueField = "name";
+                ddlAddDentist.DataBind();
+
+                ddlUpdateDentist.DataSource = dt;
+                ddlUpdateDentist.DataBind();
+                ddlUpdateDentist.DataTextField = "name";
+                ddlUpdateDentist.DataValueField = "name";
+                ddlUpdateDentist.DataBind();
 
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -22,6 +23,27 @@ namespace DMS
                 txtPatientID.Text = Session["Patient_ID"].ToString();
             }
             visitID();
+
+            if (!this.IsPostBack)
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                con.Open();
+                string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ddlAddDentist.DataSource = dt;
+                ddlAddDentist.DataBind();
+                ddlAddDentist.DataTextField = "name";
+                ddlAddDentist.DataValueField = "name";
+                ddlAddDentist.DataBind();
+
+                ddlAddDentist.DataSource = dt;
+                ddlAddDentist.DataBind();
+                ddlAddDentist.DataTextField = "name";
+                ddlAddDentist.DataValueField = "name";
+                ddlAddDentist.DataBind();
+            }
         }
 
         protected void btnBackPage_Click(object sender, EventArgs e)
@@ -79,7 +101,7 @@ namespace DMS
                     cmd1.Parameters.AddWithValue("@status", ddlPresence.SelectedValue);
                     cmd1.Parameters.AddWithValue("@diagnosis", txtDiagnosis.Text);
                     cmd1.Parameters.AddWithValue("@medicineGiven", txtMedicineGiven.Text);
-                    cmd1.Parameters.AddWithValue("@dentistVisited", txtDentistVisit.Text);
+                    cmd1.Parameters.AddWithValue("@dentistVisited", ddlAddDentist.SelectedValue);
                     cmd1.Parameters.AddWithValue("@roomNo", Convert.ToInt32(txtRoomNo.Text));
                     cmd1.Parameters.AddWithValue("@patientID", txtPatientID.Text);
                     cmd1.ExecuteNonQuery();

@@ -69,24 +69,6 @@ namespace DMS
         protected global::System.Web.UI.WebControls.TextBox txtPatientID;
 
         /// <summary>
-        /// RegularExpressionValidatorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorID;
-
-        /// <summary>
-        /// RequiredFieldValidatorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorID;
-
-        /// <summary>
         /// lblDateVisit control.
         /// </summary>
         /// <remarks>
@@ -141,31 +123,13 @@ namespace DMS
         protected global::System.Web.UI.WebControls.Label lblDentisitVisit;
 
         /// <summary>
-        /// txtDentistVisit control.
+        /// ddlAddDentist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDentistVisit;
-
-        /// <summary>
-        /// RegularExpressionValidatorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorName;
-
-        /// <summary>
-        /// RequiredFieldValidatorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddDentist;
 
         /// <summary>
         /// lblRoomNo control.

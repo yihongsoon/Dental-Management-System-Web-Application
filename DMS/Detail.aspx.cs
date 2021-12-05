@@ -21,18 +21,33 @@ namespace DMS
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con2 = new SqlConnection(strCon);
-            con2.Open();
-            string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
-            SqlDataAdapter adpt = new SqlDataAdapter(com, con2);
-            DataTable dt2 = new DataTable();
-            adpt.Fill(dt2);
+            //SqlConnection con2 = new SqlConnection(strCon);
+            //con2.Open();
+            //string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+            //SqlDataAdapter adpt = new SqlDataAdapter(com, con2);
+            //DataTable dt2 = new DataTable();
+            //adpt.Fill(dt2);
 
-            ddlUpdateDentist.DataSource = dt2;
-            ddlUpdateDentist.DataBind();
-            ddlUpdateDentist.DataTextField = "name";
-            ddlUpdateDentist.DataValueField = "name";
-            ddlUpdateDentist.DataBind();
+            //ddlUpdateDentist.DataSource = dt2;
+            //ddlUpdateDentist.DataBind();
+            //ddlUpdateDentist.DataTextField = "name";
+            //ddlUpdateDentist.DataValueField = "name";
+            //ddlUpdateDentist.DataBind();
+            if (!this.IsPostBack)
+            {
+                SqlConnection con2 = new SqlConnection(strCon);
+                con2.Open();
+                string com = "SELECT Person.icNo, Person.name, Staff.icNo, Staff.position from Person, Staff where Person.icNo = Staff.icNo AND Staff.position = 'Dentist'";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, con2);
+                DataTable dt2 = new DataTable();
+                adpt.Fill(dt2);
+
+                ddlUpdateDentist.DataSource = dt2;
+                ddlUpdateDentist.DataBind();
+                ddlUpdateDentist.DataTextField = "name";
+                ddlUpdateDentist.DataValueField = "name";
+                ddlUpdateDentist.DataBind();
+            }
 
             if (!IsPostBack)
             {

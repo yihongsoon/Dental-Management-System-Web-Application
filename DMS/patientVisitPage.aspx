@@ -73,10 +73,6 @@
                                 <div class="position-relative form-group">
                                     <asp:Label ID="lblPatientID" runat="server" Text="Patient ID :"></asp:Label>
                                     <asp:TextBox ID="txtPatientID" Text="" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorID" ControlToValidate="txtPatientID" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[P]{1}[\d]{5}$" ErrorMessage="Invalid Patient ID!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" ControlToValidate="txtPatientID" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
@@ -106,11 +102,8 @@
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
                                     <asp:Label ID="lblDentisitVisit" runat="server" Text="Dentist Visited :"></asp:Label>
-                                    <asp:TextBox ID="txtDentistVisit" Text="" runat="server" CssClass="form-control" placeHolder="If patient absent, please enter '-'"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorName" ControlToValidate="txtDentistVisit" SetFocusOnError="true"
-                                            EnableClientScript="False" runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]{1,50}$" ErrorMessage="Alphabets Only!"></asp:RegularExpressionValidator>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" ControlToValidate="txtDentistVisit" ForeColor="Red" SetFocusOnError="true" 
-                                            EnableClientScript="False" runat="server" ErrorMessage="Required Field!"></asp:RequiredFieldValidator>
+                                    <asp:DropDownList ID="ddlAddDentist" runat="server" CssClass="form-control">
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                             <div class="col-md-6">
